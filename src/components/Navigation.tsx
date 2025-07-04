@@ -4,6 +4,9 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
+
+const smartfiURL = import.meta.env.VITE_SMARTFI_URL;
+
 const Navigation: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
 
@@ -87,7 +90,7 @@ const Navigation: React.FC = () => {
                   </li>
                   <li>
                     <a
-                      href="http://localhost:8081"
+                      href={smartfiURL}
                       className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
                     >
                       Smartfielectronics
@@ -148,7 +151,7 @@ const Navigation: React.FC = () => {
                         </DropdownMenuItem>
                         <DropdownMenuItem asChild>
                           <a
-                            href="http://localhost:8081"
+                            href={smartfiURL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full block px-2 py-1 cursor-pointer"
