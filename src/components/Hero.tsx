@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
+const smartfiURL = import.meta.env.VITE_SMARTFI_URL;
 const items = [
   { id: 1, name: 'Smartphone', image: '/electronics/phone.jpg', price: 299, originalPrice: 349, rating: 4 },
   { id: 2, name: 'Laptop', image: '/electronics/laptop.jpg', price: 799, originalPrice: 999, rating: 5 },
@@ -77,7 +78,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
           <Button
             onClick={() => {
-              window.location.href = 'http://localhost:8081';
+              () => (window.location.href = smartfiURL)
             }}
             size="lg"
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
