@@ -4,7 +4,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 
-
 const smartfiURL = import.meta.env.VITE_SMARTFI_URL;
 
 const Navigation: React.FC = () => {
@@ -45,75 +44,9 @@ const Navigation: React.FC = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img src="/logo.png" alt="Mzatinova Logo" className="h-10 w-15 mr-2" />
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`text-gray-300 hover:text-white transition-colors duration-200 font-medium text-sm ${activeSection === item.href ? 'text-blue-400 underline underline-offset-4' : ''
-                  }`}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
-              Sign In
-            </Button>
-            <div className="relative inline-block group">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                Explore
-              </Button>
-              <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-700 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                <ul className="py-2">
-                  <li>
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert('Mzatinova Eduspace is coming soon!');
-                      }}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-gray-600"
-                    >
-                      Mzatinova Eduspace
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={smartfiURL}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
-                    >
-                      Smartfielectronics
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert('Zanga Social is coming soon!');
-                      }}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-gray-600"
-                    >
-                      Zanga Social
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Menu */}
+        {/* ✅ NEW FLEX LINE: Hamburger on left, logo next */}
+        <div className="flex items-center h-16 space-x-4">
+          {/* Hamburger Menu */}
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -121,19 +54,26 @@ const Navigation: React.FC = () => {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-black border-gray-800">
-                <div className="flex flex-col space-y-4 mt-8">
+
+              <SheetContent side="left" className="bg-black border-gray-800 w-64">
+                {/* ✅ Centered Logo in Drawer Top Bar */}
+                <div className="flex justify-center items-center py-4 border-b border-gray-700">
+                  <img src="/logo.png" alt="Mzatinova Logo" className="h-10" />
+                </div>
+
+                {/* Navigation inside drawer */}
+                <div className="flex flex-col mt-6 space-y-4">
                   {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className={`text-gray-300 hover:text-white transition-colors duration-200 font-medium text-lg ${activeSection === item.href ? 'text-blue-400 underline underline-offset-4' : ''
+                      className={`text-gray-300 hover:text-white transition-colors duration-200 font-medium text-lg px-4 ${activeSection === item.href ? 'text-blue-400 underline underline-offset-4' : ''
                         }`}
                     >
                       {item.name}
                     </a>
                   ))}
-                  <div className="pt-4 space-y-2">
+                  <div className="pt-4 space-y-2 px-4">
                     <Button variant="outline" className="w-full border-blue-400 text-blue-400">
                       Sign In
                     </Button>
@@ -170,6 +110,76 @@ const Navigation: React.FC = () => {
                 </div>
               </SheetContent>
             </Sheet>
+          </div>
+
+          {/* ✅ Main Logo - next to hamburger */}
+          <div className="flex items-center">
+            <img src="/logo.png" alt="Mzatinova Logo" className="h-10" />
+          </div>
+
+          {/* Spacer to push desktop nav and buttons to right */}
+          <div className="flex-1 flex justify-end items-center space-x-6">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={`text-gray-300 hover:text-white transition-colors duration-200 font-medium text-sm ${activeSection === item.href ? 'text-blue-400 underline underline-offset-4' : ''
+                    }`}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                Sign In
+              </Button>
+              <div className="relative inline-block group">
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  Explore
+                </Button>
+                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 text-black dark:text-white border border-gray-700 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <ul className="py-2">
+                    <li>
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Mzatinova Eduspace is coming soon!');
+                        }}
+                        className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-gray-600"
+                      >
+                        Mzatinova Eduspace
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={smartfiURL}
+                        className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer"
+                      >
+                        Smartfielectronics
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Zanga Social is coming soon!');
+                        }}
+                        className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer text-gray-600"
+                      >
+                        Zanga Social
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
