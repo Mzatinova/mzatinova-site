@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, GraduationCap, Code, FlaskConical, BrainCog, LifeBuoy } from 'lucide-react';
 
 const smartfiURL = import.meta.env.VITE_SMARTFI_URL;
 const items = [
@@ -12,6 +12,117 @@ const items = [
 ];
 
 const loopedItems = [...items, ...items];
+
+const colorMap: Record<string, string> = {
+  'bg-blue-600': 'text-blue-600',
+  'bg-purple-600': 'text-purple-600',
+  'bg-green-600': 'text-green-600',
+  'bg-yellow-600': 'text-yellow-600',
+  'bg-red-600': 'text-red-600',
+  'bg-indigo-600': 'text-indigo-600',
+
+};
+
+const brands = [
+  {
+    id: 'institute',
+    name: 'Mzatinova Digital Institute',
+    description: 'Empowering digital transformation through education',
+    highlights: [
+      'Comprehensive courses & certifications',
+      'App builder platform',
+      'Device loan programs',
+      'Industry-recognized credentials'
+    ],
+    color: 'bg-blue-600',
+    hoverColor: 'hover:bg-blue-700',
+    path: '/institute',
+    icon: <GraduationCap className="mr-2 h-5 w-5" />,
+    action: 'Learn More'
+  },
+  {
+    id: 'store',
+    name: 'Mzatinova Store',
+    description: 'Your destination for cutting-edge technology',
+    highlights: [
+      'Latest devices & gadgets',
+      'Competitive pricing',
+      'Exclusive member benefits',
+      'Fast delivery',
+      'Secure Shopping'
+    ],
+    color: 'bg-purple-600',
+    hoverColor: 'hover:bg-purple-700',
+    path: '/store',
+    icon: <ArrowRight className="mr-2 h-5 w-5" />,
+    action: 'Visit Store'
+  },
+  {
+    id: 'studio',
+    name: 'Mzatinova Studio',
+    description: 'Innovative software solutions for the digital age',
+    highlights: [
+      'Custom software development',
+      'Cloud Innovation',
+      'AI Solutions',
+      'consultancy',
+      'Digital Transformation'
+    ],
+    color: 'bg-green-600',
+    hoverColor: 'hover:bg-green-700',
+    path: '/studio',
+    icon: <Code className="mr-2 h-5 w-5" />,
+    action: 'Explore'
+  },
+  {
+    id: 'labs',
+    name: 'Mzatinova Labs',
+    description: 'Where tomorrow\'s technology is born today',
+    highlights: [
+      'Experimental projects',
+      'Beta feature testing',
+      'R&D initiatives',
+      'Cutting-edge prototypes'
+    ],
+    color: 'bg-yellow-600',
+    hoverColor: 'hover:bg-yellow-700',
+    path: '/labs',
+    icon: <FlaskConical className="mr-2 h-5 w-5" />,
+    action: 'Discover'
+  },
+  {
+    id: 'ai',
+    name: 'Mzatinova AI',
+    description: 'Intelligent solutions for complex challenges',
+    highlights: [
+      'AI model development',
+      'Machine learning services',
+      'Natural language processing',
+      'Computer vision'
+    ],
+    color: 'bg-red-600',
+    hoverColor: 'hover:bg-red-700',
+    path: '/AI',
+    icon: <BrainCog className="mr-2 h-5 w-5" />,
+    action: 'Try Now'
+  },
+  {
+    id: 'support',
+    name: 'Mzatinova Support',
+    description: 'Always here to help you succeed',
+    highlights: [
+      '24/7 help center',
+      'Comprehensive documentation',
+      'Community forums',
+      'Expert assistance'
+    ],
+    color: 'bg-indigo-600',
+    hoverColor: 'hover:bg-indigo-700',
+    path: '/support',
+    icon: <LifeBuoy className="mr-2 h-5 w-5" />,
+    action: 'Get Help'
+  }
+];
 
 const Hero: React.FC = () => {
   return (
@@ -30,16 +141,51 @@ const Hero: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center text-center">
-        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 animate-fade-in">
-          <span className="text-blue-400">Mzatinova</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
+          <span className="text-blue-400">   Powering Your Digital Success</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        {/* <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
           Powering Your Digital Success
-        </p>
+        </p> */}
 
-        {/* Carousel */}
+
+        {/* Brand Overview Section */}
+        <div className="w-full max-w-6xl mb-12">
+          <h2 className="text-3xl font-bold text-white mb-6">Our Ecosystem</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {brands.map((brand) => (
+              <div key={brand.id} className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-500 transition-all">
+                {/* <h3 className={`text-xl font-bold mb-2 ${brand.color.replace('bg', 'text')}`}> */}
+                <h3 className={`text-xl font-bold mb-2 ${brand.id === 'support'
+                    ? 'text-indigo-400' // Trying a lighter indigo
+                    : colorMap[brand.color]
+                  }`}>
+                  {brand.name}</h3>
+                <p className="text-gray-300 mb-4">{brand.description}</p>
+                <ul className="text-left text-gray-400 space-y-1 mb-4">
+                  {brand.highlights.map((highlight, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="text-blue-400 mr-2">•</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  onClick={() => window.location.href = brand.path}
+                  className={`${brand.color} ${brand.hoverColor} w-full mt-2`}
+                >
+                  {brand.icon}
+                  {brand.action}
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Store Carousel (only shown for store) */}
         <div className="overflow-hidden w-full py-8">
+          <h3 className="text-2xl font-bold text-white mb-4">Featured Products</h3>
           <div className="flex gap-6 w-max animate-carousel-scroll">
             {loopedItems.map((item, index) => (
               <div
@@ -74,19 +220,22 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
+        {/* Main CTA Button (only for store) */}
         <div className="flex flex-col sm:flex-row gap-4 mb-10">
           <Button
             onClick={() => {
-              window.location.href = smartfiURL;
+              window.location.href = '/store';
             }}
             size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
+            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg"
           >
             Shop Now
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
+
+
+
       </div>
     </section>
   );
