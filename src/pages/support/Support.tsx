@@ -1,6 +1,8 @@
 import React from 'react';
 import { LifeBuoy, Mail, MessageSquare, Clock, BookOpen, Users, FileText, ChevronRight, Code, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 // import { Navbar } from '@/components/navbar';
 // import { Footer } from '@/components/footer';
 
@@ -9,9 +11,9 @@ const SupportPage = () => {
         <div className="bg-gray-50 min-h-screen flex flex-col">
             {/* Navigation */}
             {/* <Navbar active="support" /> */}
-
+            <Header />
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-indigo-700 to-indigo-900 text-white py-24">
+            <section className="relative bg-gradient-to-br from-black via-purple-900/40 to-blue-900/40 text-white py-24">
                 <div className="container mx-auto px-6 text-center">
                     <div className="flex justify-center mb-6">
                         <LifeBuoy className="h-16 w-16 text-indigo-300" />
@@ -34,7 +36,7 @@ const SupportPage = () => {
             </section>
 
             {/* Support Options */}
-            <section id="options" className="py-20 bg-white">
+            <section id="options" className="py-20 bg-gradient-to-b from-gray-900">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl font-bold text-center mb-4 text-indigo-700">
                         How Can We Help?
@@ -85,7 +87,7 @@ const SupportPage = () => {
             </section>
 
             {/* Knowledge Base */}
-            <section id="knowledge" className="py-20 bg-gray-50">
+            <section id="knowledge" className="py-20 bg-gradient-to-b from-gray-900">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl font-bold text-center mb-16 text-indigo-700">
                         Knowledge Base
@@ -178,7 +180,7 @@ const SupportPage = () => {
             </section>
 
             {/* FAQs */}
-            <section id="faqs" className="py-20 bg-white">
+            <section id="faqs" className="py-20 bg-gradient-to-b from-gray-900">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <h2 className="text-3xl font-bold text-center mb-16 text-indigo-700">
                         Frequently Asked Questions
@@ -318,6 +320,7 @@ const SupportPage = () => {
 
             {/* Footer */}
             {/* <Footer /> */}
+            <Footer />
         </div>
     );
 };

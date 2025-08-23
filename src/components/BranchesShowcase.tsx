@@ -12,7 +12,7 @@ const BranchesShowcase: React.FC = () => {
       icon: GraduationCap,
       description: 'Revolutionary educational technology platforms transforming learning experiences.',
       color: 'from-blue-500 to-cyan-500',
-      link: 'https://eduspace.mzatinova.com'
+      link: 'https://www.eduspace.mzatinova.com'
     },
     {
       name: 'Health',

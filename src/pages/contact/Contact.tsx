@@ -8,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const Contact: React.FC = () => {
   const location = useLocation();
@@ -78,6 +80,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen flex flex-col text-gray-100">
+      <Header />
       {/* Contact Section */}
       <section className="relative bg-gradient-to-br from-gray-900 to-black py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -216,6 +219,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative  flex flex-col items-center  overflow-hidden pt-28 pb-24 px-4 sm:px-6">
       {/* Background */}
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0">
         <source src="/videos/hero-futuristic.mp4" type="video/mp4" />
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
         
         {/* Left Text */}
         <div className="lg:col-span-3">
-          <h1 className="text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
               Build the Future. <span className="text-mzat-blue">At Scale.</span>
             </span>
