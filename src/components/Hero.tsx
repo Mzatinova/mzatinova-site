@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
         {/* Left Text */}
         <div className="lg:col-span-3 text-center lg:text-left">
           {/* <h1 className="text-4xl md:text-5xl font-bold text-white mb-6"> */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
               Build the Future. <span className="text-mzat-blue">At Scale.</span>
             </span>
