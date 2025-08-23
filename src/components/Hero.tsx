@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
         
         {/* Left Text */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-3 text-center lg:text-left">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
               Build the Future. <span className="text-mzat-blue">At Scale.</span>
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
               Mzatinova
             </span> provides integrated software solutions across Education, Health, Finance, Agriculture, AI, and more, helping businesses and individuals innovate, grow, and stay ahead in the digital world.
           </h2>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a href="#branches">
             <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-500 text-lg px-8 py-3">
               Explore Our Branches
@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
       ? "opacity-100 translate-x-0" 
       : "opacity-0 translate-x-20"
   }`}
-   style={{ top: "0%", left: "20%" }}
+  //  style={{ top: "0%", left: "20%" }}
 >
   <img src={product.image} alt={product.name} className="w-full h-50 object-cover rounded-lg mb-4" />
   <h3 className="text-lg font-semibold text-white">{product.name}</h3>
