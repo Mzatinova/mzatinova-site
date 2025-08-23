@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cloud, Smartphone, Cpu, Bot, Globe, Shield } from 'lucide-react';
+import { Cloud, Smartphone, Cpu, Bot, Globe, Shield, BarChart3, ClipboardCheck, Briefcase, MonitorSmartphone } from 'lucide-react';
 
 const SolutionsSection: React.FC = () => {
   const solutions = [
@@ -14,9 +14,9 @@ const SolutionsSection: React.FC = () => {
       description: 'Scalable cloud infrastructure and services for modern businesses'
     },
     {
-      icon: Smartphone,
-      title: 'Mobile Applications',
-      description: 'Cross-platform mobile apps with cutting-edge user experiences'
+      icon: MonitorSmartphone,
+      title: 'Web & Mobile App Development',
+      description: 'Custom web and mobile applications designed for performance and user engagement.'
     },
     {
       icon: Cpu,
@@ -32,6 +32,21 @@ const SolutionsSection: React.FC = () => {
       icon: Shield,
       title: 'Cybersecurity',
       description: 'Advanced security solutions protecting digital assets'
+    },
+    {
+      icon: Briefcase,
+      title: 'Consultancy & Strategy',
+      description: 'Expert strategic advice to help you leverage technology for growth'
+    },
+    {
+      icon: BarChart3,
+      title: 'Business Intelligence & Analytics',
+      description: 'Data-driven insights and analytics to help you make smarter, more informed business decisions.'
+    },
+    {
+      icon: ClipboardCheck,
+      title: 'Project Management',
+      description: 'Expert project management to ensure your solutions are delivered on time and within budget.'
     }
   ];
 

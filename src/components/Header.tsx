@@ -10,7 +10,7 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const samePageSections = ['home', 'about', 'solutions', 'news'];
+  const samePageSections = ['home', 'about', 'solutions', 'news', 'contact'];
   const navLinks = [
     { id: 'home', title: 'Home', path: '/' },
     { id: 'about', title: 'About Us', path: '/#about' },
@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   const branches = [
-    'Eduspace', 'Health', 'Agriculture', 'Finance', 'Store', 'Zanga Social App', 'AI'
+    'Eduspace', 'Health', 'Agriculture', 'Finance', 'Store', 'Zanga Social App', 'AI', 'Labs'
   ];
 
   // Update active link based on current route or hash
@@ -83,32 +83,62 @@ const Header = () => {
   }, [location.pathname]);
 
   // Handle navigation
+  // const handleNavigation = (id, path) => {
+  //   setActiveLink(id);
+  //   setIsMobileMenuOpen(false);
+  //   setIsDropdownOpen(false);
+
+  //   if (path === '/contact' || path === '/support') {
+  //     // Navigate to contact or support page
+  //     navigate(path);
+  //   } else if (path.startsWith('/#')) {
+  //     // Handle same page section navigation
+  //     if (location.pathname !== '/') {
+  //       // If we're not on home page, navigate to home first
+  //       navigate(path);
+  //     } else {
+  //       // If we're already on home page, scroll to section
+  //       const sectionId = path.replace('/#', '');
+  //       const element = document.getElementById(sectionId);
+  //       if (element) {
+  //         element.scrollIntoView({ behavior: 'smooth' });
+  //       }
+  //       // Update URL hash
+  //       window.history.pushState(null, '', path);
+  //     }
+  //   } else {
+  //     // For other navigations (like home)
+  //     navigate(path);
+  //   }
+  // };
+
+  // Replace it with this updated function
   const handleNavigation = (id, path) => {
     setActiveLink(id);
     setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
 
-    if (path === '/contact' || path === '/support') {
-      // Navigate to contact or support page
-      navigate(path);
-    } else if (path.startsWith('/#')) {
-      // Handle same page section navigation
+    // This part for scrolling to sections remains the same
+    if (path.startsWith('/#')) {
       if (location.pathname !== '/') {
-        // If we're not on home page, navigate to home first
         navigate(path);
       } else {
-        // If we're already on home page, scroll to section
         const sectionId = path.replace('/#', '');
         const element = document.getElementById(sectionId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-        // Update URL hash
         window.history.pushState(null, '', path);
       }
     } else {
-      // For other navigations (like home)
-      navigate(path);
+      // This is the new, corrected part for the Home link and other pages
+      if (path === '/' && location.pathname === '/') {
+        // If clicking "Home" while already on the home page, just scroll to the top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // Otherwise, navigate to the new page (e.g., /contact, /support, or back to /)
+        navigate(path);
+      }
     }
   };
 

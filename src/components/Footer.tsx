@@ -3,8 +3,11 @@ import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const solutions = [
+    'Artificial Intelligence', 'Cloud Computing', 'Web & Mobile App Development', 'Enterprise Solutions', 'Digital Platforms', 'Cybersecurity', 'Consultancy & Strategy', 'Business Intelligence & Analytics', 'Project Management'
+  ];
   const branches = [
-    'Eduspace', 'Health', 'Agriculture', 'Finance', 'Store', 'Zanga Social', 'AI'
+    'Eduspace', 'Health', 'Agriculture', 'Finance', 'Store', 'Zanga Social', 'AI', 'Labs'
   ];
 
   const socialLinks = [
@@ -17,9 +20,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black border-t border-purple-500/20">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="lg:col-span-2">
             <div className="text-2xl font-bold text-white mb-4">
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Mzatinova
@@ -28,7 +31,7 @@ const Footer: React.FC = () => {
             <p className="text-gray-300 mb-4">
               Shaping the future with innovative technology solutions across multiple industries.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-8">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
@@ -39,6 +42,39 @@ const Footer: React.FC = () => {
                 );
               })}
             </div>
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Contact Info</h3>
+              <div className="space-y-3">
+                <div className="flex items-center text-gray-300">
+                  <Mail className="w-5 h-5 mr-3 text-blue-400" />
+                  info@mzatinova.com
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <Phone className="w-5 h-5 mr-3 text-blue-400" />
+                  +265 (0) 888 44 71 22
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <MapPin className="w-5 h-5 mr-3 text-blue-400" />
+                  Global Headquarters
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* solutions */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">Solutions</h3>
+            <ul className="space-y-2">
+              {solutions.map((branch) => (
+                <li key={branch}>
+                  <a href={`#${branch.toLowerCase().replace(' ', '-')}`}
+                    className="text-gray-300 hover:text-blue-400 transition-colors">
+                    {branch}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Branches */}
@@ -58,34 +94,17 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li><a href="#about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</a></li>
-              <li><a href="#solutions" className="text-gray-300 hover:text-blue-400 transition-colors">Solutions</a></li>
+              <li><a href="#about" className="text-gray-300 hover:text-blue-400 transition-colors">Support</a></li>
               <li><a href="#news" className="text-gray-300 hover:text-blue-400 transition-colors">News</a></li>
               <li><a href="#careers" className="text-gray-300 hover:text-blue-400 transition-colors">Careers</a></li>
               <li><Link to="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-center text-gray-300">
-                <Mail className="w-5 h-5 mr-3 text-blue-400" />
-                info@mzatinova.com
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Phone className="w-5 h-5 mr-3 text-blue-400" />
-                +265 (0) 888 44 71 22
-              </div>
-              <div className="flex items-center text-gray-300">
-                <MapPin className="w-5 h-5 mr-3 text-blue-400" />
-                Global Headquarters
-              </div>
-            </div>
-          </div>
+
         </div>
 
         <div className="border-t border-purple-500/20 mt-12 pt-8 text-center">

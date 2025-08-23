@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { GraduationCap, Heart, Wheat, DollarSign, Store, Users, Brain } from 'lucide-react';
+import { GraduationCap, Heart, Wheat, DollarSign, Store, Users, Brain, FlaskConical } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const BranchesShowcase: React.FC = () => {
@@ -55,6 +55,13 @@ const BranchesShowcase: React.FC = () => {
       description: 'Artificial intelligence solutions driving the future of technology.',
       color: 'from-teal-500 to-cyan-500',
       link: 'https://ai.mzatinova.com'
+    },
+    {
+      name: 'Labs',
+      icon: FlaskConical,
+      description: 'Our research and development engine, dedicated to pioneering the next generation of technology that will shape our future.',
+      color: 'from-slate-400 to-gray-500',
+      link: 'https://labs.mzatinova.com'
     }
   ];
 
@@ -74,18 +81,18 @@ const BranchesShowcase: React.FC = () => {
           {branches.map((branch) => {
             const IconComponent = branch.icon;
             return (
-              <Card key={branch.name} className="bg-black/50 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:transform hover:scale-105">
+              <Card key={branch.name} className="bg-black/50 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:transform hover:scale-105 flex flex-col">
                 <CardHeader>
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${branch.color} flex items-center justify-center mb-4`}>
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
                   <CardTitle className="text-white">{branch.name}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col flex-grow">
                   <CardDescription className="text-gray-300 mb-4">
                     {branch.description}
                   </CardDescription>
-                  <a href={branch.link} rel="noopener noreferrer">
+                  <a href={branch.link} rel="noopener noreferrer" className="mt-auto">
                     <Button variant="outline" size="sm" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
                       Learn More
                     </Button>

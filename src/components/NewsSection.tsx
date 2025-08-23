@@ -39,7 +39,7 @@ const NewsSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {news.map((article, index) => (
-            <Card key={index} className="bg-black/50 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:transform hover:scale-105">
+            <Card key={index} className="bg-black/50 border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:transform hover:scale-105 flex flex-col">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm text-blue-400 font-medium">{article.category}</span>
@@ -52,11 +52,11 @@ const NewsSection: React.FC = () => {
                   {article.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col flex-grow">
                 <CardDescription className="text-gray-300 mb-4">
                   {article.description}
                 </CardDescription>
-                <Button variant="ghost" className="text-purple-400 hover:text-white hover:bg-purple-500/20 p-0">
+                <Button variant="ghost" className="text-purple-400 hover:text-white hover:bg-purple-500/20 p-0 mt-auto">
                   Read More <ArrowRight className="w-4 h-4 ml-1" />
                 </Button>
               </CardContent>
