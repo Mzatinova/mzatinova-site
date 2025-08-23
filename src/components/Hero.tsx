@@ -64,7 +64,9 @@ const Hero: React.FC = () => {
           {items.map((product, i) => (
            <div
   key={product.id}
-  className={`absolute top-0 left-0 w-80 bg-gradient-to-br from-black via-purple-900/40 to-blue-900/40 rounded-2xl shadow-lg p-6 text-center transform transition-all duration-1000 ease-in-out ${
+  // className={`absolute top-0 left-0 w-80 bg-gradient-to-br from-black via-purple-900/40 to-blue-900/40 rounded-2xl shadow-lg p-6 text-center transform transition-all duration-1000 ease-in-out ${
+  className={`absolute top-0 w-[90%] max-w-xs lg:w-80 inset-x-0 mx-auto lg:inset-auto lg:mx-0 lg:left-0 bg-gradient-to-br from-black via-purple-900/40 to-blue-900/40 rounded-2xl shadow-lg p-6 text-center transform transition-all duration-1000 ease-in-out ${
+    
     i === index 
       ? "opacity-100 translate-x-0" 
       : "opacity-0 translate-x-20"
