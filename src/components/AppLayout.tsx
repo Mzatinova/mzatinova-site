@@ -7,16 +7,20 @@ import SolutionsSection from './SolutionsSection';
 import NewsSection from './NewsSection';
 import CTASection from './CTASection';
 import Footer from './Footer';
+import FeaturedProducts from './BranchesShowcase';
+import IndustriesWeServe from './IndustriesWeServe';
+import OurServices from './OurServices';
+import RecentUpdates from './RecentUpdates';
 
 const AppLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-black">
       <Header />
       <Hero />
-      <BranchesShowcase />
-      <AboutSection />
-      <SolutionsSection />
-      <NewsSection />
+      <FeaturedProducts />
+      <IndustriesWeServe />
+      <OurServices />
+      <RecentUpdates />
       <CTASection />
       <Footer />
     </div>

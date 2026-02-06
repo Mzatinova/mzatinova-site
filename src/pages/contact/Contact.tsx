@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
-              Get In <span className="text-red-500">Touch</span>
+              Talk To <span className="text-red-500">Us</span>
             </h2>
             {/* <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               {getPageMessage()}
