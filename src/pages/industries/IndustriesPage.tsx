@@ -41,6 +41,9 @@ const IndustriesPage: React.FC = () => {
         {
             id: 'education',
             name: 'Education',
+            website: 'https://www.eduspace.mzatinova.com',
+            websiteName: 'Mzatinova EduSpace',
+            websiteStatus: 'live',
             icon: <GraduationCap className="h-12 w-12" />,
             color: 'from-blue-500 to-cyan-500',
             gradient: 'bg-gradient-to-r from-blue-500 to-cyan-500',
@@ -59,7 +62,7 @@ const IndustriesPage: React.FC = () => {
                     description: 'Complete school management and parent engagement platform',
                     icon: <Database className="h-5 w-5" />,
                     status: 'live',
-                    link: '/products/eduspace'
+                    link: 'https://portal.mzatinova.com'
                 },
                 {
                     name: 'Learning Management Systems',
@@ -98,6 +101,9 @@ const IndustriesPage: React.FC = () => {
         {
             id: 'health',
             name: 'Healthcare',
+            website: 'https://healthcare-example.com',
+            websiteName: 'Mzatinova HealthHub',
+            websiteStatus: 'planned',
             icon: <Heart className="h-12 w-12" />,
             color: 'from-red-500 to-pink-500',
             gradient: 'bg-gradient-to-r from-red-500 to-pink-500',
@@ -155,6 +161,9 @@ const IndustriesPage: React.FC = () => {
         {
             id: 'finance',
             name: 'Finance',
+            website: 'https://finance-example.com',
+            websiteName: 'Mzatinova FinanceHub',
+            websiteStatus: 'planned',
             icon: <DollarSign className="h-12 w-12" />,
             color: 'from-yellow-500 to-orange-500',
             gradient: 'bg-gradient-to-r from-yellow-500 to-orange-500',
@@ -212,6 +221,9 @@ const IndustriesPage: React.FC = () => {
         {
             id: 'agriculture',
             name: 'Agriculture',
+            website: 'https://agriculture-example.com',
+            websiteName: 'Mzatinova AgriHub',
+            websiteStatus: 'planned',
             icon: <Sprout className="h-12 w-12" />,
             color: 'from-green-500 to-emerald-500',
             gradient: 'bg-gradient-to-r from-green-500 to-emerald-500',
@@ -268,7 +280,10 @@ const IndustriesPage: React.FC = () => {
         },
         {
             id: 'retail',
-            name: 'Retail',
+            name: 'Store',
+            website: 'https://www.smartfielectronics.com',
+            websiteName: 'Mzatinova Store',
+            websiteStatus: 'live',
             icon: <ShoppingCart className="h-12 w-12" />,
             color: 'from-purple-500 to-violet-500',
             gradient: 'bg-gradient-to-r from-purple-500 to-violet-500',
@@ -283,11 +298,11 @@ const IndustriesPage: React.FC = () => {
             ],
             solutions: [
                 {
-                    name: 'Mzatinova Store',
+                    name: 'Smartfielectronics',
                     description: 'E-commerce platform for electronics retail',
                     icon: <ShoppingCart className="h-5 w-5" />,
-                    status: 'soon',
-                    link: '/products/store'
+                    status: 'live',
+                    link: 'https://www.smartfielectronics.com'
                 },
                 {
                     name: 'Inventory Management Systems',
@@ -326,6 +341,8 @@ const IndustriesPage: React.FC = () => {
         {
             id: 'ai-research',
             name: 'AI & Research',
+            website: 'https://research-example.com',
+            websiteName: 'Mzatinova Labs', // Perfect as is
             icon: <Brain className="h-12 w-12" />,
             color: 'from-teal-500 to-cyan-500',
             gradient: 'bg-gradient-to-r from-teal-500 to-cyan-500',
@@ -468,6 +485,31 @@ const IndustriesPage: React.FC = () => {
                                         <div className="bg-slate-900/30 rounded-xl p-6 border border-slate-700">
                                             <h3 className="text-white font-semibold mb-4 text-xl">Industry Overview</h3>
                                             <p className="text-gray-300 text-lg leading-relaxed">{industry.description}</p>
+
+
+                                            {/* Add this section for the website link */}
+                                            {/* Add this section for the website link */}
+                                            {/* Add this section for the website link */}
+                                            <div className="mt-6 pt-6 border-t border-slate-700">
+                                                {industry.website && !industry.website.includes('example.com') ? (
+                                                    <a
+                                                        href={industry.website}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 hover:underline"
+                                                    >
+                                                        <ExternalLink className="h-4 w-4" />
+                                                        Visit {industry.websiteName}
+                                                    </a>
+                                                ) : (
+                                                    <div className="inline-flex items-center gap-2 text-gray-400">
+                                                        <span className="h-4 w-4">🔧</span>
+                                                        {industry.websiteName} - Coming Soon!
+                                                    </div>
+                                                )}
+                                            </div>
+
+
                                         </div>
                                     </div>
                                     <div className="lg:w-1/3">
@@ -535,15 +577,31 @@ const IndustriesPage: React.FC = () => {
                                                             </div>
                                                         </div>
                                                         <Badge className={`${getStatusBadge(solution.status)} backdrop-blur-sm`}>
-                                                            {solution.status.toUpperCase()}
+                                                            {solution.link && solution.link.startsWith('http') ? solution.status.toUpperCase() : 'COMING SOON'}
                                                         </Badge>
                                                     </div>
-                                                    <Link to={solution.link}>
+                                                    {/* <Link to={solution.link}>
                                                         <Button variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 text-sm p-0 h-auto group-hover:translate-x-1 transition-transform">
                                                             Learn More
                                                             <ArrowRight className="ml-2 h-4 w-4" />
                                                         </Button>
-                                                    </Link>
+                                                    </Link> */}
+                                                    {solution.link && solution.link.startsWith('http') ? (
+                                                        <a
+                                                            href={solution.link}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 hover:underline text-sm"
+                                                        >
+                                                            <ExternalLink className="h-4 w-4" />
+                                                            See More
+                                                        </a>
+                                                    ) : (
+                                                        <span className="inline-flex items-center gap-2 text-gray-400 text-sm">
+                                                            <span className="h-4 w-4">⏳</span>
+                                                            Coming Soon
+                                                        </span>
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>

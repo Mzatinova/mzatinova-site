@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
             <span className="block">Modern Software</span>
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
-              Built Right.
+              Built Right
             </span>
 
           </h1>

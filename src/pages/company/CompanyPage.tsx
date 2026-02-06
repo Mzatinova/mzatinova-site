@@ -177,7 +177,8 @@ const CompanyPage: React.FC = () => {
             role: 'Software Architect & Educator',
             bio: 'Bachelor of Education in Computer Science graduate with passion for educational technology and software innovation.',
             expertise: ['Software Development', 'EdTech', 'Product Strategy'],
-            avatar: '/team/founder.jpg'
+            avatar: '/founder.JPG',
+            portfolio: 'https://wadimkweza.mzatinova.com'
         },
         {
             id: 2,
@@ -235,63 +236,6 @@ const CompanyPage: React.FC = () => {
                 {/* Tabs Navigation */}
                 <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
                     <div className="flex justify-center">
-                        {/* <div className="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-4xl mx-auto">
-                            <button
-                                onClick={() => setActiveTab('about')}
-                                className={`flex items-center justify-center py-4 px-4 rounded-xl transition-all duration-300 ${activeTab === 'about'
-                                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg transform scale-105'
-                                    : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
-                                    }`}
-                            >
-                                <Building className="h-5 w-5 mr-3" />
-                                About
-                            </button>
-                            <button
-                                onClick={() => setActiveTab('mission')}
-                                className={`flex items-center justify-center py-4 px-4 rounded-xl transition-all duration-300 ${activeTab === 'mission'
-                                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg transform scale-105'
-                                    : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
-                                    }`}
-                            >
-                                <Target className="h-5 w-5 mr-3" />
-                                Mission & Vision
-                            </button>
-                            <button
-                                onClick={() => setActiveTab('team')}
-                                className={`flex items-center justify-center py-4 px-4 rounded-xl transition-all duration-300 ${activeTab === 'team'
-                                    ? 'bg-gradient-to-r from-teal-500 to-green-500 text-white shadow-lg transform scale-105'
-                                    : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
-                                    }`}
-                            >
-                                <Users className="h-5 w-5 mr-3" />
-                                Our Team
-                            </button>
-                            <button
-                                onClick={() => setActiveTab('news')}
-                                className={`flex items-center justify-center py-4 px-4 rounded-xl transition-all duration-300 ${activeTab === 'news'
-                                    ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg transform scale-105'
-                                    : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
-                                    }`}
-                            >
-                                <Newspaper className="h-5 w-5 mr-3" />
-                                News & Updates
-                            </button>
-                            <button
-                                onClick={() => setActiveTab('careers')}
-                                className={`flex items-center justify-center py-4 px-4 rounded-xl transition-all duration-300 ${activeTab === 'careers'
-                                    ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg transform scale-105'
-                                    : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
-                                    }`}
-                            >
-                                <Briefcase className="h-5 w-5 mr-3" />
-                                Careers
-                            </button>
-                        </div> */}
-
-
-
-
-
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-2 bg-transparent">
                             <button
                                 onClick={() => setActiveTab('about')}
@@ -632,6 +576,19 @@ const CompanyPage: React.FC = () => {
                                                     </Badge>
                                                 ))}
                                             </div>
+                                            {member.portfolio && (
+                                                <div className="mt-6">
+                                                    <a
+                                                        href={member.portfolio}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center text-blue-400 hover:text-blue-300 text-lg"
+                                                    >
+                                                        View Portfolio
+                                                        <ArrowRight className="ml-2 h-4 w-4" />
+                                                    </a>
+                                                </div>
+                                            )}
                                         </CardContent>
                                     </Card>
                                 ))}

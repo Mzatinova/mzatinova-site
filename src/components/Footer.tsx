@@ -1,8 +1,9 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
   const quickLinks = [
     { name: 'Products', path: '/products' },
     { name: 'Industries', path: '/industries' },
@@ -46,14 +47,38 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand & Social */}
           <div>
-            <div className="text-2xl font-bold text-white mb-4">
+
+            {/* <div className="text-2xl font-bold text-white mb-4">
+
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Mzatinova
               </span>
+            </div> */}
+            <div
+              onClick={() => navigate('/')}
+              className="flex items-center space-x-2 cursor-pointer group"
+            >
+              <img
+                src="/logo.png"
+                alt="Mzatinova Logo"
+                className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="text-2xl md:text-2xl font-bold text-white">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Mzatinova
+                </span>
+              </div>
             </div>
-            <p className="text-gray-300 mb-6">
-              Building the future with integrated software solutions across industries.
-            </p>
+
+
+
+            <div className="mb-6">
+              <span>Modern Software. </span>
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
+                Built Right.
+              </span>
+            </div>
+
 
             {/* Social Links */}
             <div className="flex space-x-3 mb-8">

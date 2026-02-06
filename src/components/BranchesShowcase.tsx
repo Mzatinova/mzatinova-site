@@ -14,7 +14,7 @@ const FeaturedProducts: React.FC = () => {
       description: 'Educational platform currently piloted in schools. Selected for EdTech@UNIMA 2026.',
       icon: <Code className="h-10 w-10 text-blue-400" />,
       gradient: 'from-blue-500 to-cyan-500',
-      link: '/products/eduspace',
+      link: 'https://portal.mzatinova.com',
       features: ['School Management', 'Parent Portal', 'Real-time Results', 'Mobile Access'],
       ctaText: 'View Live Demo'
     },
@@ -26,9 +26,9 @@ const FeaturedProducts: React.FC = () => {
       description: 'Electronics e-commerce platform with cutting-edge retail technology.',
       icon: <Smartphone className="h-10 w-10 text-purple-400" />,
       gradient: 'from-purple-500 to-pink-500',
-      link: '/products/store',
+      link: 'https://www.smartfielectronics.com',
       features: ['Online Marketplace', 'Secure Payments', 'Delivery Tracking', 'Warranty Services'],
-      ctaText: 'Notify Me'
+      ctaText: 'See features'
     },
     {
       id: 'zanga',
