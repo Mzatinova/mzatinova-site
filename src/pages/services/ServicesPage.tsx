@@ -37,6 +37,7 @@ import Footer from '@/components/Footer';
 
 const ServicesPage: React.FC = () => {
     const [activeService, setActiveService] = useState<string>('development');
+    const [showMobileServices, setShowMobileServices] = useState(false);
 
     const serviceCategories = [
         {
@@ -340,7 +341,7 @@ const ServicesPage: React.FC = () => {
             <div className="container mx-auto px-6">
 
                 {/* Service Category Navigation Tabs */}
-                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
+                {/* <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
                     <div className="flex flex-wrap gap-4 justify-center">
                         {serviceCategories.map((category) => (
                             <button
@@ -358,21 +359,87 @@ const ServicesPage: React.FC = () => {
                             </button>
                         ))}
                     </div>
+                </div> */}
+
+                {/* Service Category Navigation Tabs */}
+                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 border-b border-slate-700">
+                    {/* Mobile Filter Toggle Button */}
+                    <div className="lg:hidden flex justify-center mb-6">
+                        <button
+                            onClick={() => setShowMobileServices(!showMobileServices)}
+                            className="px-6 py-3 rounded-full border border-slate-600 text-gray-300 hover:text-white hover:border-blue-400 bg-slate-800 flex items-center gap-3"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                            Categories
+                            <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-1 rounded-full">
+                                {serviceCategories.find(cat => cat.id === activeService)?.name || 'All'}
+                            </span>
+                        </button>
+                    </div>
+
+                    {/* Desktop Service Categories - Horizontal */}
+                    <div className="hidden lg:flex flex-wrap gap-4 justify-center">
+                        {serviceCategories.map((category) => (
+                            <button
+                                key={category.id}
+                                onClick={() => setActiveService(category.id)}
+                                className={`px-6 py-3 rounded-full border transition-all duration-300 flex items-center gap-3 ${activeService === category.id
+                                    ? `${category.gradient} text-white border-transparent shadow-lg transform scale-105`
+                                    : 'border-slate-600 text-gray-300 hover:text-white hover:bg-slate-800 hover:border-blue-500'
+                                    }`}
+                            >
+                                <div className={activeService === category.id ? 'text-white' : `text-${category.color.replace('from-', '').split(' ')[0]}`}>
+                                    {React.cloneElement(category.icon, { className: 'h-5 w-5' })}
+                                </div>
+                                <span className="font-medium">{category.name}</span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Mobile Service Categories - Vertical (when toggled) */}
+                    {showMobileServices && (
+                        <div className="lg:hidden mt-4 space-y-3">
+                            {serviceCategories.map((category) => (
+                                <button
+                                    key={category.id}
+                                    onClick={() => {
+                                        setActiveService(category.id);
+                                        setShowMobileServices(false);
+                                    }}
+                                    className={`w-full px-6 py-4 rounded-xl border transition-all duration-300 flex items-center gap-4 ${activeService === category.id
+                                        ? `${category.gradient} text-white border-transparent shadow-lg`
+                                        : 'border-slate-600 text-gray-300 hover:text-white hover:bg-slate-800 hover:border-blue-500'
+                                        }`}
+                                >
+                                    <div className={`p-3 rounded-lg ${category.gradient}/20 border border-white/10`}>
+                                        {React.cloneElement(category.icon, { className: 'h-5 w-5' })}
+                                    </div>
+                                    <div className="text-left">
+                                        <div className="font-medium text-base">{category.name}</div>
+                                        <div className="text-xs text-gray-300">{category.description}</div>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Page Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
+                {/* Page Header */}
+                <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4">
                         Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Technical Expertise</span>
                     </h1>
 
                     {/* Technical Excellence badge */}
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-5 py-2.5 rounded-full mb-10 border border-blue-500/30 backdrop-blur-sm">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-5 py-2.5 rounded-full mb-8 border border-blue-500/30 backdrop-blur-sm">
                         <Cpu className="h-5 w-5 text-blue-400 animate-pulse" />
                         <span className="text-sm font-medium text-blue-300">Technical Excellence</span>
                     </div>
 
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
                         Comprehensive technology services that cover every aspect of software development, from strategy and design to implementation and support.
                     </p>
                 </div>

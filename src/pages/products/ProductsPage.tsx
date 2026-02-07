@@ -30,6 +30,7 @@ import Footer from '@/components/Footer';
 
 const ProductsPage: React.FC = () => {
     const [activeFilter, setActiveFilter] = useState<string>('all');
+    const [showMobileFilters, setShowMobileFilters] = useState(false);
 
     const products = [
         {
@@ -191,7 +192,7 @@ const ProductsPage: React.FC = () => {
             <div className="container mx-auto px-6">
 
                 {/* Filters Section */}
-                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-4 mb-8 -mx-6 px-6 border-b border-slate-700 flex justify-center">
+                {/* <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-4 mb-8 -mx-6 px-6 border-b border-slate-700 flex justify-center">
                     <div className="flex flex-wrap gap-3 justify-center">
                         {filters.map((filter) => (
                             <button
@@ -206,14 +207,80 @@ const ProductsPage: React.FC = () => {
                             </button>
                         ))}
                     </div>
+                </div> */}
+
+                {/* Filters Section */}
+                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-4 mb-8 border-b border-slate-700">
+                    {/* Mobile Filter Toggle Button */}
+                    <div className="lg:hidden flex justify-center mb-4">
+                        <button
+                            onClick={() => setShowMobileFilters(!showMobileFilters)}
+                            className="px-4 py-2.5 rounded-full border border-slate-600 text-gray-300 hover:text-white hover:border-blue-400 bg-slate-800 flex items-center gap-2"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                            Filters
+                            <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">
+                                {activeFilter === 'all' ? 'All' : activeFilter}
+                            </span>
+                        </button>
+                    </div>
+
+                    {/* Desktop Filters - Horizontal */}
+                    <div className="hidden lg:flex flex-wrap gap-3 justify-center">
+                        {filters.map((filter) => (
+                            <button
+                                key={filter.id}
+                                onClick={() => setActiveFilter(filter.id)}
+                                className={`px-5 py-2.5 rounded-full border transition-all duration-300 ${activeFilter === filter.id
+                                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white border-transparent shadow-lg'
+                                    : 'border-slate-600 text-gray-300 hover:border-blue-400 hover:text-white hover:bg-slate-800'
+                                    }`}
+                            >
+                                {filter.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Mobile Filters - Vertical (when toggled) */}
+                    {showMobileFilters && (
+                        <div className="lg:hidden mt-4 space-y-2">
+                            {filters.map((filter) => (
+                                <button
+                                    key={filter.id}
+                                    onClick={() => {
+                                        setActiveFilter(filter.id);
+                                        setShowMobileFilters(false);
+                                    }}
+                                    className={`w-full px-5 py-3 rounded-lg border transition-all duration-300 ${activeFilter === filter.id
+                                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white border-transparent shadow-lg'
+                                        : 'border-slate-600 text-gray-300 hover:border-blue-400 hover:text-white hover:bg-slate-800'
+                                        }`}
+                                >
+                                    {filter.label}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Page Header - Improved with Better Contrast */}
-                <div className="text-center mb-16">
+                {/* <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                         Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Product Portfolio</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                        Explore our suite of software solutions, from live platforms to upcoming innovations and custom development services.
+                    </p>
+                </div> */}
+
+                {/* Page Header */}
+                <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4">
+                        Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Product Portfolio</span>
+                    </h1>
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
                         Explore our suite of software solutions, from live platforms to upcoming innovations and custom development services.
                     </p>
                 </div>

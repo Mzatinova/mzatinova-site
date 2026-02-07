@@ -41,6 +41,7 @@ import Footer from '@/components/Footer';
 
 const CompanyPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState<string>('about');
+    const [showMobileTabs, setShowMobileTabs] = useState(false);
 
     // Mission, Vision & Values
     const corePrinciples = [
@@ -234,7 +235,7 @@ const CompanyPage: React.FC = () => {
             <div className="container mx-auto px-6">
 
                 {/* Tabs Navigation */}
-                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
+                {/* <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
                     <div className="flex justify-center">
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-2 bg-transparent">
                             <button
@@ -288,21 +289,100 @@ const CompanyPage: React.FC = () => {
                             </button>
                         </div>
                     </div>
+                </div> */}
+
+                {/* Tabs Navigation */}
+                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 border-b border-slate-700">
+                    {/* Mobile Tab Toggle Button */}
+                    <div className="lg:hidden flex justify-center mb-6">
+                        <button
+                            onClick={() => setShowMobileTabs(!showMobileTabs)}
+                            className="px-6 py-3 rounded-full border border-slate-600 text-gray-300 hover:text-white hover:border-blue-400 bg-slate-800 flex items-center gap-3"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                            {activeTab === 'about' ? 'About' :
+                                activeTab === 'mission' ? 'Mission & Vision' :
+                                    activeTab === 'team' ? 'Our Team' :
+                                        activeTab === 'news' ? 'News & Updates' :
+                                            'Careers'}
+                            <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-1 rounded-full">
+                                Menu
+                            </span>
+                        </button>
+                    </div>
+
+                    {/* Desktop Tabs - Horizontal */}
+                    <div className="hidden lg:flex justify-center">
+                        <div className="grid grid-cols-5 gap-2 bg-transparent">
+                            {[
+                                { id: 'about', label: 'About', icon: <Building className="h-4 w-4" />, color: 'from-blue-500 to-cyan-500' },
+                                { id: 'mission', label: 'Mission & Vision', icon: <Target className="h-4 w-4" />, color: 'from-purple-500 to-pink-500' },
+                                { id: 'team', label: 'Our Team', icon: <Users className="h-4 w-4" />, color: 'from-teal-500 to-green-500' },
+                                { id: 'news', label: 'News & Updates', icon: <Newspaper className="h-4 w-4" />, color: 'from-orange-500 to-red-500' },
+                                { id: 'careers', label: 'Careers', icon: <Briefcase className="h-4 w-4" />, color: 'from-yellow-500 to-orange-500' }
+                            ].map((tab) => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex items-center justify-center py-3 rounded-md transition-all duration-300 ${activeTab === tab.id
+                                        ? `bg-gradient-to-r ${tab.color} text-white shadow-lg`
+                                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                        }`}
+                                >
+                                    {tab.icon}
+                                    <span className="ml-2 font-medium">{tab.label}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Mobile Tabs - Vertical (when toggled) */}
+                    {showMobileTabs && (
+                        <div className="lg:hidden mt-4 space-y-3">
+                            {[
+                                { id: 'about', label: 'About', icon: <Building className="h-5 w-5" />, color: 'from-blue-500 to-cyan-500' },
+                                { id: 'mission', label: 'Mission & Vision', icon: <Target className="h-5 w-5" />, color: 'from-purple-500 to-pink-500' },
+                                { id: 'team', label: 'Our Team', icon: <Users className="h-5 w-5" />, color: 'from-teal-500 to-green-500' },
+                                { id: 'news', label: 'News & Updates', icon: <Newspaper className="h-5 w-5" />, color: 'from-orange-500 to-red-500' },
+                                { id: 'careers', label: 'Careers', icon: <Briefcase className="h-5 w-5" />, color: 'from-yellow-500 to-orange-500' }
+                            ].map((tab) => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => {
+                                        setActiveTab(tab.id);
+                                        setShowMobileTabs(false);
+                                    }}
+                                    className={`w-full flex items-center gap-4 px-6 py-4 rounded-xl border transition-all duration-300 ${activeTab === tab.id
+                                        ? `bg-gradient-to-r ${tab.color} text-white border-transparent shadow-lg`
+                                        : 'border-slate-600 text-gray-300 hover:text-white hover:bg-slate-800 hover:border-blue-500'
+                                        }`}
+                                >
+                                    <div className={`p-3 rounded-lg ${activeTab === tab.id ? 'bg-white/20' : 'bg-slate-800/50'} border border-white/10`}>
+                                        {tab.icon}
+                                    </div>
+                                    <span className="font-medium text-base">{tab.label}</span>
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Page Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
+                {/* Page Header */}
+                <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4">
                         About <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Mzatinova</span>
                     </h1>
 
                     {/* "Our Story" badge */}
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-5 py-2.5 rounded-full mb-10 border border-blue-500/30 backdrop-blur-sm">
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-5 py-2.5 rounded-full mb-8 border border-blue-500/30 backdrop-blur-sm">
                         <Building className="h-5 w-5 text-blue-400 animate-pulse" />
                         <span className="text-sm font-medium text-blue-300">Our Story</span>
                     </div>
 
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
                         A global software company at the forefront of technological innovation, transforming industries and shaping the future.
                     </p>
                 </div>

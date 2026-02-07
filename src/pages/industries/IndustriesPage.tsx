@@ -36,6 +36,7 @@ import Footer from '@/components/Footer';
 
 const IndustriesPage: React.FC = () => {
     const [activeIndustry, setActiveIndustry] = useState<string>('education');
+    const [showMobileIndustries, setShowMobileIndustries] = useState(false);
 
     const industries = [
         {
@@ -401,6 +402,7 @@ const IndustriesPage: React.FC = () => {
 
     const activeIndustryData = industries.find(ind => ind.id === activeIndustry) || industries[0];
 
+
     const getStatusBadge = (status: string) => {
         switch (status) {
             case 'live':
@@ -422,7 +424,7 @@ const IndustriesPage: React.FC = () => {
             <div className="container mx-auto px-6">
 
                 {/* Industry Navigation Tabs */}
-                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
+                {/* <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 -mx-6 px-6 border-b border-slate-700">
                     <div className="flex justify-center">
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-4xl mx-auto">
                             {industries.map((industry) => (
@@ -442,10 +444,82 @@ const IndustriesPage: React.FC = () => {
                             ))}
                         </div>
                     </div>
+                </div> */}
+
+                {/* Industry Navigation Tabs */}
+                <div className="sticky top-20 z-40 bg-slate-900/80 backdrop-blur-md py-6 mb-8 border-b border-slate-700">
+                    {/* Mobile Industry Toggle Button */}
+                    <div className="lg:hidden flex justify-center mb-6">
+                        <button
+                            onClick={() => setShowMobileIndustries(!showMobileIndustries)}
+                            className="px-6 py-3 rounded-full border border-slate-600 text-gray-300 hover:text-white hover:border-blue-400 bg-slate-800 flex items-center gap-3"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                            </svg>
+                            Industries
+                            <span className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white px-2 py-1 rounded-full">
+                                {activeIndustry === 'education' ? 'Education' :
+                                    activeIndustry === 'health' ? 'Healthcare' :
+                                        activeIndustry === 'finance' ? 'Finance' :
+                                            activeIndustry === 'agriculture' ? 'Agriculture' :
+                                                activeIndustry === 'retail' ? 'Store' :
+                                                    'AI & Research'}
+                            </span>
+                        </button>
+                    </div>
+
+                    {/* Desktop Industries - Grid Layout */}
+                    <div className="hidden lg:flex justify-center">
+                        <div className="grid grid-cols-6 gap-3 max-w-4xl mx-auto">
+                            {industries.map((industry) => (
+                                <button
+                                    key={industry.id}
+                                    onClick={() => setActiveIndustry(industry.id)}
+                                    className={`flex flex-col items-center justify-center py-4 px-3 rounded-xl transition-all duration-300 ${activeIndustry === industry.id
+                                        ? `${industry.gradient} text-white shadow-lg transform scale-105`
+                                        : 'text-gray-300 hover:text-white hover:bg-slate-800 hover:scale-102'
+                                        }`}
+                                >
+                                    <div className={`p-3 rounded-lg ${activeIndustry === industry.id ? 'bg-white/20' : 'bg-slate-800/50'} mb-2`}>
+                                        {React.cloneElement(industry.icon, { className: 'h-6 w-6' })}
+                                    </div>
+                                    <span className="text-sm font-medium mt-1">{industry.name}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Mobile Industries - Vertical (when toggled) */}
+                    {showMobileIndustries && (
+                        <div className="lg:hidden mt-4 space-y-3">
+                            {industries.map((industry) => (
+                                <button
+                                    key={industry.id}
+                                    onClick={() => {
+                                        setActiveIndustry(industry.id);
+                                        setShowMobileIndustries(false);
+                                    }}
+                                    className={`w-full flex items-center gap-4 px-6 py-4 rounded-xl border transition-all duration-300 ${activeIndustry === industry.id
+                                        ? `${industry.gradient} text-white border-transparent shadow-lg`
+                                        : 'border-slate-600 text-gray-300 hover:text-white hover:bg-slate-800 hover:border-blue-500'
+                                        }`}
+                                >
+                                    <div className={`p-3 rounded-lg ${activeIndustry === industry.id ? 'bg-white/20' : 'bg-slate-800/50'} border border-white/10`}>
+                                        {React.cloneElement(industry.icon, { className: 'h-5 w-5' })}
+                                    </div>
+                                    <div className="text-left">
+                                        <div className="font-medium text-base">{industry.name}</div>
+                                        <div className="text-xs text-gray-300 line-clamp-1">{industry.overview}</div>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Page Header */}
-                <div className="text-center mb-16">
+                {/* <div className="text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                         Software Solutions for <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Every Sector</span>
                     </h1>
@@ -456,6 +530,22 @@ const IndustriesPage: React.FC = () => {
                     </div>
 
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Specialized technology solutions tailored to the unique needs of different industries, driving innovation and growth.
+                    </p>
+                </div> */}
+
+                {/* Page Header */}
+                <div className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4">
+                        Software Solutions for <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Every Sector</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 px-5 py-2.5 rounded-full mb-8 border border-blue-500/30 backdrop-blur-sm">
+                        <Building className="h-5 w-5 text-blue-400" />
+                        <span className="text-sm font-medium text-blue-300">Industry Expertise</span>
+                    </div>
+
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
                         Specialized technology solutions tailored to the unique needs of different industries, driving innovation and growth.
                     </p>
                 </div>
@@ -471,7 +561,7 @@ const IndustriesPage: React.FC = () => {
                                 {/* Industry Header */}
                                 <div className="flex flex-col lg:flex-row gap-8 mb-12">
                                     <div className="lg:w-2/3">
-                                        <div className="flex items-center gap-6 mb-8">
+                                        {/* <div className="flex items-center gap-6 mb-8">
                                             <div className={`p-5 rounded-2xl ${industry.gradient}/20 border border-white/10 shadow-lg`}>
                                                 {React.cloneElement(industry.icon, { className: 'h-10 w-10' })}
                                             </div>
@@ -480,6 +570,21 @@ const IndustriesPage: React.FC = () => {
                                                     {industry.name} Technology Solutions
                                                 </h2>
                                                 <p className="text-gray-300 text-lg mt-3">{industry.overview}</p>
+                                            </div>
+                                        </div> */}
+
+                                        <div className="flex flex-col sm:flex-row gap-6 mb-8">
+                                            {/* Icon - Top on mobile, left on desktop */}
+                                            <div className={`p-5 rounded-2xl ${industry.gradient}/20 border border-white/10 shadow-lg self-start sm:self-auto`}>
+                                                {React.cloneElement(industry.icon, { className: 'h-10 w-10' })}
+                                            </div>
+
+                                            {/* Text - Full width on mobile, rest on desktop */}
+                                            <div className="flex-1">
+                                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                                                    {industry.name} Technology Solutions
+                                                </h2>
+                                                <p className="text-gray-300 text-base sm:text-lg mt-3">{industry.overview}</p>
                                             </div>
                                         </div>
                                         <div className="bg-slate-900/30 rounded-xl p-6 border border-slate-700">

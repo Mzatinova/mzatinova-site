@@ -6,9 +6,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isExploreOpen, setIsExploreOpen] = useState(false);
+  const [showMobileExplore, setShowMobileExplore] = useState(false);
   // NEW STATE: Add state for app tray
   const [isAppTrayOpen, setIsAppTrayOpen] = useState(false);
-
+  const [showMobileApps, setShowMobileApps] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -292,26 +293,13 @@ const Header = () => {
               >
                 <div className="w-[850px] bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-xl shadow-2xl p-6 grid grid-cols-4 gap-6">
 
-                  {/* Column 1: Products */}
-                  <div>
-                    <h3 className="text-blue-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Support</h3>
-                    <div className="space-y-3">
-                      {exploreData.support.map((item, idx) => (
-                        <div key={idx} onClick={() => handleNavigation(item.path)} className="group flex items-center justify-between cursor-pointer text-gray-400 hover:text-white transition-colors text-sm">
 
-                          {item.title}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Column 3: Services */}
+                  {/* Column 1: Company */}
                   <div>
-                    <h3 className="text-green-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Community</h3>
+                    <h3 className="text-orange-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Company</h3>
                     <div className="space-y-3">
-                      {exploreData.community.map((item, idx) => (
+                      {exploreData.company.map((item, idx) => (
                         <div key={idx} onClick={() => handleNavigation(item.path)} className="cursor-pointer text-gray-400 hover:text-white transition-colors text-sm">
-
                           {item.title}
                         </div>
                       ))}
@@ -331,17 +319,34 @@ const Header = () => {
                   </div>
 
 
-                  {/* Column 4: Company */}
+
+                  {/* Column 3: Community */}
                   <div>
-                    <h3 className="text-orange-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Company</h3>
+                    <h3 className="text-green-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Community</h3>
                     <div className="space-y-3">
-                      {exploreData.company.map((item, idx) => (
+                      {exploreData.community.map((item, idx) => (
                         <div key={idx} onClick={() => handleNavigation(item.path)} className="cursor-pointer text-gray-400 hover:text-white transition-colors text-sm">
+
                           {item.title}
                         </div>
                       ))}
                     </div>
                   </div>
+
+
+                  {/* Column 4: support */}
+                  <div>
+                    <h3 className="text-blue-400 font-bold uppercase text-xs tracking-wider mb-4 border-b border-slate-800 pb-2">Support</h3>
+                    <div className="space-y-3">
+                      {exploreData.support.map((item, idx) => (
+                        <div key={idx} onClick={() => handleNavigation(item.path)} className="group flex items-center justify-between cursor-pointer text-gray-400 hover:text-white transition-colors text-sm">
+
+                          {item.title}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
 
                 </div>
               </div>
@@ -430,39 +435,133 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu (Simplified for small screens) */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 bg-slate-900/95 rounded-lg border border-slate-700 p-4 space-y-4 max-h-[80vh] overflow-y-auto">
-            {mainNavLinks.map(link => (
-              <div key={link.id} onClick={() => handleNavigation(link.path)} className="text-white text-lg py-2 border-b border-slate-800">
-                {link.title}
-              </div>
-            ))}
+            {/* Show back button if explore is open */}
+            {showMobileExplore ? (
+              <>
+                <button
+                  onClick={() => setShowMobileExplore(false)}
+                  className="flex items-center text-white mb-4"
+                >
+                  ← Back to Menu
+                </button>
 
-            {/* Mobile Apps Section */}
-            <div className="pt-4 border-t border-slate-800">
-              <h3 className="text-white font-bold mb-3">Mzatinova Apps</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {appTrayApps.slice(0, 6).map((app) => (
-                  <button
-                    key={app.id}
-                    onClick={() => handleAppLaunch(app.url)}
-                    className="flex items-center p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
-                  >
-                    <div className="mr-3">
-                      {app.icon}
+                {/* Mobile Explore Content */}
+                <div className="space-y-4">
+
+                  <h3 className="text-white font-bold text-lg mb-2 mt-4">Company</h3>
+                  {exploreData.company.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="text-gray-300 hover:text-white py-2 px-3">
+                      {item.title}
                     </div>
-                    <div className="text-left">
-                      <div className="text-white text-sm font-medium">{app.name}</div>
-                      {app.category === 'eduspace' && (
-                        <div className="text-gray-400 text-xs">Eduspace</div>
-                      )}
+                  ))}
+
+                  <h3 className="text-white font-bold text-lg mb-2 mt-4">Industries</h3>
+                  {exploreData.industries.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="text-gray-300 hover:text-white py-2 px-3">
+                      {item.title}
                     </div>
-                  </button>
+                  ))}
+
+                  <h3 className="text-white font-bold text-lg mb-2 mt-4">Community</h3>
+                  {exploreData.community.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="text-gray-300 hover:text-white py-2 px-3">
+                      {item.title}
+                    </div>
+                  ))}
+
+                  <h3 className="text-white font-bold text-lg mb-2">Support</h3>
+                  {exploreData.support.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="text-gray-300 hover:text-white py-2 px-3">
+                      {item.title}
+                    </div>
+                  ))}
+
+
+
+
+
+
+                </div>
+              </>
+            ) : showMobileApps ? ( // FIXED: Check if mobile apps is open
+              <>
+                <button
+                  onClick={() => setShowMobileApps(false)}
+                  className="flex items-center text-white mb-4"
+                >
+                  ← Back to Menu
+                </button>
+
+                {/* Mobile Apps Tray */}
+                <div className="space-y-4">
+                  <h3 className="text-white font-bold text-lg mb-2">Mzatinova Apps</h3>
+                  <p className="text-gray-400 text-sm mb-4">All your apps in one place</p>
+
+                  {/* Apps Grid */}
+                  <div className="grid grid-cols-3 gap-3">
+                    {appTrayApps.map((app) => (
+                      <div
+                        key={app.id}
+                        onClick={() => handleAppLaunch(app.url)}
+                        className="flex flex-col items-center p-3 rounded-lg bg-slate-800/30 hover:bg-slate-800/60 transition-colors cursor-pointer"
+                      >
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${app.color === 'blue' ? 'text-blue-400' :
+                          app.color === 'green' ? 'text-green-400' :
+                            app.color === 'purple' ? 'text-purple-400' :
+                              'text-orange-400'
+                          }`}>
+                          {app.icon}
+                        </div>
+                        <span className="text-white text-xs text-center">{app.name}</span>
+
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="pt-4 border-t border-slate-800">
+                    <button
+                      onClick={() => handleNavigation('/')}
+                      className="text-blue-400 text-sm hover:text-blue-300"
+                    >
+                      Manage Apps →
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Main links */}
+                {mainNavLinks.map(link => (
+                  <div key={link.id} onClick={() => handleNavigation(link.path)} className="text-white text-lg py-2 border-b border-slate-800">
+                    {link.title}
+                  </div>
                 ))}
-              </div>
-            </div>
+
+                {/* Explore button for mobile */}
+                <div
+                  onClick={() => setShowMobileExplore(true)}
+                  className="text-white text-lg py-2 border-b border-slate-800 cursor-pointer"
+                >
+                  Explore
+                </div>
+
+                {/* Apps button for mobile */}
+                <div
+                  onClick={() => setShowMobileApps(true)}
+                  className="text-white text-lg py-2 border-b border-slate-800 cursor-pointer"
+                >
+                  Mzatinova Apps
+                </div>
+              </>
+            )}
           </div>
         )}
+
+
       </nav>
     </header>
   );
