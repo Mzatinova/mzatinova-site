@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               className="flex items-center space-x-2 cursor-pointer group"
             >
               <img
-                src="/logo.png"
+                src="/mzatinova-logo.png"
                 alt="Mzatinova Logo"
                 className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
               />

@@ -101,14 +101,7 @@ const Header = () => {
     // },
 
     // Eduspace Apps
-    // {
-    //   id: 'marketplace',
-    //   name: 'Marketplace',
-    //   icon: <ShoppingBag className="w-5 h-5" />,
-    //   url: 'https://marketplace.eduspace.mzatinova.com',
-    //   color: 'orange',
-    //   category: 'eduspace'
-    // },
+
     // {
     //   id: 'classroom',
     //   name: 'Classroom',
@@ -119,9 +112,17 @@ const Header = () => {
     // },
     {
       id: 'connect',
-      name: 'Portal',
-      icon: <Link className="w-5 h-5" />,
+      name: 'EduPortal',
+      image: '/apps-logo/eduspace-logo.png',
       url: 'https://portal.mzatinova.com',
+      color: 'orange',
+      category: 'eduspace'
+    },
+    {
+      id: 'marketplace',
+      name: 'EduMarketplace',
+      image: '/apps-logo/edumarketplace-logo.png',
+      url: 'https://edumarketplace.mzatinova.com',
       color: 'orange',
       category: 'eduspace'
     },
@@ -219,8 +220,16 @@ const Header = () => {
         onClick={() => handleAppLaunch(app.url)}
         className="flex flex-col items-center p-2 rounded-lg hover:bg-slate-800/50 transition-all duration-200 group relative"
       >
-        <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${iconColorClasses[app.color]}`}>
+        {/* <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${iconColorClasses[app.color]}`}>
           {app.icon}
+        </div> */}
+
+        <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2 overflow-hidden bg-slate-800">
+          <img
+            src={app.image}
+            alt={app.name}
+            className="w-10 h-10 object-cover"
+          />
         </div>
         <span className="text-white text-xs text-center">{app.name}</span>
         {app.status && (
@@ -250,7 +259,7 @@ const Header = () => {
               className="flex items-center space-x-2 cursor-pointer group"
             >
               <img
-                src="/logo.png"
+                src="/mzatinova-logo.png"
                 alt="Mzatinova Logo"
                 className="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
               />
@@ -508,12 +517,20 @@ const Header = () => {
                         onClick={() => handleAppLaunch(app.url)}
                         className="flex flex-col items-center p-3 rounded-lg bg-slate-800/30 hover:bg-slate-800/60 transition-colors cursor-pointer"
                       >
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${app.color === 'blue' ? 'text-blue-400' :
+                        {/* <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${app.color === 'blue' ? 'text-blue-400' :
                           app.color === 'green' ? 'text-green-400' :
                             app.color === 'purple' ? 'text-purple-400' :
                               'text-orange-400'
                           }`}>
-                          {app.icon}
+                          {app.icon==}
+                        </div> */}
+
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2 overflow-hidden bg-slate-800">
+                          <img
+                            src={app.image}
+                            alt={app.name}
+                            className="w-10 h-10 object-cover"
+                          />
                         </div>
                         <span className="text-white text-xs text-center">{app.name}</span>
 

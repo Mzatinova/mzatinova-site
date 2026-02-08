@@ -66,11 +66,11 @@ const IndustriesPage: React.FC = () => {
                     link: 'https://portal.mzatinova.com'
                 },
                 {
-                    name: 'Learning Management Systems',
-                    description: 'Custom LMS platforms for institutions',
+                    name: 'Eduspace Marketplace',
+                    description: 'The Knowledge Marketplace',
                     icon: <Cloud className="h-5 w-5" />,
-                    status: 'available',
-                    link: '/services/development'
+                    status: 'live',
+                    link: 'https://edumarketplace.mzatinova.com'
                 },
                 {
                     name: 'Virtual Classroom Solutions',
