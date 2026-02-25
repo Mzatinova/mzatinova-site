@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Header';
 import Hero from './Hero';
-import BranchesShowcase from './BranchesShowcase';
+import BranchesShowcase from './FeaturedProducts';
 import AboutSection from './AboutSection';
-import SolutionsSection from './SolutionsSection';
+
 import NewsSection from './NewsSection';
 import CTASection from './CTASection';
 import Footer from './Footer';
-import FeaturedProducts from './BranchesShowcase';
+import FeaturedProducts from './FeaturedProducts';
 import IndustriesWeServe from './IndustriesWeServe';
 import OurServices from './OurServices';
 import RecentUpdates from './RecentUpdates';

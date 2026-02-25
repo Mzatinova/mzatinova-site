@@ -6,7 +6,6 @@ import { Code, Brain, Cpu, Shield, Cloud, Smartphone, Database, Zap } from 'luci
 const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // 2. FORCE VIDEO AUTOPLAY
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.defaultMuted = true;
@@ -20,91 +19,119 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-24 px-4 sm:px-6 bg-black">
 
-      {/* --- META-STYLE BACKGROUND START --- */}
+      {/* Video Background - Full screen, no overlay */}
       <div className="absolute inset-0 overflow-hidden z-0">
-
-        {/* VIDEO LAYER */}
         <video
           ref={videoRef}
           playsInline
           autoPlay
           loop
           muted
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover"
           poster="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
-          onError={(e) => console.error("Video Error:", e.currentTarget.error, "Current Source:", e.currentTarget.currentSrc)}
+          onError={(e) => console.error("Video Error:", e.currentTarget.error)}
         >
           <source src="/videos/background-video.mp4" type="video/mp4" />
         </video>
 
-        {/* COLOR OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-blue-950/40 mix-blend-multiply"></div>
-
-        {/* TEXTURE OVERLAY */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        {/* Very subtle dark overlay just to make text pop, like Meta does */}
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
-      {/* --- META-STYLE BACKGROUND END --- */}
 
-      {/* Content */}
+      {/* Content - Positioned above video with high z-index */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        {/* Remove grid-cols-2 and center the content */}
         <div className="max-w-4xl mx-auto text-center">
 
-          <div className="inline-flex items-center gap-2 bg-blue-900/30 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-blue-500/30">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
             <Zap className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-            <span className="text-sm font-medium text-blue-200">Innovating Across Industries</span>
+            <span className="text-sm font-medium text-white">Data Intelligence + Workflow Automation</span>
           </div>
 
+          {/* Main Headline - White text for maximum contrast */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-            <span className="block">Modern Software</span>
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
-              Built Right
-            </span>
-
+            <div className="whitespace-nowrap">WE DON'T BUILD APPS. WE BUILD ENGINES.</div>
+            <div className="whitespace-nowrap bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+              One core. Any industry. Infinite possibilities.
+            </div>
           </h1>
 
           {/* Subheading */}
-          {/* <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            <span className="font-semibold text-blue-300">Mzatinova</span> delivers integrated software
-            across <span className="text-purple-300">Education</span>, <span className="text-green-300">Health</span>,
-            <span className="text-yellow-300"> Finance</span>, <span className="text-teal-300">Agriculture</span>,
-            and <span className="text-pink-300">AI</span> — helping businesses innovate and grow in the digital era.
-          </p> */}
-          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            <span className="font-semibold text-blue-300">Mzatinova</span> designs and builds modern software, AI systems, and digital platforms that help organizations move faster and operate smarter.
+          <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-lg">
+            Our engines collect data, understand patterns, and automate actions
+            so that organizations stop guessing and start growing.
           </p>
 
-
-
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link to="/products">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-full shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-105">
+              <Button size="lg" className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105">
                 <Code className="mr-2 h-5 w-5" />
                 Explore Products
               </Button>
             </Link>
 
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full backdrop-blur-sm">
                 Start Project
               </Button>
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="mt-12 flex flex-wrap justify-center gap-8 lg:gap-12 border-t border-white/10 pt-8">
-            <div>
-              <div className="text-3xl font-bold text-white">50+</div>
-              <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Countries</div>
+          {/* What We Actually Build - With semi-transparent backgrounds for readability */}
+          <div className="mt-12 border-t border-white/20 pt-8">
+            {/* 2 Engines */}
+            <div className="flex justify-center items-center gap-4 mb-6">
+              <span className="text-2xl">⚙️</span>
+              <span className="text-white font-semibold text-xl drop-shadow-lg">2 ENGINES</span>
+              <span className="text-2xl">⚙️</span>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-white">100+</div>
-              <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Solutions</div>
+
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              {/* Data Intelligence Engine - With backdrop blur like Meta */}
+              <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
+                <div className="text-blue-300 font-bold mb-2">DATA</div>
+                <div className="text-white text-xl font-bold mb-1">INTELLIGENCE</div>
+                <div className="text-blue-300 text-sm">ENGINE</div>
+              </div>
+
+              {/* Workflow Automation Platform */}
+              <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
+                <div className="text-purple-300 font-bold mb-2">WORKFLOW</div>
+                <div className="text-white text-xl font-bold mb-1">AUTOMATION</div>
+                <div className="text-purple-300 text-sm">PLATFORM</div>
+              </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-white">1M+</div>
-              <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Users</div>
+
+            {/* Info items with backdrop blur for readability */}
+            <div className="space-y-4">
+              <div className="flex justify-center items-center gap-2">
+                <span className="text-2xl">📦</span>
+                <span className="text-white drop-shadow-lg">
+                  <span className="font-bold">Proof of Execution:</span> EduSpace
+                  <span className="text-green-400 text-sm ml-2">— Live pilot deployment</span>
+                </span>
+              </div>
+
+              <div className="flex justify-center items-center gap-2">
+                <span className="text-2xl">🌍</span>
+                <span className="text-white drop-shadow-lg">
+                  <span className="font-bold">Expansion Architecture:</span>
+                  <span className="ml-2">
+                    Built to scale across: Education | Health | Agriculture | Finance | Commerce
+                  </span>
+                </span>
+              </div>
+
+              <div className="flex justify-center items-center gap-2">
+                <span className="text-2xl">🔬</span>
+                <span className="text-white drop-shadow-lg">
+                  <span className="font-bold">Innovation Division:</span>
+                  <span className="ml-2">
+                    Mzatinova Labs — Researching next-generation organizational intelligence systems
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -114,6 +141,187 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { Button } from '@/components/ui/button';
+// import { Link } from "react-router-dom";
+// import { Code, Brain, Cpu, Shield, Cloud, Smartphone, Database, Zap } from 'lucide-react';
+
+// const Hero: React.FC = () => {
+//   const videoRef = useRef<HTMLVideoElement>(null);
+
+//   // 2. FORCE VIDEO AUTOPLAY
+//   useEffect(() => {
+//     if (videoRef.current) {
+//       videoRef.current.defaultMuted = true;
+//       videoRef.current.muted = true;
+//       videoRef.current.play().catch(error => {
+//         console.log("Autoplay prevented:", error);
+//       });
+//     }
+//   }, []);
+
+//   return (
+//     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-24 px-4 sm:px-6 bg-black">
+
+//       {/* --- META-STYLE BACKGROUND START --- */}
+//       <div className="absolute inset-0 overflow-hidden z-0">
+
+//         {/* VIDEO LAYER */}
+//         <video
+//           ref={videoRef}
+//           playsInline
+//           autoPlay
+//           loop
+//           muted
+//           className="absolute inset-0 w-full h-full object-cover opacity-50"
+//           poster="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+//           onError={(e) => console.error("Video Error:", e.currentTarget.error, "Current Source:", e.currentTarget.currentSrc)}
+//         >
+//           <source src="/videos/background-video.mp4" type="video/mp4" />
+//         </video>
+
+//         {/* COLOR OVERLAY */}
+//         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-blue-950/40 mix-blend-multiply"></div>
+
+//         {/* TEXTURE OVERLAY */}
+//         <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+//       </div>
+//       {/* --- META-STYLE BACKGROUND END --- */}
+
+//       {/* Content */}
+//       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+//         {/* Remove grid-cols-2 and center the content */}
+//         <div className="max-w-4xl mx-auto text-center">
+
+//           <div className="inline-flex items-center gap-2 bg-blue-900/30 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-blue-500/30">
+//             <Zap className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+//             <span className="text-sm font-medium text-blue-200">Data Intelligence + Workflow Automation </span>
+//           </div>
+
+//           {/* <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+//             <span className="block">WE DON'T BUILD APPS. WE BUILD ENGINES. </span>
+//             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent">
+//               One core. Any industry. Infinite possibilities.
+//             </span>
+
+//           </h1> */}
+//           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+//             <div className="whitespace-nowrap">WE DON'T BUILD APPS. WE BUILD ENGINES.</div>
+//             <div className="whitespace-nowrap bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+//               One core. Any industry. Infinite possibilities.
+//             </div>
+//           </h1>
+
+//           {/* Subheading */}
+//           {/* <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+//             <span className="font-semibold text-blue-300">Mzatinova</span> delivers integrated software
+//             across <span className="text-purple-300">Education</span>, <span className="text-green-300">Health</span>,
+//             <span className="text-yellow-300"> Finance</span>, <span className="text-teal-300">Agriculture</span>,
+//             and <span className="text-pink-300">AI</span> — helping businesses innovate and grow in the digital era.
+//           </p> */}
+//           <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+//             <span className="font-semibold text-blue-300"></span> Our engines collect data, understand patterns, and automate actions
+//             so that organizations stop guessing and start growing.
+//           </p>
+
+
+
+
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+//             <Link to="/products">
+//               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-full shadow-[0_0_20px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-105">
+//                 <Code className="mr-2 h-5 w-5" />
+//                 Explore Products
+//               </Button>
+//             </Link>
+
+//             <Link to="/contact">
+//               <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg rounded-full backdrop-blur-sm">
+//                 Start Project
+//               </Button>
+//             </Link>
+//           </div>
+
+//           {/* Stats */}
+//           {/* <div className="mt-12 flex flex-wrap justify-center gap-8 lg:gap-12 border-t border-white/10 pt-8">
+//             <div>
+//               <div className="text-3xl font-bold text-white">50+</div>
+//               <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Countries</div>
+//             </div>
+//             <div>
+//               <div className="text-3xl font-bold text-white">100+</div>
+//               <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Solutions</div>
+//             </div>
+//             <div>
+//               <div className="text-3xl font-bold text-white">1M+</div>
+//               <div className="text-sm text-blue-200/60 uppercase tracking-wider mt-1">Users</div>
+//             </div>
+//           </div> */}
+//           {/* What We Actually Build */}
+//           <div className="mt-12 border-t border-white/10 pt-8">
+//             {/* 2 Engines */}
+//             <div className="flex justify-center items-center gap-4 mb-6">
+//               <span className="text-2xl">⚙️</span>
+//               <span className="text-white font-semibold text-xl">2 ENGINES</span>
+//               <span className="text-2xl">⚙️</span>
+//             </div>
+
+//             <div className="flex flex-wrap justify-center gap-4 mb-8">
+//               {/* Data Intelligence Engine */}
+//               <div className="bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 w-64">
+//                 <div className="text-blue-300 font-bold mb-2">DATA</div>
+//                 <div className="text-white text-xl font-bold mb-1">INTELLIGENCE</div>
+//                 <div className="text-blue-300 text-sm">ENGINE</div>
+//               </div>
+
+//               {/* Workflow Automation Platform */}
+//               <div className="bg-purple-900/30 border border-purple-500/30 rounded-lg p-4 w-64">
+//                 <div className="text-purple-300 font-bold mb-2">WORKFLOW</div>
+//                 <div className="text-white text-xl font-bold mb-1">AUTOMATION</div>
+//                 <div className="text-purple-300 text-sm">PLATFORM</div>
+//               </div>
+//             </div>
+
+//             {/* Proof of Execution */}
+//             <div className="flex justify-center items-center gap-2 mb-4">
+//               <span className="text-2xl">📦</span>
+//               <span className="text-white">
+//                 <span className="font-bold">Proof of Execution:</span> EduSpace
+//                 <span className="text-green-400 text-sm ml-2">— Live pilot deployment</span>
+//               </span>
+//             </div>
+
+//             {/* Expansion Architecture */}
+//             <div className="flex justify-center items-center gap-2 mb-4">
+//               <span className="text-2xl">🌍</span>
+//               <span className="text-white">
+//                 <span className="font-bold">Expansion Architecture:</span>
+//                 <span className="ml-2">
+//                   Built to scale across: Education | Health | Agriculture | Finance | Commerce
+//                 </span>
+//               </span>
+//             </div>
+
+//             {/* Innovation Division */}
+//             <div className="flex justify-center items-center gap-2">
+//               <span className="text-2xl">🔬</span>
+//               <span className="text-white">
+//                 <span className="font-bold">Innovation Division:</span>
+//                 <span className="ml-2">
+//                   Mzatinova Labs — Researching next-generation organizational intelligence systems
+//                 </span>
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Hero;
 
 // import React, { useState, useEffect, useRef } from 'react'; // Import useRef
 // import { Button } from '@/components/ui/button';

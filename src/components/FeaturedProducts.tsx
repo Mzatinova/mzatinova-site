@@ -5,54 +5,132 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, Code, Wrench, Smartphone, Users } from 'lucide-react';
 
 const FeaturedProducts: React.FC = () => {
+  // const products = [
+  //   {
+  //     id: 'eduspace',
+  //     name: 'EduSpace Portal',
+  //     status: 'LIVE',
+  //     statusIcon: <CheckCircle className="h-4 w-4" />,
+  //     description: 'Educational platform currently piloted in schools. Selected for EdTech@UNIMA 2026.',
+  //     icon: <Code className="h-10 w-10 text-blue-400" />,
+  //     gradient: 'from-blue-500 to-cyan-500',
+  //     link: 'https://portal.mzatinova.com',
+  //     features: ['School Management', 'Parent Portal', 'Real-time Results', 'Mobile Access'],
+  //     ctaText: 'View Live Demo'
+  //   },
+  //   {
+  //     id: 'store',
+  //     name: 'Mzatinova Store',
+  //     status: 'COMING SOON',
+  //     statusIcon: <Clock className="h-4 w-4" />,
+  //     description: 'Electronics e-commerce platform with cutting-edge retail technology.',
+  //     icon: <Smartphone className="h-10 w-10 text-purple-400" />,
+  //     gradient: 'from-purple-500 to-pink-500',
+  //     link: 'https://www.smartfielectronics.com',
+  //     features: ['Online Marketplace', 'Secure Payments', 'Delivery Tracking', 'Warranty Services'],
+  //     ctaText: 'See features'
+  //   },
+  //   {
+  //     id: 'zanga',
+  //     name: 'Zanga Social',
+  //     status: 'IN DEVELOPMENT',
+  //     statusIcon: <Wrench className="h-4 w-4" />,
+  //     description: 'Community social platform connecting people worldwide.',
+  //     icon: <Users className="h-10 w-10 text-teal-400" />,
+  //     gradient: 'from-teal-500 to-green-500',
+  //     link: '/products/zanga',
+  //     features: ['Social Networking', 'Community Groups', 'Live Streaming', 'Marketplace'],
+  //     ctaText: 'Learn More'
+  //   },
+  //   {
+  //     id: 'custom',
+  //     name: 'Custom Solutions',
+  //     status: 'AVAILABLE',
+  //     statusIcon: <CheckCircle className="h-4 w-4" />,
+  //     description: 'Tailored software solutions for businesses across all industries.',
+  //     icon: <Code className="h-10 w-10 text-orange-400" />,
+  //     gradient: 'from-orange-500 to-red-500',
+  //     link: '/products/custom',
+  //     features: ['Bespoke Development', 'System Integration', 'API Development', 'Maintenance'],
+  //     ctaText: 'Start Project'
+  //   }
+  // ];
+
   const products = [
     {
       id: 'eduspace',
-      name: 'EduSpace Portal',
+      name: 'EDUSPACE by Mzatinova',
       status: 'LIVE',
       statusIcon: <CheckCircle className="h-4 w-4" />,
-      description: 'Educational platform currently piloted in schools. Selected for EdTech@UNIMA 2026.',
+      description: 'The first education platform built on our Data Intelligence + Workflow Automation engines.',
       icon: <Code className="h-10 w-10 text-blue-400" />,
       gradient: 'from-blue-500 to-cyan-500',
       link: 'https://portal.mzatinova.com',
-      features: ['School Management', 'Parent Portal', 'Real-time Results', 'Mobile Access'],
+      features: [
+        '📊 DATA INTELLIGENCE: Instantly finds any student record from 5,000+ entries',
+        '📊 Tracks patterns across terms',
+        '⚙️ WORKFLOW AUTOMATION: Generates PDF report cards in <2 seconds',
+        '⚙️ (Coming) Auto-alerts parents via SMS'
+      ],
+      badges: ['✅ Piloted at Progress Private Primary School', '✅ Selected for EdTech@UNIMA 2026'],
       ctaText: 'View Live Demo'
     },
     {
       id: 'store',
-      name: 'Mzatinova Store',
+      name: 'MZATINOVA STORE',
       status: 'COMING SOON',
       statusIcon: <Clock className="h-4 w-4" />,
-      description: 'Electronics e-commerce platform with cutting-edge retail technology.',
+      description: 'Retail Intelligence Engine — Not just an e-commerce site. An intelligent retail platform.',
       icon: <Smartphone className="h-10 w-10 text-purple-400" />,
       gradient: 'from-purple-500 to-pink-500',
       link: 'https://www.smartfielectronics.com',
-      features: ['Online Marketplace', 'Secure Payments', 'Delivery Tracking', 'Warranty Services'],
-      ctaText: 'See features'
+      features: [
+        '📊 DATA INTELLIGENCE will: Predict demand based on trends',
+        '📊 Track inventory across locations',
+        '📊 Understand customer preferences',
+        '⚙️ WORKFLOW AUTOMATION will: Auto-reorder when stock runs low',
+        '⚙️ Notify customers automatically',
+        '⚙️ Generate invoices instantly'
+      ],
+      badges: [],
+      ctaText: 'Join Waitlist'
     },
     {
       id: 'zanga',
-      name: 'Zanga Social',
+      name: 'ZANGA SOCIAL',
       status: 'IN DEVELOPMENT',
       statusIcon: <Wrench className="h-4 w-4" />,
-      description: 'Community social platform connecting people worldwide.',
+      description: 'Community Connection Engine',
       icon: <Users className="h-10 w-10 text-teal-400" />,
       gradient: 'from-teal-500 to-green-500',
       link: '/products/zanga',
-      features: ['Social Networking', 'Community Groups', 'Live Streaming', 'Marketplace'],
-      ctaText: 'Learn More'
+      features: [
+        '📊 DATA INTELLIGENCE will: Learn user interests',
+        '📊 Suggest relevant groups',
+        '📊 Identify trending topics',
+        '⚙️ WORKFLOW AUTOMATION will: Auto-moderate content',
+        '⚙️ Surface important posts',
+        '⚙️ Notify about relevant activity'
+      ],
+      badges: [],
+      ctaText: 'Get Updates'
     },
     {
       id: 'custom',
-      name: 'Custom Solutions',
+      name: 'CUSTOM SOLUTIONS',
       status: 'AVAILABLE',
       statusIcon: <CheckCircle className="h-4 w-4" />,
-      description: 'Tailored software solutions for businesses across all industries.',
+      description: 'Your Industry. Our Engines.',
       icon: <Code className="h-10 w-10 text-orange-400" />,
       gradient: 'from-orange-500 to-red-500',
       link: '/products/custom',
-      features: ['Bespoke Development', 'System Integration', 'API Development', 'Maintenance'],
-      ctaText: 'Start Project'
+      features: [
+        '✓ Your data, intelligently organized',
+        '✓ Your workflows, fully automated',
+        '✓ Your industry, powered by Mzatinova'
+      ],
+      badges: [],
+      ctaText: 'Discuss Your Project'
     }
   ];
 
@@ -89,13 +167,13 @@ const FeaturedProducts: React.FC = () => {
         >
           {/* EXTERNAL VIDEO LINK */}
           <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-background-2738-large.mp4"
-            type="video/mp4"
+            // src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-background-2738-large.mp4"
+            src="/videos/hero-futuristic.mp4" type="video/mp4"
           />
         </video>
 
         {/* Moderate overlay (60%) to ensure text readability while keeping background visible */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       {/* --- EXTERNAL VIDEO LAYER END --- */}
 
@@ -106,10 +184,10 @@ const FeaturedProducts: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full mb-4 border border-blue-500/20 backdrop-blur-md">
-            <span className="text-sm font-medium text-blue-300">What We're Building</span>
+            <span className="text-sm font-medium text-blue-300">⚡ OUR ENGINES IN ACTION ⚡</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-md">
-            Our <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Featured Products</span>
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Intelligence + Automation applied to real industries</span>
           </h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto drop-shadow-sm">
             From live platforms to upcoming innovations, discover what we're building at Mzatinova
@@ -117,7 +195,8 @@ const FeaturedProducts: React.FC = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {products.map((product) => (
             <Card
               key={product.id}

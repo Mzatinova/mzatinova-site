@@ -593,7 +593,7 @@ const IndustriesPage: React.FC = () => {
 
 
                                             {/* Add this section for the website link */}
-                                            {/* <div className="mt-6 pt-6 border-t border-slate-700">
+                                            <div className="mt-6 pt-6 border-t border-slate-700">
                                                 {industry.website && !industry.website.includes('example.com') ? (
                                                     <a
                                                         href={industry.website}
@@ -610,7 +610,7 @@ const IndustriesPage: React.FC = () => {
                                                         {industry.websiteName} - Coming Soon!
                                                     </div>
                                                 )}
-                                            </div> */}
+                                            </div>
 
 
                                         </div>
