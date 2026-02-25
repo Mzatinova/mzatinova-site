@@ -2,12 +2,12 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import {
-    Code,
-    Brain,
-    ShoppingCart,
-    Puzzle,
-    Palette,
-    MessageSquare,
+    GraduationCap,
+    Stethoscope,
+    Tractor,
+    Landmark,
+    Store,
+    Briefcase,
     Cpu,
     Zap,
     ArrowRight,
@@ -15,233 +15,210 @@ import {
     Workflow
 } from 'lucide-react';
 
-const OurServices: React.FC = () => {
-    const services = [
+const SolutionsSection: React.FC = () => {
+    // Replaced generic 'services' with highly targeted Industry Solutions
+    const solutions = [
         {
-            id: 'development',
-            name: 'Custom Software Development',
-            icon: <Code className="h-10 w-10" />,
-            description: 'We deploy our engines inside your organization—custom interface on top.',
-            color: 'from-blue-500 to-cyan-500',
-            features: [
-                '✓ Your data connects to our Data Intelligence Engine',
-                '✓ Your workflows run on our Automation Platform',
-                '✓ We build the interface YOU need on top'
-            ],
-            deliverables: [
-                'Your data, intelligently organized',
-                'Your workflows, fully automated',
-                'Custom interface built on our engines',
-                'Scales as you grow'
-            ]
-        },
-        {
-            id: 'ai-solutions',
-            name: 'AI & Machine Learning',
-            icon: <Brain className="h-10 w-10" />,
-            description: 'This IS our Data Intelligence Engine—built in, not bolted on.',
-            color: 'from-purple-500 to-pink-500',
-            features: [
-                '✓ You access our engine, not buy "AI solutions"',
-                '✓ Predictive analytics built into everything',
-                '✓ Computer Vision, NLP—all part of the same core'
-            ],
-            deliverables: [
-                'Access to our Data Intelligence Engine',
-                'Custom models trained on YOUR data',
-                'Integration with your existing systems',
-                'Continuous improvement as engines learn'
-            ]
-        },
-        {
-            id: 'ecommerce',
-            name: 'E-commerce Platforms',
-            icon: <ShoppingCart className="h-10 w-10" />,
-            description: 'Our engines applied to retail—intelligent commerce, not just websites.',
+            id: 'eduspace',
+            name: 'EduSpace',
+            icon: <GraduationCap className="h-10 w-10" />,
+            description: 'Intelligent infrastructure for modern educational institutions.',
             color: 'from-green-500 to-emerald-500',
             features: [
-                '📊 Predict demand before you run out',
-                '📊 Understand customer preferences',
-                '⚙️ Auto-reorder when stock runs low',
-                '⚙️ Generate invoices instantly'
+                '📊 Predictive student performance tracking',
+                '⚙️ Automated grading and report generation',
+                '⚙️ Smart parent-teacher communication workflows',
+                '📊 Campus resource allocation insights'
             ],
             deliverables: [
-                'An intelligent store, not just a website',
-                'Powered by same engines as EduSpace',
-                'Scales from one shop to nationwide',
-                'Customer analytics built-in'
+                'Unified student data records',
+                'Automated administrative workflows',
+                'Custom portals for staff and students',
+                'Scales from single schools to districts'
             ]
         },
         {
-            id: 'integration',
-            name: 'System Integration',
-            icon: <Puzzle className="h-10 w-10" />,
-            description: 'Connecting your world to our engines—enhance, don\'t replace.',
-            color: 'from-orange-500 to-red-500',
+            id: 'healthspace',
+            name: 'HealthSpace',
+            icon: <Stethoscope className="h-10 w-10" />,
+            description: 'Data-driven patient care and hospital administration.',
+            color: 'from-blue-500 to-cyan-500',
             features: [
-                '✓ Legacy systems connect to our Data Intelligence',
-                '✓ Workflows automated via our platform',
-                '✓ Data flows both ways—we enhance'
+                '✓ Unified Electronic Health Records (EHR)',
+                '✓ Automated appointment scheduling & SMS alerts',
+                '✓ Smart inventory for pharmacy supplies',
+                '✓ Predictive patient flow analytics'
             ],
             deliverables: [
-                'Your existing systems, now intelligent',
-                'Unified view across all your tools',
-                'Automated workflows between systems',
-                'No rip-and-replace required'
+                'HIPAA-compliant data intelligence',
+                'Reduced administrative bottleneck',
+                'Real-time ward and bed management',
+                'Integration with legacy medical devices'
             ]
         },
         {
-            id: 'design',
-            name: 'UI/UX Design',
-            icon: <Palette className="h-10 w-10" />,
-            description: 'Beautiful interfaces that make our engines accessible to everyone.',
-            color: 'from-teal-500 to-cyan-500',
+            id: 'commercespace',
+            name: 'CommerceSpace',
+            icon: <Store className="h-10 w-10" />,
+            description: 'Intelligent retail and supply chain management.',
+            color: 'from-purple-500 to-pink-500',
             features: [
-                '✓ Interfaces that make intelligence accessible',
-                '✓ Designed for Malawian users',
-                '✓ Works on basic phones, not just smartphones'
+                '📊 Predict demand before stock runs out',
+                '📊 Deep customer purchasing analytics',
+                '⚙️ Auto-reorder workflows with suppliers',
+                '⚙️ Instant automated invoicing and receipts'
             ],
             deliverables: [
-                'Designs that people can actually use',
-                'Tested with real users in your context',
-                'Components that work across all products',
-                'Accessibility compliance'
+                'Smart POS and inventory system',
+                'Powered by the Mzatinova engines',
+                'Scales from one shop to a retail chain',
+                'Real-time profit margin analysis'
             ]
         },
         {
-            id: 'consultation',
-            name: 'Technical Consultation',
-            icon: <MessageSquare className="h-10 w-10" />,
-            description: 'Helping you use intelligence and automation effectively.',
-            color: 'from-yellow-500 to-orange-500',
+            id: 'agrispace',
+            name: 'AgriSpace',
+            icon: <Tractor className="h-10 w-10" />,
+            description: 'Connecting agricultural data to automated farming operations.',
+            color: 'from-amber-500 to-orange-500',
             features: [
-                '✓ What data do you have? What\'s missing?',
-                '✓ Which workflows should be automated first?',
-                '✓ How can our engines fit your organization?'
+                '✓ Weather pattern integration and alerts',
+                '✓ Crop yield predictive modeling',
+                '✓ Automated supply chain logistics',
+                '✓ Equipment maintenance tracking'
             ],
             deliverables: [
-                'Honest assessment—not a sales pitch',
-                'Roadmap for using our engines',
-                'Training for your team',
-                'Best practices from someone who built it'
+                'Data intelligence for cooperatives',
+                'Mobile-friendly for field workers',
+                'Automated market price reporting',
+                'Resource optimization insights'
+            ]
+        },
+        {
+            id: 'finspace',
+            name: 'FinSpace',
+            icon: <Landmark className="h-10 w-10" />,
+            description: 'Secure, intelligent workflows for financial institutions.',
+            color: 'from-teal-500 to-emerald-500',
+            features: [
+                '✓ Automated fraud detection patterns',
+                '✓ KYC (Know Your Customer) automation workflows',
+                '✓ Real-time transaction monitoring',
+                '✓ Automated regulatory reporting'
+            ],
+            deliverables: [
+                'Bank-grade security architecture',
+                'Lightning-fast data processing',
+                'Automated compliance checks',
+                'Custom mobile banking interfaces'
+            ]
+        },
+        {
+            id: 'enterprisespace',
+            name: 'Enterprise Custom',
+            icon: <Briefcase className="h-10 w-10" />,
+            description: 'A bespoke solution layer built specifically for your unique industry.',
+            color: 'from-slate-400 to-slate-600',
+            features: [
+                '✓ We deploy our engines in your environment',
+                '✓ Connect all your legacy fragmented systems',
+                '✓ Map out and automate your unique workflows',
+                '✓ Build a custom UI specifically for your team'
+            ],
+            deliverables: [
+                'Total digital transformation',
+                'No "rip-and-replace" required',
+                'Dedicated engineering support',
+                'Continuous engine learning'
             ]
         }
     ];
 
-    const getCategoryTab = (serviceId: string) => {
-        switch (serviceId) {
-            case 'design':
-                return 'design';
-            case 'consultation':
-                return 'strategy';
-            default:
-                return 'development';
-        }
-    };
-
     return (
-        <section className="py-20 relative overflow-hidden">
-            {/* Background */}
+        <section className="py-20 relative overflow-hidden bg-slate-950">
+            {/* Background Setup */}
             <div className="absolute inset-0 z-0">
-                <img
-                    src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2600&auto=format&fit=crop"
-                    alt="Coding and Development Background"
-                    className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-950/85 via-gray-900/80 to-black/90" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
                 <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full mb-4 border border-blue-500/20">
-                        <Cpu className="h-4 w-4 text-blue-300" />
-                        <span className="text-sm font-medium text-blue-300">OUR ENGINE ARCHITECTURE</span>
+                        <Cpu className="h-4 w-4 text-blue-400" />
+                        <span className="text-sm font-medium text-blue-300">INDUSTRY APPLICATIONS</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                         <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Every solution</span> sits on the same foundation
                     </h2>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        One engine architecture. Any industry solution. Built once. Used everywhere.
+                    <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+                        One powerful intelligence architecture. Deployed specifically for your industry's hardest challenges.
                     </p>
                 </div>
 
-                {/* Engine Architecture Diagram */}
-                <div className="max-w-4xl mx-auto mb-20">
+                {/* Engine Architecture Diagram (Kept from your original code - it's great!) */}
+                <div className="max-w-4xl mx-auto mb-20 hidden md:block">
                     {/* Your Data */}
                     <div className="flex justify-center mb-4">
-                        <div className="bg-gray-800/80 border border-blue-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 backdrop-blur-sm">
+                        <div className="bg-slate-900 border border-blue-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 shadow-lg shadow-blue-500/10">
                             <Database className="h-6 w-6 text-blue-400" />
-                            <span className="text-white font-semibold">YOUR DATA</span>
-                            <span className="text-sm text-gray-400">(Any industry)</span>
+                            <span className="text-white font-semibold tracking-wide">YOUR RAW DATA</span>
+                            <span className="text-sm text-slate-400">(Any industry format)</span>
                         </div>
                     </div>
 
                     {/* Arrow down */}
                     <div className="flex justify-center mb-4">
-                        <ArrowRight className="h-6 w-6 text-gray-500 rotate-90" />
+                        <ArrowRight className="h-6 w-6 text-slate-500 rotate-90" />
                     </div>
 
                     {/* Two Layers */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                        <Card className="bg-gradient-to-br from-blue-900/30 to-blue-900/10 border-blue-500/30 backdrop-blur-xl">
+                        <Card className="bg-slate-900/50 border-blue-500/30 backdrop-blur-sm">
                             <CardHeader>
                                 <div className="flex items-center gap-3">
-                                    <div className="p-2 rounded-lg bg-blue-500/20">
+                                    <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-500/30">
                                         <Database className="h-6 w-6 text-blue-400" />
                                     </div>
-                                    <CardTitle className="text-white">LAYER 1: DATA INTELLIGENCE ENGINE</CardTitle>
+                                    <CardTitle className="text-white text-lg">Mzatinova Intelligence Engine</CardTitle>
                                 </div>
                             </CardHeader>
                             <CardContent>
                                 <ul className="space-y-2">
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-blue-400">•</span>
-                                        <span>Ingests data from any source</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-blue-400">•</span><span>Ingests data from any source</span>
                                     </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-blue-400">•</span>
-                                        <span>Indexes for instant search</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-blue-400">•</span><span>Indexes for instant search</span>
                                     </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-blue-400">•</span>
-                                        <span>Finds patterns and insights</span>
-                                    </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-blue-400">•</span>
-                                        <span>Learns and improves over time</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-blue-400">•</span><span>Finds patterns and insights</span>
                                     </li>
                                 </ul>
                             </CardContent>
                         </Card>
 
-                        <Card className="bg-gradient-to-br from-purple-900/30 to-purple-900/10 border-purple-500/30 backdrop-blur-xl">
+                        <Card className="bg-slate-900/50 border-purple-500/30 backdrop-blur-sm">
                             <CardHeader>
                                 <div className="flex items-center gap-3">
-                                    <div className="p-2 rounded-lg bg-purple-500/20">
+                                    <div className="p-2 rounded-lg bg-purple-500/20 border border-purple-500/30">
                                         <Workflow className="h-6 w-6 text-purple-400" />
                                     </div>
-                                    <CardTitle className="text-white">LAYER 2: WORKFLOW AUTOMATION PLATFORM</CardTitle>
+                                    <CardTitle className="text-white text-lg">Mzatinova Workflow Automation</CardTitle>
                                 </div>
                             </CardHeader>
                             <CardContent>
                                 <ul className="space-y-2">
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-purple-400">•</span>
-                                        <span>Triggers actions based on insights</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-purple-400">•</span><span>Triggers actions based on insights</span>
                                     </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-purple-400">•</span>
-                                        <span>Generates documents, alerts, reports</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-purple-400">•</span><span>Generates documents and alerts</span>
                                     </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-purple-400">•</span>
-                                        <span>Connects to SMS, WhatsApp, email</span>
-                                    </li>
-                                    <li className="text-gray-300 text-sm flex items-start gap-2">
-                                        <span className="text-purple-400">•</span>
-                                        <span>Integrates with any system</span>
+                                    <li className="text-slate-300 text-sm flex items-start gap-2">
+                                        <span className="text-purple-400">•</span><span>Connects to SMS, WhatsApp, APIs</span>
                                     </li>
                                 </ul>
                             </CardContent>
@@ -250,63 +227,55 @@ const OurServices: React.FC = () => {
 
                     {/* Arrow down */}
                     <div className="flex justify-center mb-4">
-                        <ArrowRight className="h-6 w-6 text-gray-500 rotate-90" />
+                        <ArrowRight className="h-6 w-6 text-slate-500 rotate-90" />
                     </div>
 
                     {/* Your Solution */}
                     <div className="flex justify-center">
-                        <div className="bg-gray-800/80 border border-green-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 backdrop-blur-sm">
-                            <Code className="h-6 w-6 text-green-400" />
-                            <span className="text-white font-semibold">YOUR SOLUTION</span>
-                            <span className="text-sm text-gray-400">(EduSpace, Store, etc.)</span>
+                        <div className="bg-slate-900 border border-emerald-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 shadow-lg shadow-emerald-500/10">
+                            <Briefcase className="h-6 w-6 text-emerald-400" />
+                            <span className="text-white font-semibold tracking-wide">INDUSTRY SOLUTION LAYER</span>
+                            <span className="text-sm text-slate-400">(EduSpace, HealthSpace, etc.)</span>
                         </div>
-                    </div>
-
-                    {/* Tagline */}
-                    <div className="text-center mt-8 p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
-                        <p className="text-gray-300">
-                            <span className="text-blue-400 font-semibold">THIS IS THE MZATINOVA WAY.</span>{' '}
-                            One engine architecture. Any industry solution. Built once. Used everywhere.
-                        </p>
                     </div>
                 </div>
 
-                {/* Services Grid */}
+                {/* Solutions Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service) => (
+                    {solutions.map((solution) => (
                         <Card
-                            key={service.id}
-                            className="group bg-black/40 border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:transform hover:-translate-y-2 backdrop-blur-sm overflow-hidden"
+                            key={solution.id}
+                            className="group bg-slate-900/40 border-slate-800 hover:border-slate-600 transition-all duration-300 hover:transform hover:-translate-y-2 backdrop-blur-sm overflow-hidden"
                         >
                             <CardHeader className="pb-4">
-                                <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-gradient-to-br ${service.color}/10 border border-white/10 mb-4`}>
-                                    <div className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
-                                        {service.icon}
+                                <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-gradient-to-br ${solution.color}/10 border border-white/5 mb-4`}>
+                                    <div className={`bg-gradient-to-r ${solution.color} bg-clip-text text-transparent`}>
+                                        {solution.icon}
                                     </div>
                                 </div>
-                                <CardTitle className="text-white text-xl mb-3">
-                                    {service.name}
+                                <CardTitle className="text-white text-xl mb-3 font-bold tracking-wide">
+                                    {solution.name}
                                 </CardTitle>
-                                <CardDescription className="text-gray-300 text-base">
-                                    {service.description}
+                                <CardDescription className="text-slate-400 text-base">
+                                    {solution.description}
                                 </CardDescription>
                             </CardHeader>
 
                             <CardContent className="space-y-6">
                                 {/* Features */}
                                 <div>
-                                    <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
-                                        How It Works
+                                    <h4 className="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">
+                                        Key Capabilities
                                     </h4>
                                     <div className="space-y-2">
-                                        {service.features.map((feature, index) => (
+                                        {solution.features.map((feature, index) => (
                                             <div key={index} className="flex items-start gap-2">
-                                                {feature.startsWith('📊') || feature.startsWith('⚙️') ? (
-                                                    <span className="text-blue-400 mt-0.5">{feature.charAt(0)}</span>
+                                                {feature.startsWith('📊') || feature.startsWith('⚙️') || feature.startsWith('✓') ? (
+                                                    <span className="text-slate-400 mt-0.5 text-sm">{feature.charAt(0)}</span>
                                                 ) : (
-                                                    <Zap className="h-3 w-3 text-blue-400 mt-1 flex-shrink-0" />
+                                                    <Zap className="h-3 w-3 text-slate-400 mt-1 flex-shrink-0" />
                                                 )}
-                                                <span className="text-sm text-gray-300">{feature}</span>
+                                                <span className="text-sm text-slate-300">{feature.substring(feature.startsWith('✓') ? 2 : 1).trim()}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -314,14 +283,14 @@ const OurServices: React.FC = () => {
 
                                 {/* Deliverables */}
                                 <div>
-                                    <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
-                                        What You Get
+                                    <h4 className="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">
+                                        The Result
                                     </h4>
                                     <div className="space-y-2">
-                                        {service.deliverables.map((deliverable, index) => (
+                                        {solution.deliverables.map((deliverable, index) => (
                                             <div key={index} className="flex items-center gap-3">
-                                                <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 flex-shrink-0" />
-                                                <span className="text-sm text-gray-300">{deliverable}</span>
+                                                <div className="h-1.5 w-1.5 rounded-full bg-slate-600 flex-shrink-0 group-hover:bg-blue-400 transition-colors" />
+                                                <span className="text-sm text-slate-300">{deliverable}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -329,13 +298,10 @@ const OurServices: React.FC = () => {
 
                                 {/* CTA Button */}
                                 <div className="pt-4">
-                                    <Link
-                                        to="/services"
-                                        state={{ category: getCategoryTab(service.id) }}
-                                    >
-                                        <button className={`w-full py-3 rounded-lg bg-gradient-to-r ${service.color}/10 hover:${service.color}/20 border border-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-blue-500/10`}>
-                                            Explore Service
-                                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                    <Link to={`/solutions/${solution.id}`}>
+                                        <button className={`w-full py-3 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 group-hover:border-slate-500`}>
+                                            Explore {solution.name}
+                                            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform text-slate-400 group-hover:text-white" />
                                         </button>
                                     </Link>
                                 </div>
@@ -346,25 +312,20 @@ const OurServices: React.FC = () => {
 
                 {/* Bottom CTA */}
                 <div className="text-center mt-20">
-                    <div className="inline-block bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 p-8 rounded-2xl border border-white/10 backdrop-blur-sm max-w-3xl mx-auto">
+                    <div className="inline-block bg-slate-900 border border-slate-800 p-8 rounded-2xl max-w-3xl mx-auto shadow-2xl">
                         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                             <div className="text-left">
                                 <h3 className="text-2xl font-bold text-white mb-2">
-                                    Ready to put our engines to work?
+                                    Don't see your industry?
                                 </h3>
-                                <p className="text-gray-300">
-                                    Data Intelligence + Workflow Automation. Built in Malawi. Ready for the world.
+                                <p className="text-slate-400">
+                                    Our engines are completely agnostic. We can build a custom layer for any sector.
                                 </p>
                             </div>
-                            <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="flex flex-shrink-0">
                                 <Link to="/contact">
-                                    <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25">
-                                        Start Your Project
-                                    </button>
-                                </Link>
-                                <Link to="/contact">
-                                    <button className="px-8 py-3 border border-blue-400 text-blue-400 rounded-lg font-semibold hover:bg-blue-400/10 transition-colors">
-                                        Schedule Demo
+                                    <button className="px-8 py-3 bg-white text-slate-950 rounded-lg font-bold hover:bg-slate-200 transition-colors">
+                                        Talk to Engineering
                                     </button>
                                 </Link>
                             </div>
@@ -376,7 +337,388 @@ const OurServices: React.FC = () => {
     );
 };
 
-export default OurServices;
+export default SolutionsSection;
+
+
+// import React from 'react';
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+// import { Link } from 'react-router-dom';
+// import {
+//     Code,
+//     Brain,
+//     ShoppingCart,
+//     Puzzle,
+//     Palette,
+//     MessageSquare,
+//     Cpu,
+//     Zap,
+//     ArrowRight,
+//     Database,
+//     Workflow
+// } from 'lucide-react';
+
+// const OurServices: React.FC = () => {
+//     const services = [
+//         {
+//             id: 'development',
+//             name: 'Custom Software Development',
+//             icon: <Code className="h-10 w-10" />,
+//             description: 'We deploy our engines inside your organization—custom interface on top.',
+//             color: 'from-blue-500 to-cyan-500',
+//             features: [
+//                 '✓ Your data connects to our Data Intelligence Engine',
+//                 '✓ Your workflows run on our Automation Platform',
+//                 '✓ We build the interface YOU need on top'
+//             ],
+//             deliverables: [
+//                 'Your data, intelligently organized',
+//                 'Your workflows, fully automated',
+//                 'Custom interface built on our engines',
+//                 'Scales as you grow'
+//             ]
+//         },
+//         {
+//             id: 'ai-solutions',
+//             name: 'AI & Machine Learning',
+//             icon: <Brain className="h-10 w-10" />,
+//             description: 'This IS our Data Intelligence Engine—built in, not bolted on.',
+//             color: 'from-purple-500 to-pink-500',
+//             features: [
+//                 '✓ You access our engine, not buy "AI solutions"',
+//                 '✓ Predictive analytics built into everything',
+//                 '✓ Computer Vision, NLP—all part of the same core'
+//             ],
+//             deliverables: [
+//                 'Access to our Data Intelligence Engine',
+//                 'Custom models trained on YOUR data',
+//                 'Integration with your existing systems',
+//                 'Continuous improvement as engines learn'
+//             ]
+//         },
+//         {
+//             id: 'ecommerce',
+//             name: 'E-commerce Platforms',
+//             icon: <ShoppingCart className="h-10 w-10" />,
+//             description: 'Our engines applied to retail—intelligent commerce, not just websites.',
+//             color: 'from-green-500 to-emerald-500',
+//             features: [
+//                 '📊 Predict demand before you run out',
+//                 '📊 Understand customer preferences',
+//                 '⚙️ Auto-reorder when stock runs low',
+//                 '⚙️ Generate invoices instantly'
+//             ],
+//             deliverables: [
+//                 'An intelligent store, not just a website',
+//                 'Powered by same engines as EduSpace',
+//                 'Scales from one shop to nationwide',
+//                 'Customer analytics built-in'
+//             ]
+//         },
+//         {
+//             id: 'integration',
+//             name: 'System Integration',
+//             icon: <Puzzle className="h-10 w-10" />,
+//             description: 'Connecting your world to our engines—enhance, don\'t replace.',
+//             color: 'from-orange-500 to-red-500',
+//             features: [
+//                 '✓ Legacy systems connect to our Data Intelligence',
+//                 '✓ Workflows automated via our platform',
+//                 '✓ Data flows both ways—we enhance'
+//             ],
+//             deliverables: [
+//                 'Your existing systems, now intelligent',
+//                 'Unified view across all your tools',
+//                 'Automated workflows between systems',
+//                 'No rip-and-replace required'
+//             ]
+//         },
+//         {
+//             id: 'design',
+//             name: 'UI/UX Design',
+//             icon: <Palette className="h-10 w-10" />,
+//             description: 'Beautiful interfaces that make our engines accessible to everyone.',
+//             color: 'from-teal-500 to-cyan-500',
+//             features: [
+//                 '✓ Interfaces that make intelligence accessible',
+//                 '✓ Designed for Malawian users',
+//                 '✓ Works on basic phones, not just smartphones'
+//             ],
+//             deliverables: [
+//                 'Designs that people can actually use',
+//                 'Tested with real users in your context',
+//                 'Components that work across all products',
+//                 'Accessibility compliance'
+//             ]
+//         },
+//         {
+//             id: 'consultation',
+//             name: 'Technical Consultation',
+//             icon: <MessageSquare className="h-10 w-10" />,
+//             description: 'Helping you use intelligence and automation effectively.',
+//             color: 'from-yellow-500 to-orange-500',
+//             features: [
+//                 '✓ What data do you have? What\'s missing?',
+//                 '✓ Which workflows should be automated first?',
+//                 '✓ How can our engines fit your organization?'
+//             ],
+//             deliverables: [
+//                 'Honest assessment—not a sales pitch',
+//                 'Roadmap for using our engines',
+//                 'Training for your team',
+//                 'Best practices from someone who built it'
+//             ]
+//         }
+//     ];
+
+//     const getCategoryTab = (serviceId: string) => {
+//         switch (serviceId) {
+//             case 'design':
+//                 return 'design';
+//             case 'consultation':
+//                 return 'strategy';
+//             default:
+//                 return 'development';
+//         }
+//     };
+
+//     return (
+//         <section className="py-20 relative overflow-hidden">
+//             {/* Background */}
+//             <div className="absolute inset-0 z-0">
+//                 <img
+//                     src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2600&auto=format&fit=crop"
+//                     alt="Coding and Development Background"
+//                     className="w-full h-full object-cover"
+//                 />
+//                 <div className="absolute inset-0 bg-gradient-to-b from-gray-950/85 via-gray-900/80 to-black/90" />
+//                 <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
+//             </div>
+
+//             <div className="container mx-auto px-6 relative z-10">
+//                 {/* Section Header */}
+//                 <div className="text-center mb-16">
+//                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 py-2 rounded-full mb-4 border border-blue-500/20">
+//                         <Cpu className="h-4 w-4 text-blue-300" />
+//                         <span className="text-sm font-medium text-blue-300">OUR ENGINE ARCHITECTURE</span>
+//                     </div>
+//                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+//                         <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Every solution</span> sits on the same foundation
+//                     </h2>
+//                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+//                         One engine architecture. Any industry solution. Built once. Used everywhere.
+//                     </p>
+//                 </div>
+
+//                 {/* Engine Architecture Diagram */}
+//                 <div className="max-w-4xl mx-auto mb-20">
+//                     {/* Your Data */}
+//                     <div className="flex justify-center mb-4">
+//                         <div className="bg-gray-800/80 border border-blue-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 backdrop-blur-sm">
+//                             <Database className="h-6 w-6 text-blue-400" />
+//                             <span className="text-white font-semibold">YOUR DATA</span>
+//                             <span className="text-sm text-gray-400">(Any industry)</span>
+//                         </div>
+//                     </div>
+
+//                     {/* Arrow down */}
+//                     <div className="flex justify-center mb-4">
+//                         <ArrowRight className="h-6 w-6 text-gray-500 rotate-90" />
+//                     </div>
+
+//                     {/* Two Layers */}
+//                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+//                         <Card className="bg-gradient-to-br from-blue-900/30 to-blue-900/10 border-blue-500/30 backdrop-blur-xl">
+//                             <CardHeader>
+//                                 <div className="flex items-center gap-3">
+//                                     <div className="p-2 rounded-lg bg-blue-500/20">
+//                                         <Database className="h-6 w-6 text-blue-400" />
+//                                     </div>
+//                                     <CardTitle className="text-white">LAYER 1: DATA INTELLIGENCE ENGINE</CardTitle>
+//                                 </div>
+//                             </CardHeader>
+//                             <CardContent>
+//                                 <ul className="space-y-2">
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-blue-400">•</span>
+//                                         <span>Ingests data from any source</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-blue-400">•</span>
+//                                         <span>Indexes for instant search</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-blue-400">•</span>
+//                                         <span>Finds patterns and insights</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-blue-400">•</span>
+//                                         <span>Learns and improves over time</span>
+//                                     </li>
+//                                 </ul>
+//                             </CardContent>
+//                         </Card>
+
+//                         <Card className="bg-gradient-to-br from-purple-900/30 to-purple-900/10 border-purple-500/30 backdrop-blur-xl">
+//                             <CardHeader>
+//                                 <div className="flex items-center gap-3">
+//                                     <div className="p-2 rounded-lg bg-purple-500/20">
+//                                         <Workflow className="h-6 w-6 text-purple-400" />
+//                                     </div>
+//                                     <CardTitle className="text-white">LAYER 2: WORKFLOW AUTOMATION PLATFORM</CardTitle>
+//                                 </div>
+//                             </CardHeader>
+//                             <CardContent>
+//                                 <ul className="space-y-2">
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-purple-400">•</span>
+//                                         <span>Triggers actions based on insights</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-purple-400">•</span>
+//                                         <span>Generates documents, alerts, reports</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-purple-400">•</span>
+//                                         <span>Connects to SMS, WhatsApp, email</span>
+//                                     </li>
+//                                     <li className="text-gray-300 text-sm flex items-start gap-2">
+//                                         <span className="text-purple-400">•</span>
+//                                         <span>Integrates with any system</span>
+//                                     </li>
+//                                 </ul>
+//                             </CardContent>
+//                         </Card>
+//                     </div>
+
+//                     {/* Arrow down */}
+//                     <div className="flex justify-center mb-4">
+//                         <ArrowRight className="h-6 w-6 text-gray-500 rotate-90" />
+//                     </div>
+
+//                     {/* Your Solution */}
+//                     <div className="flex justify-center">
+//                         <div className="bg-gray-800/80 border border-green-500/30 rounded-xl px-8 py-4 inline-flex items-center gap-3 backdrop-blur-sm">
+//                             <Code className="h-6 w-6 text-green-400" />
+//                             <span className="text-white font-semibold">YOUR SOLUTION</span>
+//                             <span className="text-sm text-gray-400">(EduSpace, Store, etc.)</span>
+//                         </div>
+//                     </div>
+
+//                     {/* Tagline */}
+//                     <div className="text-center mt-8 p-4 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
+//                         <p className="text-gray-300">
+//                             <span className="text-blue-400 font-semibold">THIS IS THE MZATINOVA WAY.</span>{' '}
+//                             One engine architecture. Any industry solution. Built once. Used everywhere.
+//                         </p>
+//                     </div>
+//                 </div>
+
+//                 {/* Services Grid */}
+//                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//                     {services.map((service) => (
+//                         <Card
+//                             key={service.id}
+//                             className="group bg-black/40 border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:transform hover:-translate-y-2 backdrop-blur-sm overflow-hidden"
+//                         >
+//                             <CardHeader className="pb-4">
+//                                 <div className={`inline-flex items-center justify-center p-3 rounded-xl bg-gradient-to-br ${service.color}/10 border border-white/10 mb-4`}>
+//                                     <div className={`bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+//                                         {service.icon}
+//                                     </div>
+//                                 </div>
+//                                 <CardTitle className="text-white text-xl mb-3">
+//                                     {service.name}
+//                                 </CardTitle>
+//                                 <CardDescription className="text-gray-300 text-base">
+//                                     {service.description}
+//                                 </CardDescription>
+//                             </CardHeader>
+
+//                             <CardContent className="space-y-6">
+//                                 {/* Features */}
+//                                 <div>
+//                                     <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
+//                                         How It Works
+//                                     </h4>
+//                                     <div className="space-y-2">
+//                                         {service.features.map((feature, index) => (
+//                                             <div key={index} className="flex items-start gap-2">
+//                                                 {feature.startsWith('📊') || feature.startsWith('⚙️') ? (
+//                                                     <span className="text-blue-400 mt-0.5">{feature.charAt(0)}</span>
+//                                                 ) : (
+//                                                     <Zap className="h-3 w-3 text-blue-400 mt-1 flex-shrink-0" />
+//                                                 )}
+//                                                 <span className="text-sm text-gray-300">{feature}</span>
+//                                             </div>
+//                                         ))}
+//                                     </div>
+//                                 </div>
+
+//                                 {/* Deliverables */}
+//                                 <div>
+//                                     <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">
+//                                         What You Get
+//                                     </h4>
+//                                     <div className="space-y-2">
+//                                         {service.deliverables.map((deliverable, index) => (
+//                                             <div key={index} className="flex items-center gap-3">
+//                                                 <div className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 flex-shrink-0" />
+//                                                 <span className="text-sm text-gray-300">{deliverable}</span>
+//                                             </div>
+//                                         ))}
+//                                     </div>
+//                                 </div>
+
+//                                 {/* CTA Button */}
+//                                 <div className="pt-4">
+//                                     <Link
+//                                         to="/services"
+//                                         state={{ category: getCategoryTab(service.id) }}
+//                                     >
+//                                         <button className={`w-full py-3 rounded-lg bg-gradient-to-r ${service.color}/10 hover:${service.color}/20 border border-white/10 text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg group-hover:shadow-blue-500/10`}>
+//                                             Explore Service
+//                                             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+//                                         </button>
+//                                     </Link>
+//                                 </div>
+//                             </CardContent>
+//                         </Card>
+//                     ))}
+//                 </div>
+
+//                 {/* Bottom CTA */}
+//                 <div className="text-center mt-20">
+//                     <div className="inline-block bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 p-8 rounded-2xl border border-white/10 backdrop-blur-sm max-w-3xl mx-auto">
+//                         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+//                             <div className="text-left">
+//                                 <h3 className="text-2xl font-bold text-white mb-2">
+//                                     Ready to put our engines to work?
+//                                 </h3>
+//                                 <p className="text-gray-300">
+//                                     Data Intelligence + Workflow Automation. Built in Malawi. Ready for the world.
+//                                 </p>
+//                             </div>
+//                             <div className="flex flex-col sm:flex-row gap-4">
+//                                 <Link to="/contact">
+//                                     <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/25">
+//                                         Start Your Project
+//                                     </button>
+//                                 </Link>
+//                                 <Link to="/contact">
+//                                     <button className="px-8 py-3 border border-blue-400 text-blue-400 rounded-lg font-semibold hover:bg-blue-400/10 transition-colors">
+//                                         Schedule Demo
+//                                     </button>
+//                                 </Link>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
+
+// export default OurServices;
 
 
 // import React from 'react';

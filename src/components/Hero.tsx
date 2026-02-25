@@ -1,11 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from "react-router-dom";
-import { Code, Brain, Cpu, Shield, Cloud, Smartphone, Database, Zap } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Zap,
+  Terminal,
+  ArrowRight,
+  Activity,
+  ShieldCheck,
+  Cpu
+} from 'lucide-react';
 
-const Hero: React.FC = () => {
+const HeroSection: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Keep your video autoplay logic
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.defaultMuted = true;
@@ -17,130 +24,242 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-24 px-4 sm:px-6 bg-black">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-slate-950 pt-20 scroll-mt-20">
 
-      {/* Video Background - Full screen, no overlay */}
-      <div className="absolute inset-0 overflow-hidden z-0">
+      {/* Video Background with Enterprise Overlay */}
+      <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
         <video
           ref={videoRef}
           playsInline
           autoPlay
           loop
           muted
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
-          onError={(e) => console.error("Video Error:", e.currentTarget.error)}
+          className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity"
+          poster="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
         >
           <source src="/videos/background-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Very subtle dark overlay just to make text pop, like Meta does */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Advanced Gradients to blend video into the dark slate theme */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950"></div>
+        <div className="absolute inset-0 bg-blue-900/10 mix-blend-color"></div>
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
       </div>
 
-      {/* Content - Positioned above video with high z-index */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex-grow flex flex-col justify-center items-center text-center mt-12">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
-            <Zap className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-            <span className="text-sm font-medium text-white">Data Intelligence + Workflow Automation</span>
+        {/* Status Badge */}
+        <div className="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 px-4 py-2 rounded-full mb-8 shadow-2xl">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          </span>
+          <span className="text-xs font-mono text-slate-300 tracking-wider uppercase">Mzatinova Core OS Live</span>
+        </div>
+
+        {/* The Hook */}
+        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight drop-shadow-2xl">
+          We don't build apps.<br />
+          We build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">Engines.</span>
+        </h1>
+
+        <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+          One foundational intelligence architecture. Deployed and customized to solve the hardest data and workflow challenges in your specific industry.
+        </p>
+
+        {/* High-End CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link to="/solutions">
+            <button className="group relative px-8 py-4 bg-white text-slate-950 rounded-xl font-bold transition-all duration-300 hover:bg-slate-200 flex items-center gap-2 shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)]">
+              Explore Industry Solutions
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+
+          <Link to="/contact">
+            <button className="px-8 py-4 bg-slate-900/50 backdrop-blur-md border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-800 hover:border-slate-500 transition-all duration-300 flex items-center gap-2">
+              <Terminal className="h-5 w-5 text-slate-400" />
+              Talk to Engineering
+            </button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Bottom "System Capabilities" Bar - Replaces the old clunky emoji section */}
+      <div className="relative z-10 w-full border-t border-slate-800/60 bg-slate-950/80 backdrop-blur-xl mt-auto py-4">
+        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center md:justify-between items-center gap-6 text-sm">
+
+          <div className="flex items-center gap-2 text-slate-400">
+            <Cpu className="h-4 w-4 text-blue-400" />
+            <span className="font-medium text-slate-300">Dual Architecture:</span> Data & Workflow
           </div>
 
-          {/* Main Headline - White text for maximum contrast */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
-            <div className="whitespace-nowrap">WE DON'T BUILD APPS. WE BUILD ENGINES.</div>
-            <div className="whitespace-nowrap bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-              One core. Any industry. Infinite possibilities.
-            </div>
-          </h1>
+          <div className="hidden md:block h-4 w-px bg-slate-800"></div>
 
-          {/* Subheading */}
-          <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-lg">
-            Our engines collect data, understand patterns, and automate actions
-            so that organizations stop guessing and start growing.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link to="/products">
-              <Button size="lg" className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105">
-                <Code className="mr-2 h-5 w-5" />
-                Explore Products
-              </Button>
-            </Link>
-
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full backdrop-blur-sm">
-                Start Project
-              </Button>
-            </Link>
+          <div className="flex items-center gap-2 text-slate-400">
+            <Activity className="h-4 w-4 text-emerald-400" />
+            <span className="font-medium text-slate-300">Live Pilot:</span> EduSpace Active
           </div>
 
-          {/* What We Actually Build - With semi-transparent backgrounds for readability */}
-          <div className="mt-12 border-t border-white/20 pt-8">
-            {/* 2 Engines */}
-            <div className="flex justify-center items-center gap-4 mb-6">
-              <span className="text-2xl">⚙️</span>
-              <span className="text-white font-semibold text-xl drop-shadow-lg">2 ENGINES</span>
-              <span className="text-2xl">⚙️</span>
-            </div>
+          <div className="hidden md:block h-4 w-px bg-slate-800"></div>
 
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {/* Data Intelligence Engine - With backdrop blur like Meta */}
-              <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
-                <div className="text-blue-300 font-bold mb-2">DATA</div>
-                <div className="text-white text-xl font-bold mb-1">INTELLIGENCE</div>
-                <div className="text-blue-300 text-sm">ENGINE</div>
-              </div>
-
-              {/* Workflow Automation Platform */}
-              <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
-                <div className="text-purple-300 font-bold mb-2">WORKFLOW</div>
-                <div className="text-white text-xl font-bold mb-1">AUTOMATION</div>
-                <div className="text-purple-300 text-sm">PLATFORM</div>
-              </div>
-            </div>
-
-            {/* Info items with backdrop blur for readability */}
-            <div className="space-y-4">
-              <div className="flex justify-center items-center gap-2">
-                <span className="text-2xl">📦</span>
-                <span className="text-white drop-shadow-lg">
-                  <span className="font-bold">Proof of Execution:</span> EduSpace
-                  <span className="text-green-400 text-sm ml-2">— Live pilot deployment</span>
-                </span>
-              </div>
-
-              <div className="flex justify-center items-center gap-2">
-                <span className="text-2xl">🌍</span>
-                <span className="text-white drop-shadow-lg">
-                  <span className="font-bold">Expansion Architecture:</span>
-                  <span className="ml-2">
-                    Built to scale across: Education | Health | Agriculture | Finance | Commerce
-                  </span>
-                </span>
-              </div>
-
-              <div className="flex justify-center items-center gap-2">
-                <span className="text-2xl">🔬</span>
-                <span className="text-white drop-shadow-lg">
-                  <span className="font-bold">Innovation Division:</span>
-                  <span className="ml-2">
-                    Mzatinova Labs — Researching next-generation organizational intelligence systems
-                  </span>
-                </span>
-              </div>
-            </div>
+          <div className="flex items-center gap-2 text-slate-400">
+            <ShieldCheck className="h-4 w-4 text-purple-400" />
+            <span className="font-medium text-slate-300">Scale Ready:</span> All industries
           </div>
+
         </div>
       </div>
     </section>
   );
 };
 
-export default Hero;
+export default HeroSection;
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { Button } from '@/components/ui/button';
+// import { Link } from "react-router-dom";
+// import { Code, Brain, Cpu, Shield, Cloud, Smartphone, Database, Zap } from 'lucide-react';
+
+// const Hero: React.FC = () => {
+//   const videoRef = useRef<HTMLVideoElement>(null);
+
+//   useEffect(() => {
+//     if (videoRef.current) {
+//       videoRef.current.defaultMuted = true;
+//       videoRef.current.muted = true;
+//       videoRef.current.play().catch(error => {
+//         console.log("Autoplay prevented:", error);
+//       });
+//     }
+//   }, []);
+
+//   return (
+//     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-24 px-4 sm:px-6 bg-black">
+
+//       {/* Video Background - Full screen, no overlay */}
+//       <div className="absolute inset-0 overflow-hidden z-0">
+//         <video
+//           ref={videoRef}
+//           playsInline
+//           autoPlay
+//           loop
+//           muted
+//           className="absolute inset-0 w-full h-full object-cover"
+//           poster="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+//           onError={(e) => console.error("Video Error:", e.currentTarget.error)}
+//         >
+//           <source src="/videos/background-video.mp4" type="video/mp4" />
+//         </video>
+
+//         {/* Very subtle dark overlay just to make text pop, like Meta does */}
+//         <div className="absolute inset-0 bg-black/30"></div>
+//       </div>
+
+//       {/* Content - Positioned above video with high z-index */}
+//       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+//         <div className="max-w-4xl mx-auto text-center">
+
+//           {/* Badge */}
+//           <div className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20">
+//             <Zap className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+//             <span className="text-sm font-medium text-white">Data Intelligence + Workflow Automation</span>
+//           </div>
+
+//           {/* Main Headline - White text for maximum contrast */}
+//           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+//             <div className="whitespace-nowrap">WE DON'T BUILD APPS. WE BUILD ENGINES.</div>
+//             <div className="whitespace-nowrap bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+//               One core. Any industry. Infinite possibilities.
+//             </div>
+//           </h1>
+
+//           {/* Subheading */}
+//           <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-lg">
+//             Our engines collect data, understand patterns, and automate actions
+//             so that organizations stop guessing and start growing.
+//           </p>
+
+//           {/* CTA Buttons */}
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+//             <Link to="/products">
+//               <Button size="lg" className="bg-white hover:bg-gray-100 text-black px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105">
+//                 <Code className="mr-2 h-5 w-5" />
+//                 Explore Products
+//               </Button>
+//             </Link>
+
+//             <Link to="/contact">
+//               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full backdrop-blur-sm">
+//                 Start Project
+//               </Button>
+//             </Link>
+//           </div>
+
+//           {/* What We Actually Build - With semi-transparent backgrounds for readability */}
+//           <div className="mt-12 border-t border-white/20 pt-8">
+//             {/* 2 Engines */}
+//             <div className="flex justify-center items-center gap-4 mb-6">
+//               <span className="text-2xl">⚙️</span>
+//               <span className="text-white font-semibold text-xl drop-shadow-lg">2 ENGINES</span>
+//               <span className="text-2xl">⚙️</span>
+//             </div>
+
+//             <div className="flex flex-wrap justify-center gap-4 mb-8">
+//               {/* Data Intelligence Engine - With backdrop blur like Meta */}
+//               <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
+//                 <div className="text-blue-300 font-bold mb-2">DATA</div>
+//                 <div className="text-white text-xl font-bold mb-1">INTELLIGENCE</div>
+//                 <div className="text-blue-300 text-sm">ENGINE</div>
+//               </div>
+
+//               {/* Workflow Automation Platform */}
+//               <div className="bg-black/40 backdrop-blur-md border border-white/20 rounded-lg p-4 w-64">
+//                 <div className="text-purple-300 font-bold mb-2">WORKFLOW</div>
+//                 <div className="text-white text-xl font-bold mb-1">AUTOMATION</div>
+//                 <div className="text-purple-300 text-sm">PLATFORM</div>
+//               </div>
+//             </div>
+
+//             {/* Info items with backdrop blur for readability */}
+//             <div className="space-y-4">
+//               <div className="flex justify-center items-center gap-2">
+//                 <span className="text-2xl">📦</span>
+//                 <span className="text-white drop-shadow-lg">
+//                   <span className="font-bold">Proof of Execution:</span> EduSpace
+//                   <span className="text-green-400 text-sm ml-2">— Live pilot deployment</span>
+//                 </span>
+//               </div>
+
+//               <div className="flex justify-center items-center gap-2">
+//                 <span className="text-2xl">🌍</span>
+//                 <span className="text-white drop-shadow-lg">
+//                   <span className="font-bold">Expansion Architecture:</span>
+//                   <span className="ml-2">
+//                     Built to scale across: Education | Health | Agriculture | Finance | Commerce
+//                   </span>
+//                 </span>
+//               </div>
+
+//               <div className="flex justify-center items-center gap-2">
+//                 <span className="text-2xl">🔬</span>
+//                 <span className="text-white drop-shadow-lg">
+//                   <span className="font-bold">Innovation Division:</span>
+//                   <span className="ml-2">
+//                     Mzatinova Labs — Researching next-generation organizational intelligence systems
+//                   </span>
+//                 </span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Hero;
 
 
 // import React, { useState, useEffect, useRef } from 'react';
