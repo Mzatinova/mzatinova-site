@@ -12,12 +12,12 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 // --- MARKETING PAGES ---
-import EduSpacePage from "./pages/eduspace/EduSpacePage";
-import HealthSpacePage from "./pages/healthspace/HealthSpacePage";
-import AgriSpacePage from "./pages/agrispace/AgriSpacePage";
-import FinSpacePage from "./pages/finspace/FinSpacePage";
-import TradeSpacePage from "./pages/tradespace/TradeSpacePage";
-import GovSpacePage from "./pages/govspace/GovSpacePage";
+import EduSpacePage from "./pages/solutions/eduspace/EduSpacePage";
+import HealthSpacePage from "./pages/solutions/healthspace/HealthSpacePage";
+import AgriSpacePage from "./pages/solutions/agrispace/AgriSpacePage";
+import FinSpacePage from "./pages/solutions/finspace/FinSpacePage";
+import TradeSpacePage from "./pages/solutions/tradespace/TradeSpacePage";
+import GovSpacePage from "./pages/solutions/govspace/GovSpacePage";
 
 // --- APP PAGES ---
 import UniversalLogin from "./pages/auth/UniversalLogin";
@@ -27,7 +27,10 @@ import AgriDashboard from "./pages/dashboard/agrispace/AgriDashboard";
 import FinDashboard from "./pages/dashboard/finspace/FinDashboard";
 import TradeDashboard from "./pages/dashboard/tradespace/TradeDashboard";
 import GovDashboard from "./pages/dashboard/govspace/GovDashboard";
-import Contact from "./pages/contact/Contact";
+import Contact from "./pages/solutions/contact/Contact";
+import EnginesPage from "./pages/engines/EnginesPage";
+import LabsPage from "./pages/lab/LabsPage";
+import SignUpPage from "./pages/auth/SignUpPage";
 
 const queryClient = new QueryClient();
 
@@ -44,15 +47,19 @@ const App = () => {
               {/* 1. MARKETING ROUTES */}
               <Route path="/" element={<Index />} />
               <Route path="/solutions/eduspace" element={<EduSpacePage />} />
+
               <Route path="/solutions/healthspace" element={<HealthSpacePage />} />
               <Route path="/solutions/agrispace" element={<AgriSpacePage />} />
               <Route path="/solutions/finspace" element={<FinSpacePage />} />
               <Route path="/solutions/tradespace" element={<TradeSpacePage />} />
               <Route path="/solutions/govspace" element={<GovSpacePage />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/engines" element={<EnginesPage />} />
+              <Route path="/labs" element={<LabsPage />} />
 
               {/* 2. AUTH ROUTE (No more redirects!) */}
               <Route path="/login" element={<UniversalLogin />} />
+              <Route path="/signup" element={<SignUpPage />} />
 
               {/* 3. DASHBOARD ROUTES */}
               <Route path="/dashboard/eduspace" element={<EduDashboard />} />

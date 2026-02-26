@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { Link } from 'react-router-dom';
 
 const GovSpacePage: React.FC = () => {
     return (
@@ -39,11 +40,23 @@ const GovSpacePage: React.FC = () => {
                         GovSpace centralizes citizen services, grant distribution, and national analytics into one transparent engine.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="px-8 py-4 bg-white text-slate-950 rounded-xl font-bold hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(99,102,241,0.2)] flex items-center justify-center gap-2">
                             Deploy GovSpace
                             <ArrowRight className="h-5 w-5" />
                         </button>
+                        <button className="px-8 py-4 bg-slate-900 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                            View Live Demo
+                        </button>
+                    </div> */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                            to="/login"
+                            className="px-8 py-4 bg-white text-slate-950 rounded-xl font-bold hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(99,102,241,0.2)] flex items-center justify-center gap-2"
+                        >
+                            Get Started
+                            <ArrowRight className="h-5 w-5" />
+                        </Link>
                         <button className="px-8 py-4 bg-slate-900 border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
                             View Live Demo
                         </button>

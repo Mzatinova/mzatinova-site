@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, Shield, Loader2, Eye, EyeOff } from 'lucide-react';
+import { Mail, Lock, ArrowRight, Shield, Loader2, Eye, EyeOff, X } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -47,7 +47,15 @@ const UniversalLogin = () => {
                         <p className="text-slate-400">One secure credential for all spaces.</p>
                     </div>
 
-                    <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl">
+                    <div className="bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl relative">
+                        {/* 3. ADD THE CLOSE BUTTON */}
+                        <Link
+                            to="/"
+                            className="absolute top-4 right-4 p-2 text-slate-500 hover:text-white hover:bg-slate-800 rounded-full transition-all"
+                            aria-label="Close"
+                        >
+                            <X className="h-5 w-5" />
+                        </Link>
                         <form onSubmit={handleLogin} className="space-y-6">
 
                             {/* EMAIL FIELD */}
