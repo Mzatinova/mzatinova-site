@@ -97,8 +97,8 @@ const Footer: React.FC = () => {
                 Careers <span className="text-[10px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full">WE'RE HIRING</span>
               </Link></li>
               <li><Link to="/company/news" className="text-gray-400 hover:text-white transition-colors text-sm">News & Updates</Link></li>
-              <li><Link to="/community/blog" className="text-gray-400 hover:text-white transition-colors text-sm">Blog</Link></li>
-              <li><Link to="/community/partners" className="text-gray-400 hover:text-white transition-colors text-sm">Partner Program</Link></li>
+
+
             </ul>
           </div>
 
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-gray-500 mt-0.5" />
-                <span className="text-gray-400 text-sm">Blantyre, Malawi</span>
+                <span className="text-gray-400 text-sm">Zomba, Malawi</span>
               </div>
             </div>
 

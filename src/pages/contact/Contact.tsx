@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
     {
       icon: <MapPin className="h-6 w-6 text-blue-500" />,
       title: "Headquarters",
-      details: "Blantyre, Malawi",
+      details: "Zomba, Malawi",
       description: "Global Operations Center"
     },
     {
@@ -101,7 +101,7 @@ const Contact: React.FC = () => {
                         className="bg-slate-800/50 border-white/10 text-white focus:border-blue-500"
                         value={formData.name}
                         onChange={(e) => handleChange('name', e.target.value)}
-                        placeholder="e.g. Jane Doe"
+                        placeholder="Enter your full name"
                         required
                       />
                     </div>

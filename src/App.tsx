@@ -27,10 +27,11 @@ import AgriDashboard from "./pages/dashboard/agrispace/AgriDashboard";
 import FinDashboard from "./pages/dashboard/finspace/FinDashboard";
 import TradeDashboard from "./pages/dashboard/tradespace/TradeDashboard";
 import GovDashboard from "./pages/dashboard/govspace/GovDashboard";
-import Contact from "./pages/solutions/contact/Contact";
+import Contact from "./pages/contact/Contact";
 import EnginesPage from "./pages/engines/EnginesPage";
 import LabsPage from "./pages/lab/LabsPage";
 import SignUpPage from "./pages/auth/SignUpPage";
+import CompanyPage from "./pages/company/CompanyPage";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,11 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/engines" element={<EnginesPage />} />
               <Route path="/labs" element={<LabsPage />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route path="/company/about" element={<CompanyPage />} />
+              <Route path="/company/mission" element={<CompanyPage />} />
+              <Route path="/company/careers" element={<CompanyPage />} />
+              <Route path="/company/news" element={<CompanyPage />} />
 
               {/* 2. AUTH ROUTE (No more redirects!) */}
               <Route path="/login" element={<UniversalLogin />} />

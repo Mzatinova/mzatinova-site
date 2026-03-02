@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeMobileView, setActiveMobileView] = useState('main');
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isExploreOpen, setIsExploreOpen] = useState(false);
 
@@ -16,6 +17,13 @@ const Header = () => {
 
   const isNavActive = (sectionId: string) => {
     return location.pathname === '/' && activeSection === sectionId;
+  };
+
+  // Add this function with your other handlers
+  const handleNavigation = (path: string) => {
+    setIsMobileMenuOpen(false);
+    setActiveMobileView('main');
+    navigate(path);
   };
 
   useEffect(() => {
@@ -207,6 +215,78 @@ const Header = () => {
             </button>
           </div>
         </div>
+        {/* MOBILE MENU - Add this right before the closing </nav> tag */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-4 bg-slate-900/95 rounded-lg border border-slate-700 p-4 space-y-2 max-h-[80vh] overflow-y-auto">
+
+            {/* Back button */}
+            {activeMobileView !== 'main' && (
+              <button
+                onClick={() => setActiveMobileView('main')}
+                className="flex items-center text-gray-400 hover:text-white mb-4"
+              >
+                ← Back
+              </button>
+            )}
+
+            {/* MAIN MENU */}
+            {activeMobileView === 'main' && (
+              <>
+                <div onClick={() => handleScroll('hero')} className="text-white text-lg py-3 border-b border-slate-800 cursor-pointer">Home</div>
+                <div onClick={() => handleScroll('engines')} className="text-white text-lg py-3 border-b border-slate-800 cursor-pointer">Our Engines</div>
+
+                <div onClick={() => setActiveMobileView('solutions')} className="flex justify-between items-center text-white text-lg py-3 border-b border-slate-800 cursor-pointer">
+                  <span>Solutions</span> <ChevronDown size={20} />
+                </div>
+
+                <div onClick={() => handleScroll('labs')} className="text-white text-lg py-3 border-b border-slate-800 cursor-pointer">Mzatinova Labs</div>
+                <div onClick={() => navigate('/contact')} className="text-white text-lg py-3 border-b border-slate-800 cursor-pointer">Contact</div>
+
+                {/* Secondary menu */}
+                <div className="mt-6 pt-4 border-t border-slate-800 space-y-2">
+                  <div onClick={() => setActiveMobileView('explore')} className="flex justify-between items-center text-gray-300 py-2 cursor-pointer">
+                    <span>Explore</span> <ChevronDown size={16} />
+                  </div>
+                  <div onClick={() => navigate('/login')} className="text-gray-300 py-2 cursor-pointer">Sign In</div>
+                  <div onClick={() => navigate('/signup')} className="text-blue-400 py-2 font-semibold cursor-pointer">Sign Up</div>
+                </div>
+              </>
+            )}
+
+            {/* SOLUTIONS SUB-MENU */}
+            {activeMobileView === 'solutions' && (
+              <>
+                {solutionsData.map((item, idx) => (
+                  <div key={idx} onClick={() => handleNavigation(item.path)} className="py-3 border-b border-slate-800 text-gray-300 cursor-pointer">
+                    {item.title}
+                  </div>
+                ))}
+              </>
+            )}
+
+            {/* EXPLORE SUB-MENU */}
+            {activeMobileView === 'explore' && (
+              <>
+                <div className="mb-4">
+                  <h3 className="text-blue-400 font-bold uppercase text-xs mb-2">Community</h3>
+                  {exploreData.community.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="py-3 border-b border-slate-800 text-gray-300 cursor-pointer">
+                      {item.title}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4">
+                  <h3 className="text-blue-400 font-bold uppercase text-xs mb-2">Support</h3>
+                  {exploreData.support.map((item, idx) => (
+                    <div key={idx} onClick={() => handleNavigation(item.path)} className="py-3 border-b border-slate-800 text-gray-300 cursor-pointer">
+                      {item.title}
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </nav>
     </header>
   );

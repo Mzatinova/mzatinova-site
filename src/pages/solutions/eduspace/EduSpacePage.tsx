@@ -26,11 +26,17 @@ const EduSpacePage: React.FC = () => {
                 <div className="max-w-7xl mx-auto text-center relative z-10">
                     <div className="inline-flex items-center gap-2 bg-blue-950/50 border border-blue-500/30 px-4 py-2 rounded-full mb-8">
                         <GraduationCap className="h-4 w-4 text-blue-400" />
-                        <span className="text-sm font-semibold text-blue-300 tracking-wide uppercase">Mzatinova Core • Education Sector</span>
+                        <span className="text-sm font-semibold text-blue-300 tracking-wide uppercase">Mzatinova Eduspace</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
+                    {/* <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
                         The Operating System <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+                            for Modern Schools.
+                        </span>
+                    </h1> */}
+                    <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
+                        The Platform <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                             for Modern Schools.
                         </span>

@@ -25,11 +25,11 @@ const AgriSpacePage: React.FC = () => {
                 <div className="max-w-7xl mx-auto text-center relative z-10">
                     <div className="inline-flex items-center gap-2 bg-green-950/50 border border-green-500/30 px-4 py-2 rounded-full mb-8">
                         <Sprout className="h-4 w-4 text-green-400" />
-                        <span className="text-sm font-semibold text-green-300 tracking-wide uppercase">Mzatinova Core • Agriculture Sector</span>
+                        <span className="text-sm font-semibold text-green-300 tracking-wide uppercase">Mzatinova AgriSpace</span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-                        The Operating System <br />
+                        The Platform <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-lime-400">
                             for Modern Agribusiness.
                         </span>

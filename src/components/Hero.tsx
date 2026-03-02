@@ -55,7 +55,7 @@ const HeroSection: React.FC = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
           </span>
-          <span className="text-xs font-mono text-slate-300 tracking-wider uppercase">Mzatinova Core OS Live</span>
+          <span className="text-xs font-mono text-slate-300 tracking-wider uppercase">Mzatinova • One Core, All Industries</span>
         </div>
 
         {/* The Hook */}
@@ -70,12 +70,17 @@ const HeroSection: React.FC = () => {
 
         {/* High-End CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link to="/solutions">
+          {/* <Link to="/solutions">
             <button className="group relative px-8 py-4 bg-white text-slate-950 rounded-xl font-bold transition-all duration-300 hover:bg-slate-200 flex items-center gap-2 shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)]">
               Explore Industry Solutions
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
-          </Link>
+          </Link> */}
+
+          <a href="#solutions" className="group relative px-8 py-4 bg-white text-slate-950 rounded-xl font-bold transition-all duration-300 hover:bg-slate-200 flex items-center gap-2 shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:shadow-[0_0_40px_rgba(59,130,246,0.5)]">
+            Explore Industry Solutions
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </a>
 
           <Link to="/contact">
             <button className="px-8 py-4 bg-slate-900/50 backdrop-blur-md border border-slate-700 text-white rounded-xl font-semibold hover:bg-slate-800 hover:border-slate-500 transition-all duration-300 flex items-center gap-2">
