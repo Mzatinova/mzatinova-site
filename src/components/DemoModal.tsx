@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { X, CheckCircle2 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+// import { supabase } from '@/lib/supabase';
 
 export default function DemoModal({ open, onClose, title }: { open: boolean; onClose: () => void; title: string }) {
   const [form, setForm] = useState({ name: '', email: '', organization: '' });
@@ -12,7 +12,7 @@ export default function DemoModal({ open, onClose, title }: { open: boolean; onC
     e.preventDefault();
     if (!form.email) return;
     try {
-      await supabase.from('mzatinova_leads').insert({ ...form, source: 'demo-request', message: title });
+      // await supabase.from('mzatinova_leads').insert({ ...form, source: 'demo-request', message: title });
       await fetch('https://famous.ai/api/crm/6a1f0c67e3698e04fe29ba90/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

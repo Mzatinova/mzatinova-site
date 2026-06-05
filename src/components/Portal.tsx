@@ -1,5 +1,5 @@
 import { LogOut, Users, CalendarCheck, Wallet, GraduationCap, TrendingUp, Bell, FileText, ArrowLeft } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+// import { useAuth } from '@/contexts/AuthContext';
 
 const STATS = [
   { icon: Users, label: 'Total Students', value: '1,284', delta: '+3.2%', color: 'from-cyan-400 to-blue-500' },
@@ -19,9 +19,9 @@ const BARS = [55, 70, 60, 85, 72, 90, 78, 95, 80, 88, 92, 84];
 const MONTHS = ['J','F','M','A','M','J','J','A','S','O','N','D'];
 
 export default function Portal({ onExit }: { onExit: () => void }) {
-  const { profile, user, signOut } = useAuth();
-  const name = profile?.full_name || user?.email?.split('@')[0] || 'Admin';
-  const org = profile?.organization || 'Your Organization';
+  // const { profile, user, signOut } = useAuth();
+  const name = 'Admin'; // profile?.full_name || user?.email?.split('@')[0] || 'Admin';
+  const org = 'Your Organization'; // profile?.organization || 'Your Organization';
 
   return (
     <div className="min-h-screen bg-[#05060f] text-white">
@@ -40,9 +40,9 @@ export default function Portal({ onExit }: { onExit: () => void }) {
             <button onClick={onExit} className="hidden sm:flex items-center gap-2 text-sm text-slate-300 hover:text-cyan-400 transition">
               <ArrowLeft size={16} /> Back to site
             </button>
-            <button onClick={signOut} className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 hover:border-rose-400/40 hover:text-rose-300 transition">
+            {/* <button onClick={signOut} className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-white/5 border border-white/10 hover:border-rose-400/40 hover:text-rose-300 transition">
               <LogOut size={15} /> Sign out
-            </button>
+            </button> */}
           </div>
         </div>
       </header>
@@ -53,9 +53,9 @@ export default function Portal({ onExit }: { onExit: () => void }) {
             <h1 className="font-grotesk text-2xl lg:text-3xl font-bold">Welcome back, {name}</h1>
             <p className="text-slate-400 mt-1">Here's what's happening at {org} today.</p>
           </div>
-          <span className="px-4 py-2 rounded-full text-sm bg-gradient-to-r from-cyan-400/10 to-violet-500/10 border border-white/10 text-cyan-300">
+          {/* <span className="px-4 py-2 rounded-full text-sm bg-gradient-to-r from-cyan-400/10 to-violet-500/10 border border-white/10 text-cyan-300">
             {profile?.plan || 'EduSpace Starter'}
-          </span>
+          </span> */}
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">

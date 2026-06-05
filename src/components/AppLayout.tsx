@@ -13,13 +13,13 @@ import Careers from './Careers';
 import FinalCTA from './FinalCTA';
 import Footer from './Footer';
 import DemoModal from './DemoModal';
-import { useAuth } from '@/contexts/AuthContext';
+// import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from './AuthModal';
 import Portal from './Portal';
 import Contact from './Contact';
 
 const AppLayout: React.FC = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
   const [demo, setDemo] = useState(false);
   const [demoTitle, setDemoTitle] = useState('Request a Demo');
     const [auth, setAuth] = useState(false);
@@ -27,9 +27,9 @@ const AppLayout: React.FC = () => {
   const openDemo = (title = 'Request a Demo') => { setDemoTitle(title); setDemo(true); };
   const openTalk = () => { setDemoTitle('Talk to Us'); setDemo(true); };
 
-    if (user && showPortal) {
-    return <Portal onExit={() => setShowPortal(false)} />;
-  }
+  //   if (user && showPortal) {
+  //   return <Portal onExit={() => setShowPortal(false)} />;
+  // }
   
   return (
     <ThemeProvider>

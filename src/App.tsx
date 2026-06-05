@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import EduSpaceDemo from "./pages/EduSpaceDemo";
 import NotFound from "./pages/NotFound";
-import { AuthProvider } from "./contexts/AuthContext";
+// import { AuthProvider } from "./contexts/AuthContext";
 import EduSpaceLanding from "./components/platforms/eduspace/EduSpaceLanding";
 
 const queryClient = new QueryClient();
@@ -16,7 +16,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <ThemeProvider defaultTheme="dark">
     <QueryClientProvider client={queryClient}>
-        <AuthProvider>
+        {/* <AuthProvider> */}
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -29,7 +29,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
-      </AuthProvider>
+      {/* </AuthProvider> */}
     </QueryClientProvider>
   </ThemeProvider>
 );

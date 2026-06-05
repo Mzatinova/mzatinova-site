@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { X, Lock } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+// import { useAuth } from '@/contexts/AuthContext';
 
 
 export default function AuthModal({ open, onClose, onSuccess }: { open: boolean; onClose: () => void; onSuccess: () => void }) {
-  const { signIn, signUp } = useAuth();
+  // const { signIn, signUp } = useAuth();
   const [mode, setMode] = useState<'login' | 'signup'>('login');
   const [form, setForm] = useState({ email: '', password: '', fullName: '', organization: '' });
   const [err, setErr] = useState('');
@@ -12,17 +12,17 @@ export default function AuthModal({ open, onClose, onSuccess }: { open: boolean;
 
   if (!open) return null;
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErr('');
-    setBusy(true);
-    const res = mode === 'login'
-      ? await signIn(form.email, form.password)
-      : await signUp(form.email, form.password, form.fullName, form.organization);
-    setBusy(false);
-    if (res.error) { setErr(res.error); return; }
-    onSuccess();
-  };
+  // const submit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setErr('');
+  //   setBusy(true);
+  //   const res = mode === 'login'
+  //     ? await signIn(form.email, form.password)
+  //     : await signUp(form.email, form.password, form.fullName, form.organization);
+  //   setBusy(false);
+  //   if (res.error) { setErr(res.error); return; }
+  //   onSuccess();
+  // };
 
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
@@ -41,7 +41,7 @@ export default function AuthModal({ open, onClose, onSuccess }: { open: boolean;
 
         {err && <div className="mt-4 text-sm text-rose-400 bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2">{err}</div>}
 
-        <form onSubmit={submit} className="mt-5 space-y-3">
+        {/* <form onSubmit={submit} className="mt-5 space-y-3">
           {mode === 'signup' && (
             <>
               <input required placeholder="Full Name" value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:border-cyan-400/50 outline-none" />
@@ -53,7 +53,7 @@ export default function AuthModal({ open, onClose, onSuccess }: { open: boolean;
           <button disabled={busy} className="w-full py-3.5 rounded-xl font-semibold text-[#05060f] bg-gradient-to-r from-cyan-400 to-violet-500 hover:shadow-lg hover:shadow-cyan-500/40 transition-all disabled:opacity-60">
             {busy ? 'Please wait...' : mode === 'login' ? 'Sign In' : 'Create Account'}
           </button>
-        </form>
+        </form> */}
 
         <p className="text-center text-sm text-slate-400 mt-5">
           {mode === 'login' ? "Don't have access?" : 'Already registered?'}{' '}

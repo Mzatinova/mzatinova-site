@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Menu, X, Moon, Sun, Sparkles, LogIn, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/lib/theme';
 import { NAV } from '@/lib/data';
-import { useAuth } from '@/contexts/AuthContext';
+// import { useAuth } from '@/contexts/AuthContext';
 
 const slug = (s: string) => s.toLowerCase().replace(/\s+/g, '-');
 
@@ -10,7 +10,7 @@ export default function Navbar({ onDemo, onLogin, onPortal }: { onDemo: () => vo
   const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
