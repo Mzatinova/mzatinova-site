@@ -3,65 +3,61 @@ import {
   CheckCircle2, Users, GraduationCap, ShieldCheck, 
   FileSpreadsheet, CreditCard, Clock, 
   BellRing, BarChart3, ShieldAlert, ArrowRight, Sparkles,
-  LayoutDashboard, Layers, MonitorSmartphone, HelpCircle
+  LayoutDashboard, Layers, ChevronDown, ExternalLink
 } from 'lucide-react';
 
-// 1. Dynamic Ecosystem Configurations Array (Add future products here)
+// 1. DYNAMIC ECOSYSTEM ARRAY - Fully scalable for infinite products
 const eduspaceProducts = [
   {
     id: 'hub',
     title: 'EduSpace Hub',
-    subtitle: 'Administration & Data Core',
-    desc: 'The administrative command center for directors and teachers. Handle admissions, manage complex financial structures, process class records, and control institutional workflows from a highly structured secure dashboard.',
-    status: 'Live',
-    colorClass: 'cyan',
-    borderColor: 'border-cyan-500/20',
-    bgGradient: 'from-cyan-500/[0.02]',
-    icon: LayoutDashboard
+    subtitle: 'Admin & Operations Core',
+    badge: 'Live',
+    loginUrl: 'https://hub.mzatinova.com/login',
+    desc: 'The centralized engine for school directors and administrators. Manage admissions, track complex school fees, instantly calculate terminal averages, and run multi-tenant school operations from one secure desk.',
+    accentColor: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20',
+    icon: LayoutDashboard,
+    highlights: ['Multi-currency fee tracking', 'Malawi curriculum grading schema', 'Staff data isolation']
   },
   {
     id: 'portal',
     title: 'EduSpace Portal',
-    subtitle: 'Parent & Public Touchpoint',
-    desc: 'The client-facing public interface. Provides families with direct access to continuous assessment trackers, terminal performance sheets, and fee receipt logs using dynamic tracking numbers.',
-    status: 'Live',
-    colorClass: 'purple',
-    borderColor: 'border-purple-500/20',
-    bgGradient: 'from-purple-500/[0.02]',
-    icon: Layers
+    subtitle: 'Parent & Public Gateway',
+    badge: 'Live',
+    loginUrl: 'https://portal.mzatinova.com/login',
+    desc: 'The public-facing communication layer. Parents use secure lookup profiles to instantly monitor student attendance logs, download verified report cards, and track outstanding balance structures.',
+    accentColor: 'text-purple-400 bg-purple-500/10 border-purple-500/20',
+    icon: Layers,
+    highlights: ['Instant tracking number access', 'Mobile-friendly interfaces', 'Secure result distribution']
   }
 ];
 
-// 2. Global core micro-features map
 const coreFeatures = [
   { title: 'Student Information System', desc: 'Centralized profiles for every student including enrollment history, parent contacts, and terminal academic tracking.', icon: Users },
-  { title: 'Automated Grading & Report Cards', desc: 'Input marks once. System instantly calculates positions, weights terminal averages, and generates beautiful report cards.', icon: FileSpreadsheet },
+  { title: 'Automated Grading & Report Cards', desc: 'Input marks once. System instantly calculates positions, weights terminal averages, and generates report cards.', icon: FileSpreadsheet },
   { title: 'Smart Attendance Tracking', desc: 'Track daily student and teacher presence with instant digital logs. Automatically flags chronic absences.', icon: Clock },
   { title: 'Fees & Finance Management', desc: 'Track school fee structures, issue digital receipts, flag outstanding balances, and monitor school operational accounts.', icon: CreditCard },
   { title: 'Instant SMS & WhatsApp Alerts', desc: 'Send automated broadcast notices for emergency meetings, holiday breaks, or direct notifications for unpaid balances.', icon: BellRing },
-  { title: 'Real-time Analytics Dashboard', desc: 'Visual analytics for school directors to monitor enrollment trends, collection rates, and global school performance metrics.', icon: BarChart3 },
-  { title: 'Teacher & Staff Management', desc: 'Dedicated streamlined interfaces for teachers to submit continuous assessments and manage classroom diaries securely.', icon: GraduationCap },
-  { title: 'Parent Lookup Gateway', desc: 'A dedicated public lookup gateway where parents safely track results, financial updates, and feedback.', icon: ShieldCheck },
-  { title: 'Secure Data Safeguards', desc: 'Bank-grade cloud data isolation keeping student personal records, historical archives, and financial balances 100% private and protected.', icon: ShieldAlert }
+  { title: 'Real-time Analytics Dashboard', desc: 'Visual analytics for school directors to monitor enrollment trends, collection rates, and global school performance metrics.', icon: BarChart3 }
 ];
 
 const EduSpaceSales: React.FC = () => {
-  const [formData, setFormData] = useState({
-    schoolName: '',
-    directorName: '',
-    whatsapp: '',
-    studentCount: 'under-200'
-  });
+  const [activeTab, setActiveTab] = useState(eduspaceProducts[0].id);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ schoolName: '', directorName: '', whatsapp: '', studentCount: 'under-200' });
+
+  const activeProduct = eduspaceProducts.find(p => p.id === activeTab) || eduspaceProducts[0];
+  const ActiveProductIcon = activeProduct.icon;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Lead captured:', formData);
     setSubmitted(true);
   };
 
   return (
-    <div className="min-h-screen bg-[#05070f] text-slate-100 font-sans antialiased">
+    <div className="min-h-screen bg-[#05070f] text-slate-100 font-sans antialiased selection:bg-cyan-500/30">
+      
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#05070f]/80 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-5 h-20 flex items-center justify-between">
@@ -70,23 +66,53 @@ const EduSpaceSales: React.FC = () => {
               Mzatinova <span className="text-cyan-500">EduSpace</span>
             </span>
             <span className="text-[10px] bg-cyan-500/10 text-cyan-400 font-semibold px-2 py-0.5 rounded-full border border-cyan-500/20">
-              Enterprise Umbrella Suite
+              Enterprise Suite
             </span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-            <a href="#suite" className="hover:text-cyan-400 transition-colors">Our Ecosystem</a>
-            <a href="#features" className="hover:text-cyan-400 transition-colors">Core Modules</a>
-            <a href="#why-eduspace" className="hover:text-cyan-400 transition-colors">Why Us</a>
+            <a href="#ecosystem" className="hover:text-white transition-colors">Our Ecosystem</a>
+            <a href="#features" className="hover:text-white transition-colors">Core Modules</a>
+            <a href="#onboard" className="hover:text-white transition-colors">Deploy</a>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <a 
-              href="https://portal.mzatinova.com/login" 
-              className="text-xs sm:text-sm text-slate-300 hover:text-white font-medium"
-            >
-              Portal Login
-            </a>
+          {/* DYNAMIC DROPDOWN MENU - Loops through all apps dynamically */}
+          <div className="flex items-center gap-4 relative">
+            <div className="relative">
+              <button 
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="h-10 px-4 rounded-xl bg-white/5 border border-white/10 text-sm font-medium flex items-center gap-2 hover:bg-white/10 transition-all text-slate-200"
+              >
+                App Portals <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-56 rounded-2xl border border-white/10 bg-[#0b0f19] p-2 shadow-2xl space-y-1">
+                  {eduspaceProducts.map((prod) => {
+                    const ProdIcon = prod.icon;
+                    return (
+                      <a 
+                        key={prod.id}
+                        href={prod.loginUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all text-left group"
+                      >
+                        <div className="flex items-center gap-3">
+                          <ProdIcon className="w-4 h-4 text-slate-400 group-hover:text-cyan-400" />
+                          <div>
+                            <p className="text-xs font-semibold text-white">{prod.title}</p>
+                            <p className="text-[10px] text-slate-400">{prod.badge} App</p>
+                          </div>
+                        </div>
+                        <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-white" />
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
             <a 
               href="#onboard" 
               className="h-10 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-[#05070f] text-sm font-semibold flex items-center transition-all"
@@ -98,99 +124,123 @@ const EduSpaceSales: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-36 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[65rem] h-[65rem] bg-cyan-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[65rem] h-[65rem] bg-cyan-500/[0.02] rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-5 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 text-left space-y-6">
+          <div className="lg:col-span-6 text-left space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/5 border border-cyan-500/10 text-xs font-medium text-cyan-400">
-              <Sparkles className="w-3.5 h-3.5" /> Scalable Infrastructure for Growing Institutions
+              <Sparkles className="w-3.5 h-3.5" /> Complete Infrastructure Suite
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
-              The Unified Operating Suite for <span className="text-cyan-500">Modern Schools</span>
+              The Unified Architecture for <span className="text-cyan-500">School Systems</span>
             </h1>
             <p className="text-lg text-slate-400 max-w-2xl leading-relaxed">
-              Eliminate loose application patches. **EduSpace** links every sector of your school administration, parent touchpoints, and functional modules under a single, highly extensible data environment.
+              No single interface fits every user. **EduSpace** provides distinct, specialized applications built on a shared database core to power back-office administrative control and public consumer workflows simultaneously.
             </p>
-            <div className="pt-4 flex flex-wrap gap-4">
+            <div className="pt-2 flex flex-wrap gap-4">
               <a href="#onboard" className="h-14 px-8 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-[#05070f] font-semibold flex items-center gap-2 shadow-lg shadow-cyan-500/10 transition-all">
-                Request Suite Sandbox <ArrowRight className="w-4 h-4" />
+                Request Suite Activation <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Scalable UI Stack Mockup */}
-          <div className="lg:col-span-5 relative">
-            <div className="w-full aspect-[4/3] rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-6 relative shadow-2xl flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/40" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/40" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/40" />
-                  </div>
-                  <span className="text-xs text-slate-500 font-mono">eduspace-architecture.v2</span>
-                </div>
-                
-                {/* Dynamically scaling hero stack indicators based on global configuration array */}
-                <div className="space-y-3">
-                  {eduspaceProducts.map((prod) => {
-                    const ProdIcon = prod.icon;
-                    return (
-                      <div 
-                        key={prod.id} 
-                        className={`h-14 rounded-xl bg-white/[0.02] border ${prod.borderColor} flex items-center justify-between px-4`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <ProdIcon className="w-4 h-4 text-slate-400" />
-                          <div className="text-left">
-                            <p className="text-xs font-semibold text-white">{prod.title}</p>
-                            <p className="text-[10px] text-slate-400">{prod.subtitle}</p>
-                          </div>
-                        </div>
-                        <span className="text-[10px] font-mono bg-white/5 text-slate-300 px-2 py-0.5 rounded">
-                          {prod.status}
-                        </span>
-                      </div>
-                    );
-                  })}
+          {/* INTERACTIVE HERO GRAPHIC - Showcases every app clearly with tab switching */}
+          <div className="lg:col-span-6 relative">
+            <div className="w-full rounded-3xl border border-white/10 bg-[#090d16] p-6 shadow-2xl text-left">
+              <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Live System Environment Explorer</span>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-rose-500/40" /><div className="w-2.5 h-2.5 rounded-full bg-amber-500/40" /><div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-500">
-                <span>Unified Multi-Tenant Database Core</span>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              {/* Dynamic Tabs */}
+              <div className="grid grid-cols-2 gap-2 p-1 bg-white/5 rounded-xl mb-6">
+                {eduspaceProducts.map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => setActiveTab(p.id)}
+                    className={`h-10 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 ${
+                      activeTab === p.id ? 'bg-[#05070f] text-cyan-400 shadow-md border border-white/5' : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    <p.icon className="w-3.5 h-3.5" />
+                    {p.title}
+                  </button>
+                ))}
+              </div>
+
+              {/* Dynamic Product Visual Box */}
+              <div className="space-y-4 min-h-[180px] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                      <ActiveProductIcon className="w-5 h-5 text-cyan-400" /> {activeProduct.title}
+                    </h3>
+                    <span className={`text-[10px] uppercase font-mono tracking-widest px-2.5 py-0.5 rounded-full border ${activeProduct.accentColor}`}>
+                      {activeProduct.badge} Module
+                    </span>
+                  </div>
+                  <p className="text-xs font-mono text-slate-400 mt-1">{activeProduct.subtitle}</p>
+                  <p className="text-sm text-slate-300 mt-4 leading-relaxed">{activeProduct.desc}</p>
+                </div>
+
+                <div className="pt-4 border-t border-white/5 flex flex-wrap gap-2">
+                  {activeProduct.highlights.map((h, i) => (
+                    <span key={i} className="text-[11px] bg-white/5 text-slate-300 px-2.5 py-1 rounded-md border border-white/5">
+                      ✓ {h}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Scalable Product Sub-divisions Engine Grid Section */}
-      <section id="suite" className="py-16 border-t border-white/5 bg-white/[0.005]">
+      {/* DETAILED ECOSYSTEM SECTION - Clear visibility & separation of all live apps */}
+      <section id="ecosystem" className="py-24 border-t border-white/5 bg-white/[0.005]">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl font-bold text-white">The Integrated Application Ecosystem</h2>
-            <p className="text-sm text-slate-400 mt-2">
-              EduSpace provisions individual specialized systems that hook seamlessly into a shared database infrastructure.
+          <div className="max-w-3xl text-left mb-16">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
+              One Unified Account. Distinct Production Engines.
+            </h2>
+            <p className="mt-4 text-slate-400">
+              When your school registers to the EduSpace platform, you deploy separate localized gateways out of the box. No cross-contamination, perfect data scaling.
             </p>
           </div>
 
-          {/* Maps automatically across any product you add or remove */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {eduspaceProducts.map((product) => {
-              const IconComponent = product.icon;
+              const ProductIcon = product.icon;
               return (
-                <div 
-                  key={product.id} 
-                  className={`p-8 rounded-3xl border border-white/5 bg-gradient-to-b ${product.bgGradient} to-transparent text-left hover:border-white/10 transition-colors`}
-                >
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-300 mb-4">
-                    <IconComponent className="w-5 h-5" />
+                <div key={product.id} className="p-8 rounded-3xl border border-white/5 bg-[#090d16] text-left flex flex-col justify-between group hover:border-white/10 transition-all">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white mb-6">
+                      <ProductIcon className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-bold text-white">{product.title}</h3>
+                      <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${product.accentColor}`}>
+                        Production {product.badge}
+                      </span>
+                    </div>
+                    <p className="text-xs font-mono text-slate-500">{product.subtitle}</p>
+                    <p className="text-sm text-slate-400 leading-relaxed pt-2">{product.desc}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-white">{product.title}</h3>
-                  <p className="text-xs font-mono text-cyan-400 mt-0.5">{product.subtitle}</p>
-                  <p className="text-sm text-slate-400 mt-3 leading-relaxed">{product.desc}</p>
+                  
+                  <div className="pt-8 mt-8 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-xs text-slate-500 font-mono">Status: Connected to Database</span>
+                    <a 
+                      href={product.loginUrl} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="text-xs font-semibold text-cyan-400 flex items-center gap-1.5 hover:text-cyan-300 transition-colors"
+                    >
+                      Access App <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               );
             })}
@@ -198,22 +248,22 @@ const EduSpaceSales: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Shared Features Grid */}
       <section id="features" className="py-24 border-t border-white/5 bg-white/[0.01]">
         <div className="max-w-7xl mx-auto px-5">
           <div className="max-w-2xl text-left mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Engineered to Run Every Aspect of Your Institution
+              Cross-Platform Functional Capabilities
             </h2>
             <p className="mt-4 text-slate-400">
-              Stop stitching loose modules together. The EduSpace ecosystem provides an enterprise management architecture right out of the box.
+              Features pass data cleanly across both administrative interfaces and consumer-facing access portals in real-time.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreFeatures.map((feat, index) => (
-              <div key={index} className="p-6 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-cyan-500/30 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-2xl bg-cyan-500/5 border border-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform">
+              <div key={index} className="p-6 rounded-3xl border border-white/5 bg-white/[0.02] text-left">
+                <div className="w-12 h-12 rounded-2xl bg-cyan-500/5 border border-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6">
                   <feat.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-white">{feat.title}</h3>
@@ -224,43 +274,14 @@ const EduSpaceSales: React.FC = () => {
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section id="why-eduspace" className="py-24 max-w-7xl mx-auto px-5 border-t border-white/5">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 space-y-4 text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-white">
-              Built for the Real Challenges Schools Face
-            </h2>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Many schools still struggle with tedious manual entry ledgers, delayed report card compilation timelines, unverified fee balances, and communication gaps with parents.
-            </p>
-          </div>
-          
-          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4 text-left">
-            {[
-              { t: 'Zero Paperwork Overhead', d: 'Securely archive structural student folders, saving extensive physical data logs.' },
-              { t: 'Instant Performance Output', d: 'Generate balanced terminal position indices across entire classrooms instantly.' },
-              { t: 'Automated Family Updates', d: 'Broadcast critical attendance or billing data straight to mobile channels.' },
-              { t: 'Unified System Security', d: 'Separate structural operations entirely across safe client-facing profiles.' }
-            ].map((v, i) => (
-              <div key={i} className="p-5 rounded-2xl border border-white/5 bg-white/[0.01]">
-                <span className="text-xs font-mono text-cyan-500 font-semibold">0{i+1}</span>
-                <h4 className="font-bold text-white mt-2 text-base">{v.t}</h4>
-                <p className="text-xs text-slate-400 mt-1 leading-relaxed">{v.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Capture Form */}
+      {/* Onboarding Form */}
       <section id="onboard" className="py-24 border-t border-white/5 bg-white/[0.01]">
         <div className="max-w-4xl mx-auto px-5 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Deploy the EduSpace Suite for Your Institution
+            Provision the EduSpace Umbrella Suite
           </h2>
           <p className="mt-3 text-slate-400 max-w-xl mx-auto text-sm">
-            Provide your foundational parameters below. The Mzatinova onboarding desk will connect with you to provision your architecture sandbox.
+            Provide your foundational parameters below. The Mzatinova onboarding desk will establish your production instance.
           </p>
 
           <div className="mt-12 text-left p-8 sm:p-10 rounded-3xl border border-white/10 bg-[#05070f] relative overflow-hidden shadow-2xl">
