@@ -25,7 +25,19 @@ const EduSpace: React.FC = () => {
               <Link to="/eduspace-demo" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-shadow">
                 <MousePointerClick className="w-4 h-4" /> Try Live Demo
               </Link>
-        <a 
+
+              {import.meta.env.DEV ? (
+  <Link to="/platforms/eduspace" className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 border border-cyan-500/30 bg-cyan-500/[0.02] hover:bg-gradient-to-r hover:from-cyan-500 hover:via-blue-500 hover:to-indigo-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+    View more on EduSpace 
+    <ArrowRight className="w-4 h-4 text-cyan-500 group-hover:text-white group-hover:translate-x-1 transition-transform" />
+  </Link>
+) : (
+  <a href="https://eduspace.mzatinova.com" target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 border border-cyan-500/30 bg-cyan-500/[0.02] hover:bg-gradient-to-r hover:from-cyan-500 hover:via-blue-500 hover:to-indigo-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+    View more on EduSpace 
+    <ArrowRight className="w-4 h-4 text-cyan-500 group-hover:text-white group-hover:translate-x-1 transition-transform" />
+  </a>
+)}
+        {/* <a 
         href="https://eduspace.mzatinova.com" 
         target="_blank"
         rel="noreferrer"
@@ -41,7 +53,7 @@ const EduSpace: React.FC = () => {
               >
                 View more on EduSpace 
                 <ArrowRight className="w-4 h-4 text-cyan-500 group-hover:text-white group-hover:translate-x-1 transition-transform" />
-              </Link> */}
+              </Link>  */}
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4">
               {[['12K+', 'Students'], ['320+', 'Teachers'], ['98%', 'Satisfaction']].map(([v, l]) => (
