@@ -7,8 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import EduSpaceDemo from "./pages/EduSpaceDemo";
 import NotFound from "./pages/NotFound";
-// import { AuthProvider } from "./contexts/AuthContext";
-import EduSpaceLanding from "./components/platforms/eduspace/EduSpaceLanding";
+
+
+import EduSpacePlatform from "./components/platforms/eduspace/EduSpacePlatform";
 
 const queryClient = new QueryClient();
 
@@ -26,15 +27,17 @@ const App = () => {
           <BrowserRouter>
             <Routes>
               {/* If on the subdomain, serve EduSpace at the root path, otherwise show main Index */}
-              <Route 
+              {/* <Route 
                 path="/" 
                 element={isEduSpaceSubdomain ? <EduSpaceLanding /> : <Index />} 
-              />
+              /> */}
+              <Route path="/" element={isEduSpaceSubdomain ? <EduSpacePlatform /> : <Index />} />
               
               <Route path="/eduspace-demo" element={<EduSpaceDemo />} />
               
               {/* Kept here for local testing (localhost) and internal path safety */}
-              <Route path="/platforms/eduspace" element={<EduSpaceLanding />} />
+              {/* <Route path="/platforms/eduspace" element={<EduSpaceLanding />} /> */}
+              <Route path="/platforms/eduspace" element={<EduSpacePlatform />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
