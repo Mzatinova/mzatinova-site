@@ -25,14 +25,14 @@ const EduSpacePlatform: React.FC = () => {
       title: 'EduSpace Portal',
       description: 'Parent and guardian access gateway. Track attendance, view report cards, check fee balances.',
       icon: Layers,
-      loginUrl: 'https://portal.mzatinova.com/login',
+      loginUrl: 'https://eduspaceportal.mzatinova.com/login',
       color: 'indigo'
     },
     {
       title: 'EduSpace Hub',
       description: 'Management dashboard for school owners and administrators. Manage admissions, track fees, generate reports.',
       icon: LayoutDashboard,
-      loginUrl: 'https://hub.mzatinova.com/login',
+      loginUrl: 'https://eduspacehub.mzatinova.com/',
       color: 'blue'
     },
 
@@ -151,7 +151,6 @@ const EduSpacePlatform: React.FC = () => {
       </section>
 
       {/* ========== PRODUCTS SECTION ========== */}
-    {/* ========== PRODUCTS SECTION - BEAUTIFIED & COMPACT ========== */}
 <section id="products" className="py-16 bg-gradient-to-b from-slate-50 to-white">
   <div className="max-w-5xl mx-auto px-5">
     <div className="text-center mb-10">
@@ -228,7 +227,7 @@ const EduSpacePlatform: React.FC = () => {
           {/* CTA - conditional for Portal vs Hub */}
 {product.title === 'EduSpace Portal' ? (
   <a 
-    href="https://portal.mzatinova.com" 
+    href="https://eduspaceportal.mzatinova.com/" 
     target="_blank" 
     rel="noreferrer" 
     className={`group/btn inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white font-semibold text-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
@@ -264,7 +263,6 @@ const EduSpacePlatform: React.FC = () => {
 </section>
 
       {/* ========== SETUP SECTION ========== */}
-{/* ========== SETUP SECTION - BEAUTIFIED & WIDER ========== */}
 <section id="setup" className="py-20 bg-gradient-to-b from-white to-slate-50">
   <div className="max-w-4xl mx-auto px-5">
     {/* Header with icon */}
@@ -273,7 +271,7 @@ const EduSpacePlatform: React.FC = () => {
         <Sparkles className="w-3 h-3" /> Get Started with EduSpace Portal
       </div>
       <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">
-        Setup Your <span className="text-blue-600">School</span>
+        Setup Your <span className="text-blue-600">Eduspace Portal</span>
       </h2>
       <p className="text-slate-500 text-sm max-w-md mx-auto">
         Register your school to activate <span className="font-semibold text-blue-600">EduSpace Portal</span> — the parent gateway for attendance, results, and fee tracking.
