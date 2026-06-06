@@ -36,7 +36,7 @@ export default function Contact() {
             <div className="space-y-5">
               {[
                 { icon: Mail, label: 'Email', value: 'hello@mzatinova.com' },
-                { icon: Phone, label: 'Phone', value: '+265 999 000 000' },
+                { icon: Phone, label: 'Phone', value: '+265 888 447 122' },
                 { icon: MapPin, label: 'Office', value: 'Lilongwe, Malawi' },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 p-5">
