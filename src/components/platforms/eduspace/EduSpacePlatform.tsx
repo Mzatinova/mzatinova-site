@@ -81,7 +81,7 @@ useEffect(() => {
       title: 'EduSpace Portal',
       description: 'Parent and guardian access gateway. Track attendance, view report cards, check fee balances.',
       icon: Layers,
-      loginUrl: 'https://eduspaceportal.mzatinova.com/login',
+      loginUrl: 'https://portal.eduspace.mzatinova.com/login',
       color: 'indigo'
     },
     {
@@ -436,7 +436,7 @@ useEffect(() => {
                     
                     {product.title === 'EduSpace Portal' ? (
                       <a 
-                        href="https://eduspaceportal.mzatinova.com/" 
+                        href="https://portal.eduspace.mzatinova.com/" 
                         target="_blank" 
                         rel="noreferrer" 
                         className={`group/btn inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white font-semibold text-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
