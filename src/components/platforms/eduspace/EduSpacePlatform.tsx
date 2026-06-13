@@ -464,7 +464,7 @@ useEffect(() => {
           <div className="text-center mt-10">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 border border-blue-100 text-slate-600 text-xs font-medium">
               <Shield className="w-3.5 h-3.5 text-blue-500" />
-              Designed for modern African schools
+              Designed for modern schools
             </div>
           </div>
         </div>
