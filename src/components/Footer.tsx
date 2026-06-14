@@ -5,7 +5,7 @@ import { subscribe } from '@/lib/data';
 const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
 const cols = [
-  { title: 'Platforms', links: ['EduSpace', 'HealthSpace (Planned)', 'AgriSpace (Planned)', 'FinSpace (Planned)'], target: 'platforms' },
+  { title: 'Platforms', links: ['EduSpace', 'HealthSpace', 'AgriSpace', 'TradeSpace', 'GovSpace', 'CloudSpace'], target: 'platforms' },
   { title: 'Services', links: ['Software Development', 'Cloud Services', 'AI Solutions'], target: 'services' },
   { title: 'Company', links: ['About', 'AI Lab', 'Portfolio', 'Careers', 'Blog'], target: 'about' },
   { title: 'Contact', links: ['hello@mzatinova.com', '+265 888 447 122', 'Lilongwe, Malawi'], target: 'contact' },

@@ -43,7 +43,7 @@ export default function Hero({ onDemo, onTalk }: { onDemo: () => void; onTalk: (
           </h1>
 
           <p className="mt-6 text-lg text-slate-300 max-w-2xl leading-relaxed">
-          Modernizing African organizations through intelligent, industry-focused platforms.
+          Modernizing organizations through intelligent, industry-focused platforms.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">
@@ -58,12 +58,12 @@ export default function Hero({ onDemo, onTalk }: { onDemo: () => void; onTalk: (
             </button>
           </div>
 
-          <Link to="/eduspace-demo" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-cyan-300 hover:text-cyan-200 transition-colors">
+          {/* <Link to="/eduspace-demo" className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-cyan-300 hover:text-cyan-200 transition-colors">
             <MousePointerClick className="w-4 h-4" /> Try the EduSpace interactive demo — no login required
             <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </Link> */}
 
-          <div className="mt-12 flex flex-wrap gap-8">
+          {/* <div className="mt-12 flex flex-wrap gap-8">
             {[
               ['12,000+', 'Students Managed'],
               ['99.9%', 'Platform Uptime'],
@@ -74,7 +74,7 @@ export default function Hero({ onDemo, onTalk }: { onDemo: () => void; onTalk: (
                 <div className="text-sm text-slate-400">{l}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

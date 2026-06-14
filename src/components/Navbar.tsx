@@ -276,7 +276,7 @@ useEffect(() => {
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-cyan-500 group-hover:translate-x-1 transition-all" />
               </button>
 
-              <button
+              {/* <button
                 onClick={() => { setShowModal(false); onPortal(); }}
                 className="group flex items-center justify-between p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/[0.02] hover:border-blue-500/50 hover:bg-blue-500/[0.04] text-left transition-all"
               >
@@ -285,7 +285,7 @@ useEffect(() => {
                   <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Digital Ecosystem Services Platform</div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

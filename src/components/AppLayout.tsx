@@ -39,9 +39,9 @@ const AppLayout: React.FC = () => {
         onLogin={() => setAuth(true)}
         onPortal={() => setShowPortal(true)}
       />
-        <main>
+      <main className="space-y-0 [&>*]:my-0 [&>*]:py-4">
           <Hero onDemo={() => openDemo()} onTalk={() => openTalk()} />
-          <EduSpace />
+          {/* <EduSpace /> */}
           <Roadmap />
           <Services />
           <AILab />
