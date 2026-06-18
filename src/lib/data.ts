@@ -1,16 +1,28 @@
 export const IMG = {
   hero: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418124065_a4c08818.png',
+  eduspace:'/hero-images/eduspace-hero.png',
+  healthspace:'/hero-images/healthspace-hero.png',
+  agrispace:'/hero-images/agrispace-hero.png',
+  tradespace:'/hero-images/tradespace-hero.png',
+  govspace:'/hero-images/govspace-hero.png',
+  cloudspace:'/hero-images/cloudspace-hero.png',
   dashboard: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418149716_3ede5a7d.png',
-  ai: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418167625_2c0caedc.jpg',
+  ais: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418167625_2c0caedc.jpg',
+  ai:'/ai-lab-image/ai-image.png',
   cloud: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418191601_6517aa7f.png',
  founder: '/founder.JPG',
   team2: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418235750_7308c088.jpg',
   edu: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418265211_78ac3e5e.png',
   fin: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418271920_ea202d90.jpg',
-  proj1: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418312795_61c49633.png',
-  proj2: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418313878_a9ac54ed.png',
-  proj3: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418308030_9cffc410.png',
-  proj4: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418308079_5c83bbd6.png',
+  proj11: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418312795_61c49633.png',
+  proj22: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418313878_a9ac54ed.png',
+  proj33: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418308030_9cffc410.png',
+  proj44: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418308079_5c83bbd6.png',
+  
+  proj1:'/project-images/eduspaceportal-image.png',
+  proj2:'/project-images/emis-image.png',
+  proj3:'/project-images/art-image.png',
+  proj4:'/project-images/maternal-image.png',
   blog1: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418340465_af990f24.png',
   blog2: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418341617_37f9f9ec.png',
   blog3: 'https://d64gsuwffb70l.cloudfront.net/6a1f05c50cc2a2fd277ab52d_1780418334117_1e297017.jpg',
@@ -61,7 +73,7 @@ export const eduFeatures = [
 ];
 
 export const platforms = [
-  { name: 'EduSpace', status: 'Active', img: IMG.edu, desc: 'Cloud-based school management & analytics platform.', color: 'from-cyan-500 to-blue-600' },
+  { name: 'EduSpace', status: 'Active', img: IMG.eduspace, desc: 'Cloud-based school management & analytics platform.', color: 'from-cyan-500 to-blue-600' },
   { name: 'HealthSpace', status: 'In R&D', img: IMG.health, desc: 'Digital health records & clinic operations, powered by our maternal and clinical risk prediction AI models.', color: 'from-emerald-500 to-teal-600' },
   { name: 'AgriSpace', status: 'In R&D', img: IMG.agri, desc: 'Smart agricultural analytics & supply chain ecosystem integrating AgriNova AI yield forecasting..', color: 'from-lime-500 to-green-600' },
   { name: 'FinSpace', status: 'Upcoming', img: IMG.fin, desc: 'Next-generation financial operations, micro-finance ecosystems, and B2B digital wallet frameworks.', color: 'from-violet-500 to-purple-600' },
@@ -70,12 +82,12 @@ export const platforms = [
 ];
 
 export const PLATFORMS = [
-  { name: 'EduSpace', status: 'Active', desc: 'Education Platform', fullDesc: 'Cloud-based school management & analytics platform for modern African schools.', img: IMG.students, color: 'from-cyan-400 to-blue-500', link: 'https://eduspace.mzatinova.com', linkText: 'View EduSpace Platform →' },
-  { name: 'HealthSpace', status: 'In R&D', desc: 'Healthcare Platform', fullDesc: 'Digital health records & clinic operations powered by AI risk prediction.', img: IMG.health, color: 'from-emerald-400 to-teal-500', link: 'https://healthspace.mzatinova.com', linkText: 'View HealthSpace Platform →' },
-  { name: 'AgriSpace', status: 'In R&D', desc: 'Agriculture Platform', fullDesc: 'Smart agricultural analytics & supply chain with AI yield forecasting.', img: IMG.agri, color: 'from-lime-400 to-green-500', link: 'https://agrispace.mzatinova.com', linkText: 'View AgriSpace Platform →' },
-  { name: 'TradeSpace', status: 'Upcoming', desc: 'Financial & Commerce Platform', fullDesc: 'Integrated financial operations, digital payments, cross-border trade, and e-commerce solutions for African businesses.', img: IMG.fin, color: 'from-purple-500 to-pink-600', link: 'https://tradespace.mzatinova.com', linkText: 'View TradeSpace Platform →' },
-  { name: 'GovSpace', status: 'Upcoming', desc: 'Government & NGO Services Platform', fullDesc: 'Secure public sector digitization and civic identity workflows.', img: IMG.cloud, color: 'from-slate-400 to-indigo-500', link: 'https://govspace.mzatinova.com', linkText: 'View GovSpace Platform →' },
-  { name: 'CloudSpace', status: 'Live', desc: 'Cloud Hosting Platform', fullDesc: 'Affordable web hosting, databases, and email services built for Malawi with plans starting at MWK 10,000/month.', img: IMG.cloud, color: 'from-sky-400 to-blue-600', link: 'https://cloudspace.mzatinova.com', linkText: 'View CloudSpace Platform →' },
+  { name: 'EduSpace', status: 'Active', desc: 'Education Platform', fullDesc: 'Cloud-based school management & analytics platform for modern African schools.', img: IMG.eduspace, color: 'from-cyan-400 to-blue-500', link: 'https://eduspace.mzatinova.com', linkText: 'View EduSpace Platform →' },
+  { name: 'HealthSpace', status: 'In R&D', desc: 'Healthcare Platform', fullDesc: 'Digital health records & clinic operations powered by AI risk prediction.', img: IMG.healthspace, color: 'from-emerald-400 to-teal-500', link: 'https://healthspace.mzatinova.com', linkText: 'View HealthSpace Platform →' },
+  { name: 'AgriSpace', status: 'In R&D', desc: 'Agriculture Platform', fullDesc: 'Smart agricultural analytics & supply chain with AI yield forecasting.', img: IMG.agrispace, color: 'from-lime-400 to-green-500', link: 'https://agrispace.mzatinova.com', linkText: 'View AgriSpace Platform →' },
+  { name: 'TradeSpace', status: 'Upcoming', desc: 'Financial & Commerce Platform', fullDesc: 'Integrated financial operations, digital payments, cross-border trade, and e-commerce solutions for African businesses.', img: IMG.tradespace, color: 'from-purple-500 to-pink-600', link: 'https://tradespace.mzatinova.com', linkText: 'View TradeSpace Platform →' },
+  { name: 'GovSpace', status: 'Upcoming', desc: 'Government & NGO Services Platform', fullDesc: 'Secure public sector digitization and civic identity workflows.', img: IMG.govspace, color: 'from-slate-400 to-indigo-500', link: 'https://govspace.mzatinova.com', linkText: 'View GovSpace Platform →' },
+  { name: 'CloudSpace', status: 'Live', desc: 'Cloud Hosting Platform', fullDesc: 'Affordable web hosting, databases, and email services built for Malawi with plans starting at MWK 10,000/month.', img: IMG.cloudspace, color: 'from-sky-400 to-blue-600', link: 'https://cloudspace.mzatinova.com', linkText: 'View CloudSpace Platform →' },
 ];
 
 
@@ -103,44 +115,96 @@ export const aiProjects = [
   { name: 'AgriNova AI', desc: 'Agricultural analytics and yield forecasting.', progress: 38 },
 ];
 
+
 export const portfolio = [
   {
     title: 'EduSpace Portal',
     cat: 'Education',
+    type: 'Web Platform',
     status: 'Live',
     img: IMG.proj1,
     desc: 'School management and results portal currently used by Progress Private Primary School.',
     tech: ['React', 'Node.js', 'PostgreSQL', 'SMS Integration'],
     outcome: 'Live Deployment',
+    link: 'https://portal.eduspace.mzatinova.com',
   },
   {
     title: 'Examination Management Information System (EMIS)',
     cat: 'Education',
-    status: 'Project',
+    type: 'AI Solution',
+    status: 'Live',
     img: IMG.proj2,
     desc: 'Examination management platform developed for Kasama Community Technical College.',
     tech: ['React', 'Node.js', 'MySQL'],
     outcome: 'Institution Project',
+    link: 'https://emis-frontend-eta.vercel.app',
   },
   {
     title: 'Hypertension Risk Prediction for ART Patients',
     cat: 'Healthcare',
-    status: 'AI Solution',
+    type: 'AI Solution',
+    status: 'Live',
     img: IMG.proj3,
     desc: 'Machine learning system that predicts hypertension risk among HIV patients receiving ART treatment.',
     tech: ['Python', 'Machine Learning', 'Healthcare AI'],
     outcome: 'AI Solution',
+    link: 'https://art-hypertesion-predictor-frontend.vercel.app',
   },
   {
     title: 'Maternal Risk Prediction System',
     cat: 'Healthcare',
-    status: 'AI Solution',
+    type: 'AI Solution',
+    status: 'Live',
     img: IMG.proj4,
     desc: 'AI-powered maternal health risk assessment platform providing early warning and care recommendations.',
     tech: ['Python', 'Predictive Analytics', 'Healthcare'],
     outcome: 'AI Solution',
+    link: 'https://maternal-frontend.vercel.app',
   },
 ];
+
+// export const portfolio = [
+//   {
+//     title: 'EduSpace Portal',
+//     cat: 'Education',
+//     type: 'Web Platform',
+//     status: 'Live',
+//     img: IMG.proj1,
+//     desc: 'School management and results portal currently used by Progress Private Primary School.',
+//     tech: ['React', 'Node.js', 'PostgreSQL', 'SMS Integration'],
+//     outcome: 'Live Deployment',
+//   },
+//   {
+//     title: 'Examination Management Information System (EMIS)',
+//     cat: 'Education',
+//     type: 'AI Solution',
+//     status: 'Live',
+//     img: IMG.proj2,
+//     desc: 'Examination management platform developed for Kasama Community Technical College.',
+//     tech: ['React', 'Node.js', 'MySQL'],
+//     outcome: 'Institution Project',
+//   },
+//   {
+//     title: 'Hypertension Risk Prediction for ART Patients',
+//     cat: 'Healthcare',
+//     type: 'AI Solution',
+//     status: 'Live',
+//     img: IMG.proj3,
+//     desc: 'Machine learning system that predicts hypertension risk among HIV patients receiving ART treatment.',
+//     tech: ['Python', 'Machine Learning', 'Healthcare AI'],
+//     outcome: 'AI Solution',
+//   },
+//   {
+//     title: 'Maternal Risk Prediction System',
+//     cat: 'Healthcare',
+//     type: 'AI Solution',
+//     status: 'Live',
+//     img: IMG.proj4,
+//     desc: 'AI-powered maternal health risk assessment platform providing early warning and care recommendations.',
+//     tech: ['Python', 'Predictive Analytics', 'Healthcare'],
+//     outcome: 'AI Solution',
+//   },
+// ];
 
 export const blogPosts = [
   { title: 'How AI is Transforming African Classrooms', cat: 'Education Technology', img: IMG.blog1, date: 'May 2026', read: '6 min' },

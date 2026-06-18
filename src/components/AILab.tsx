@@ -16,13 +16,13 @@ const AILab: React.FC<AILabProps> = ({ onJoinResearch }) => {
     <section id="ai-lab" className="relative py-28 overflow-hidden">
       <VideoBackdrop image={IMG.ai} overlay="from-[#05070f]/85 via-[#070b18]/85 to-[#05070f]/95" />
       <div className="relative max-w-7xl mx-auto px-5">
-       <SectionHeading
-  center
-  light
-  eyebrow="Research & Development"
-  title={<>Mzatinova <span className="text-cyan-400">AI Lab</span></>}
-  subtitle="Researching and developing practical AI solutions for African organizations."
-/>
+        <SectionHeading
+          center
+          light
+          eyebrow="Research & Development"
+          title={<>Mzatinova <span className="text-cyan-400">AI Lab</span></>}
+          subtitle="Researching and developing practical AI solutions for African organizations."
+        />
 
         <div className="mt-16 grid lg:grid-cols-3 gap-6">
           {aiProjects.map((p, i) => {
@@ -52,7 +52,7 @@ const AILab: React.FC<AILabProps> = ({ onJoinResearch }) => {
         </div>
 
         <Reveal className="mt-14 text-center" delay={120}>
-          <button   onClick={onJoinResearch || (() => go('careers'))}  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-violet-500 to-cyan-500 shadow-xl shadow-violet-500/25 hover:shadow-cyan-500/40 transition-shadow">
+          <button onClick={onJoinResearch || (() => go('careers'))} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-violet-500 to-cyan-500 shadow-xl shadow-violet-500/25 hover:shadow-cyan-500/40 transition-shadow">
             Join Our Research <ArrowRight className="w-4 h-4" />
           </button>
         </Reveal>
