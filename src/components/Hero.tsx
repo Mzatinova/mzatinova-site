@@ -78,9 +78,9 @@ export default function Hero({ onDemo, onTalk }: { onDemo: () => void; onTalk: (
         </div>
       </div>
 
-      <FloatCard icon={<TrendingUp className="w-5 h-5" />} value="+38%" label="Efficiency gain" className="top-32 right-10 lg:right-24" delay="0s" />
+      {/* <FloatCard icon={<TrendingUp className="w-5 h-5" />} value="+38%" label="Efficiency gain" className="top-32 right-10 lg:right-24" delay="0s" />
       <FloatCard icon={<Users className="w-5 h-5" />} value="2,140" label="Active users today" className="bottom-40 right-24 lg:right-48" delay="1.2s" />
-      <FloatCard icon={<Activity className="w-5 h-5" />} value="Live" label="Real-time analytics" className="top-1/2 right-8 lg:right-12" delay="0.6s" />
+      <FloatCard icon={<Activity className="w-5 h-5" />} value="Live" label="Real-time analytics" className="top-1/2 right-8 lg:right-12" delay="0.6s" /> */}
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#05070f] to-transparent z-[5]" />
     </section>

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from '@/lib/theme';
 import Navbar from './Navbar';
 import Hero from './Hero';
-import EduSpace from './EduSpace';
-import Roadmap from './Roadmap';
+import Platforms from './Platforms';
 import Services from './Services';
 import AILab from './AILab';
 import Portfolio from './Portfolio';
@@ -17,44 +16,54 @@ import DemoModal from './DemoModal';
 import AuthModal from './AuthModal';
 import Portal from './Portal';
 import Contact from './Contact';
+import ResearchModal from './ResearchModal';
+import BookingModal from './BookingModal';
+
 
 const AppLayout: React.FC = () => {
-    // const { user } = useAuth();
+  // const { user } = useAuth();
   const [demo, setDemo] = useState(false);
   const [demoTitle, setDemoTitle] = useState('Request a Demo');
-    const [auth, setAuth] = useState(false);
-      const [showPortal, setShowPortal] = useState(false);
+  const [auth, setAuth] = useState(false);
+  const [showPortal, setShowPortal] = useState(false);
   const openDemo = (title = 'Request a Demo') => { setDemoTitle(title); setDemo(true); };
   const openTalk = () => { setDemoTitle('Talk to Us'); setDemo(true); };
-
+  const [research, setResearch] = useState(false);
+  const [booking, setBooking] = useState(false);
+  const openBooking = () => { setBooking(true); };
   //   if (user && showPortal) {
   //   return <Portal onExit={() => setShowPortal(false)} />;
   // }
-  
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-[#05070f] text-slate-900 dark:text-white selection:bg-cyan-500/30 antialiased">
         <Navbar
-        onDemo={() => openDemo()}
-        onLogin={() => setAuth(true)}
-        onPortal={() => setShowPortal(true)}
-      />
-      <main className="space-y-0 [&>*]:my-0 [&>*]:py-4">
+          onDemo={() => openDemo()}
+          onLogin={() => setAuth(true)}
+          onPortal={() => setShowPortal(true)}
+        />
+        <main className="space-y-0 [&>*]:my-0 [&>*]:py-4">
           <Hero onDemo={() => openDemo()} onTalk={() => openTalk()} />
           {/* <EduSpace /> */}
-          <Roadmap />
+          <Platforms />
           <Services />
-          <AILab />
+          <AILab onJoinResearch={() => setResearch(true)} />
           <Portfolio />
           <About />
           {/* <Blog /> */}
           {/* <Careers /> */}
           <Contact />
-          <FinalCTA />
+          <FinalCTA
+            onDemo={() => openDemo()}
+            onBooking={openBooking}
+          />
         </main>
         <Footer />
-         <DemoModal open={demo} onClose={() => setDemo(false)} title={demoTitle} />
-          <AuthModal open={auth} onClose={() => setAuth(false)} onSuccess={() => { setAuth(false); setShowPortal(true); }} />
+        <DemoModal open={demo} onClose={() => setDemo(false)} title={demoTitle} />
+        <BookingModal open={booking} onClose={() => setBooking(false)} title="Book Consultation" />
+        <ResearchModal open={research} onClose={() => setResearch(false)} title="Join Our Research" />
+        <AuthModal open={auth} onClose={() => setAuth(false)} onSuccess={() => { setAuth(false); setShowPortal(true); }} />
       </div>
     </ThemeProvider>
   );

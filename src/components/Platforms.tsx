@@ -2,11 +2,13 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import SectionHeading from './SectionHeading';
 import Reveal from './ui/Reveal';
-import { platforms, ROADMAP } from '@/lib/data';
+import { platforms, PLATFORMS } from '@/lib/data';
 
-const Roadmap: React.FC = () => {
+const Platforms: React.FC = () => {
   return (
-    <section className="relative py-28 bg-white dark:bg-[#05070f] overflow-hidden">
+    <section 
+     id="platforms"
+    className="relative py-28 bg-white dark:bg-[#05070f] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] bg-cyan-500/5 rounded-full blur-3xl" />
       <div className="relative max-w-7xl mx-auto px-5">
         <SectionHeading
@@ -17,7 +19,7 @@ const Roadmap: React.FC = () => {
         />
 
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ROADMAP.map((p, i) => (
+          {PLATFORMS.map((p, i) => (
             <Reveal key={p.name} delay={i * 100}>
               <div className="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-cyan-400/40 transition-all">
                 <div className="relative h-40 overflow-hidden">
@@ -54,4 +56,4 @@ const Roadmap: React.FC = () => {
   );
 };
 
-export default Roadmap;
+export default Platforms;

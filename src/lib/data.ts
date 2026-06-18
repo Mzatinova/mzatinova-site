@@ -69,13 +69,13 @@ export const platforms = [
   { name: 'GovSpace', status: 'Upcoming', img: IMG.cloud, desc: 'Secure public sector digitization, civic identity workflows, and streamlined municipal portals.', color: 'from-slate-500 to-indigo-600' },
 ];
 
-export const ROADMAP = [
-  { name: 'EduSpace', status: 'Active', desc: 'Education Platform', fullDesc: 'Cloud-based school management & analytics platform for modern African schools.', img: IMG.students, color: 'from-cyan-400 to-blue-500', link: 'https://eduspace.mzatinova.com', linkText: 'View EduSpace Platform →' },
+export const PLATFORMS = [
+  { name: 'EduSpace', status: 'Active', desc: 'Education Platform', fullDesc: 'Cloud-based school management & analytics platform for modern African schools.', img: IMG.students, color: 'from-cyan-400 to-blue-500', link: '/platforms/eduspace', linkText: 'View EduSpace Platform →' },
   { name: 'HealthSpace', status: 'In R&D', desc: 'Healthcare Platform', fullDesc: 'Digital health records & clinic operations powered by AI risk prediction.', img: IMG.health, color: 'from-emerald-400 to-teal-500', link: '/platforms/healthspace', linkText: 'View HealthSpace Platform →' },
   { name: 'AgriSpace', status: 'In R&D', desc: 'Agriculture Platform', fullDesc: 'Smart agricultural analytics & supply chain with AI yield forecasting.', img: IMG.agri, color: 'from-lime-400 to-green-500', link: '/platforms/agrispace', linkText: 'View AgriSpace Platform →' },
   { name: 'TradeSpace', status: 'Upcoming', desc: 'Financial & Commerce Platform', fullDesc: 'Integrated financial operations, digital payments, cross-border trade, and e-commerce solutions for African businesses.', img: IMG.fin, color: 'from-purple-500 to-pink-600', link: '/platforms/tradespace', linkText: 'View TradeSpace Platform →' },
   { name: 'GovSpace', status: 'Upcoming', desc: 'Government & NGO Services Platform', fullDesc: 'Secure public sector digitization and civic identity workflows.', img: IMG.cloud, color: 'from-slate-400 to-indigo-500', link: '/platforms/govspace', linkText: 'View GovSpace Platform →' },
-  { name: 'CloudSpace', status: 'Live', desc: 'Cloud Hosting Platform', fullDesc: 'Affordable web hosting, databases, and email services built for Malawi with plans starting at MWK 10,000/month.', img: IMG.cloud, color: 'from-sky-400 to-blue-600', link: 'https://cloudspace.mzatinova.com', linkText: 'View CloudSpace Platform →' },
+  { name: 'CloudSpace', status: 'Live', desc: 'Cloud Hosting Platform', fullDesc: 'Affordable web hosting, databases, and email services built for Malawi with plans starting at MWK 10,000/month.', img: IMG.cloud, color: 'from-sky-400 to-blue-600', link: '/platforms/cloudspace', linkText: 'View CloudSpace Platform →' },
 ];
 
 

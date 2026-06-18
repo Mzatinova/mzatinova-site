@@ -6,7 +6,12 @@ import { IMG, BOOKING_URL } from '@/lib/data';
 
 const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-const FinalCTA: React.FC = () => {
+interface FinalCTAProps {
+  onDemo?: () => void;
+    onBooking?: () => void;
+}
+
+const FinalCTA: React.FC<FinalCTAProps> = ({ onDemo, onBooking }) => {
   return (
     <section className="relative py-32 overflow-hidden">
       <VideoBackdrop image={IMG.cloud} overlay="from-[#05070f]/85 via-blue-950/80 to-[#05070f]/95" />
@@ -19,16 +24,14 @@ const FinalCTA: React.FC = () => {
             Let's discuss how Mzatinova can help your institution transform operations through intelligent digital platforms.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-xl shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-shadow"
+           <button
+              onClick={onBooking}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-emerald-500 to-cyan-600 shadow-xl shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-shadow"
             >
               <CalendarCheck className="w-4 h-4" /> Book Consultation
-            </a>
+            </button>
             <button
-              onClick={() => go('contact')}
+             onClick={onDemo || (() => go('contact'))}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-colors"
             >
               Request Demo <ArrowRight className="w-4 h-4" />

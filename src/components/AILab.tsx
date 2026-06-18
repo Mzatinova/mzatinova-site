@@ -7,7 +7,11 @@ import { aiProjects, IMG } from '@/lib/data';
 
 const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-const AILab: React.FC = () => {
+interface AILabProps {
+  onJoinResearch?: () => void;
+}
+
+const AILab: React.FC<AILabProps> = ({ onJoinResearch }) => {
   return (
     <section id="ai-lab" className="relative py-28 overflow-hidden">
       <VideoBackdrop image={IMG.ai} overlay="from-[#05070f]/85 via-[#070b18]/85 to-[#05070f]/95" />
@@ -48,7 +52,7 @@ const AILab: React.FC = () => {
         </div>
 
         <Reveal className="mt-14 text-center" delay={120}>
-          <button onClick={() => go('careers')} className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-violet-500 to-cyan-500 shadow-xl shadow-violet-500/25 hover:shadow-cyan-500/40 transition-shadow">
+          <button   onClick={onJoinResearch || (() => go('careers'))}  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-violet-500 to-cyan-500 shadow-xl shadow-violet-500/25 hover:shadow-cyan-500/40 transition-shadow">
             Join Our Research <ArrowRight className="w-4 h-4" />
           </button>
         </Reveal>
